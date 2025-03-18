@@ -1,5 +1,6 @@
 import { useState, useEffect, use } from 'react'
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from './pages/Home';
 import NavigationBar from "./components/Navbar";
 
 import './App.css'
@@ -12,17 +13,15 @@ function App() {
 
   return (
     <>
-    <Router>
-      <NavigationBar/>
-      <Routes>
-        <Route path="/" element={<h1>Accueil</h1>} />
-        <Route path="/staff" element={<h1>Page Staff</h1>} />
-        <Route path="/events" element={<h1>Événements</h1>} />
-        <Route path="/camps" element={<h1>Page Camps</h1>} />
-        <Route path="/blog" element={<h1>Blog</h1>} />
-        <Route path="/login" element={<h1>Connexion</h1>} />
-      </Routes>
-    </Router>
+      <Router>
+        <NavigationBar/>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/events" element={<h1>Événements</h1>} />
+          <Route path="/staffs" element={<h1>Staffs</h1>} />
+          <Route path="/contact" element={<h1>Contact</h1>} />
+        </Routes>
+      </Router>
     </>
   )
 }
