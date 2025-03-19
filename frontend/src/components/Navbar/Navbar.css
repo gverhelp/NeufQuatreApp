@@ -1,0 +1,29 @@
+.navbar {
+    background-color: #022864;
+}
+
+
+.navbar-nav .nav-link {
+    font-family: 'Roboto', sans-serif;
+    border-bottom: 2px solid transparent;
+    transition: border-bottom 0.5s ease, color 0.5s ease, transform 0.25s ease;
+}
+  
+.navbar-nav .nav-link:hover {
+    color: #ffbe0b;
+    border-bottom: 2px solid #ffbe0b;
+    transform: scale(1.1);
+}
+
+.navbar-nav .nav-link:focus {
+    color: #ffbe0b;
+    border-bottom: 2px solid #ffbe0b;
+}
+
+
+.navbar .navbar-brand {
+    font-family: 'Bungee Shade', 'Archivo Black', 'Abril Fatface', 'Roboto', sans-serif;
+    /* font-size: 1.5em; */
+    /* color: #F0F7EE; */
+    /* font-weight: 700; */
+}
