@@ -6,9 +6,3 @@
   /* text-align: center; */
   /* background-color: red; */
 }
-
-@media only screen and (max-width: 465px) {
-  #root {
-    padding-top: 115px;
-  }
-}

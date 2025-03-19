@@ -28,7 +28,7 @@ const Home: React.FC = () => {
     }, []);
 
     return (
-        <Container className="pt-5 container-1">
+        <Container className="pt-5">
             {/* <h2>Bienvenue sur notre site scout</h2> */}
             <Row>
             {data.map(item => (
