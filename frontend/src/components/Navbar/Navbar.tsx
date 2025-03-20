@@ -1,13 +1,24 @@
 import { Link } from "react-router-dom";
 import './Navbar.css';
 import { Navbar, Nav, Container } from "react-bootstrap";
+import { useState, useEffect } from "react";
 
 function NavigationBar() {
+    const [scrolled, setScrolled] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setScrolled(window.scrollY > 50);
+        };
+
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
 
     return (
-        <Navbar variant="dark" expand="lg" fixed="top" style={{ backgroundColor: '#022864' }}>
+        <Navbar data-bs-theme={ scrolled ? "dark" : "light" } expand="lg" fixed="top" className={ scrolled ? "navbar-scrolled" : "" }>
             <Container>
-                <Navbar.Brand as={Link} to="/" className="d-flex align-items-center">
+                <Navbar.Brand as={Link} to="/" className={`d-flex align-items-center`}>
                     <img alt="" src="/94.png" width="70" height="50" className="me-1" />
                     <span className="d-none d-md-inline">Unité Saint-Augustin</span>
                 </Navbar.Brand>
@@ -15,12 +26,12 @@ function NavigationBar() {
                 <Navbar.Toggle aria-controls="basic-navbar-nav"/>
 
                 <Navbar.Collapse id="basic-navbar-nav">
-                    <Nav className="d-flex align-items-center ms-auto text-center">
-                        <Nav.Link as={Link} to="/" className="me-3">Accueil</Nav.Link>
-                        <Nav.Link as={Link} to="/events" className="me-3">Événements</Nav.Link>
-                        <Nav.Link as={Link} to="/staffs" className="me-3">Sections</Nav.Link>
-                        <Nav.Link as={Link} to="/contact" className="me-3">Contacts</Nav.Link>
-                        <Nav.Link as={Link} to="/nous-rejoindre">Nous rejoindre</Nav.Link>
+                    <Nav className="ms-auto text-center navbar-nav">
+                        <Nav.Link as={Link} to="/" className="nav-link me-3">Accueil</Nav.Link>
+                        <Nav.Link as={Link} to="/events" className="nav-link me-3">Événements</Nav.Link>
+                        <Nav.Link as={Link} to="/staffs" className="nav-link me-3">Sections</Nav.Link>
+                        <Nav.Link as={Link} to="/contact" className="nav-link me-3">Contacts</Nav.Link>
+                        <Nav.Link as={Link} to="/nous-rejoindre" className="nav-link me-3">Nous rejoindre</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
             </Container>

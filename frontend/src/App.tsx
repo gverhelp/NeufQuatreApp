@@ -20,7 +20,7 @@ function App() {
           <Route path="/events" element={<h1>Événements</h1>} />
           <Route path="/staffs" element={<h1>Sections</h1>} />
           <Route path="/contact" element={<h1>Contacts</h1>} />
-          <Route path="/nous-rejoindre" element={<h1>Contacts</h1>} />
+          <Route path="/nous-rejoindre" element={<h1>Nous rejoindre</h1>} />
         </Routes>
       </Router>
     </>
