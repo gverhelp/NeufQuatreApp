@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 
 function NavigationBar() {
     const [scrolled, setScrolled] = useState(false);
+    const [menuOpen, setMenuOpen] = useState(false);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -15,15 +16,23 @@ function NavigationBar() {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
+    const navbarBg = menuOpen ? "white" : "transparent";
+
     return (
-        <Navbar data-bs-theme={ scrolled ? "dark" : "light" } expand="lg" fixed="top" className={ scrolled ? "navbar-scrolled" : "" }>
+        <Navbar
+            data-bs-theme={ scrolled ? "dark" : "light" }
+            bg={ scrolled ? "" : navbarBg }
+            expand="lg"
+            fixed="top"
+            className={ scrolled ? "navbar-scrolled" : "transparent" }
+        >
             <Container>
                 <Navbar.Brand as={Link} to="/" className={`d-flex align-items-center`}>
                     <img alt="" src="/94.png" width="70" height="50" className="me-1" />
                     <span className="d-none d-md-inline">Unité Saint-Augustin</span>
                 </Navbar.Brand>
 
-                <Navbar.Toggle aria-controls="basic-navbar-nav"/>
+                <Navbar.Toggle aria-controls="basic-navbar-nav" onClick={ () => setMenuOpen(!menuOpen) }/>
 
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="ms-auto text-center navbar-nav">

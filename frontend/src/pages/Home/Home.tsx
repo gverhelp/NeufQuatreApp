@@ -28,26 +28,52 @@ const Home: React.FC = () => {
     }, []);
 
     return (
-        <Container className="pt-4">
-            {/* <h2>Bienvenue sur notre site scout</h2> */}
-            <Row>
-            {data.map(item => (
-                <Col key={item.id} md={4} className="mb-4">
-                <Card>
-                    <Card.Img variant="top" src={item.image} alt={item.titre} />
-                    <Card.Body>
-                    <Card.Title>{item.titre}</Card.Title>
-                    <Card.Text>{item.description}</Card.Text>
-                    </Card.Body>
-                </Card>
+        <>
+        <Container fluid style={{ height: "70vh", backgroundColor: "#7A9CC6" }} >
+            <Row >
+                {/* <Col className={ "bg-danger" }>
+                Col 1
                 </Col>
-            ))}
+                <Col className={ "bg-primary" }>
+                Col 2
+                </Col> */}
             </Row>
         </Container>
+        <Container fluid style={{ height: "70vh", backgroundColor: "#F0F7EE" }} >
+            <Row >
+                {/* <Col className={ "bg-danger" }>
+                Col 1
+                </Col>
+                <Col className={ "bg-primary" }>
+                Col 2
+                </Col> */}
+            </Row>
+        </Container>
+        <Container fluid style={{ height: "70vh", backgroundColor: "#FFBE0A" }} >
+            <Row >
+                {/* <Col className={ "bg-danger" }>
+                Col 1
+                </Col>
+                <Col className={ "bg-primary" }>
+                Col 2
+                </Col> */}
+            </Row>
+        </Container>
+        <Container fluid style={{ height: "70vh", backgroundColor: "#cac2b9" }} >
+            <Row >
+                {/* <Col className={ "bg-danger" }>
+                Col 1
+                </Col>
+                <Col className={ "bg-primary" }>
+                Col 2
+                </Col> */}
+            </Row>
+        </Container>
+        </>
     );
 };
   
-  export default Home;
+export default Home;
 
 // const Home = () => {
 //   const [data, setData] = useState([]);

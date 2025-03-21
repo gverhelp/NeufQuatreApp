@@ -1,4 +1,4 @@
-import { useState, useEffect, use } from 'react'
+// import { useState, useEffect, use } from 'react'
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from './pages/Home/Home';
 import NavigationBar from "./components/Navbar/Navbar";
@@ -7,9 +7,9 @@ import './App.css'
 
 function App() {
 
-  useEffect(() => {
-    console.log(import.meta.env.VITE_API_URL)
-  }, [])
+  // useEffect(() => {
+  //   console.log(import.meta.env.VITE_API_URL)
+  // }, [])
 
   return (
     <>
