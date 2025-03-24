@@ -1,107 +1,70 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 import './Home.css'
-import {Row, Col, Card, Container} from 'react-bootstrap';
+import { ContentBlock } from '../../components/ContentBlock';
+import { ParallaxSection } from '../../components/ParallaxSection';
 
-interface AccueilItem {
-    id: number;
-    titre: string;
-    description: string;
-    image: string;
-}
+// interface AccueilItem {
+//     id: number;
+//     titre: string;
+//     description: string;
+//     image: string;
+// }
   
 const Home: React.FC = () => {
-    const [data, setData] = useState<AccueilItem[]>([]);
+    // const [data, setData] = useState<AccueilItem[]>([]);
 
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const response = await axios.get<AccueilItem[]>('http://127.0.0.1:8000/api/accueil/');
-                setData(response.data);
+    // useEffect(() => {
+    //     const fetchData = async () => {
+    //         try {
+    //             const response = await axios.get<AccueilItem[]>('http://127.0.0.1:8000/api/accueil/');
+    //             setData(response.data);
                 
-            }   catch (error) {
-                console.error('Erreur lors de la récupération des données :', error);
-            }
-        };
+    //         }   catch (error) {
+    //             console.error('Erreur lors de la récupération des données :', error);
+    //         }
+    //     };
 
-        fetchData();
-    }, []);
+    //     fetchData();
+    // }, []);
 
     return (
         <>
-        <Container fluid style={{ height: "70vh", backgroundColor: "#7A9CC6" }} >
-            <Row >
-                {/* <Col className={ "bg-danger" }>
-                Col 1
-                </Col>
-                <Col className={ "bg-primary" }>
-                Col 2
-                </Col> */}
-            </Row>
-        </Container>
-        <Container fluid style={{ height: "70vh", backgroundColor: "#F0F7EE" }} >
-            <Row >
-                {/* <Col className={ "bg-danger" }>
-                Col 1
-                </Col>
-                <Col className={ "bg-primary" }>
-                Col 2
-                </Col> */}
-            </Row>
-        </Container>
-        <Container fluid style={{ height: "70vh", backgroundColor: "#FFBE0A" }} >
-            <Row >
-                {/* <Col className={ "bg-danger" }>
-                Col 1
-                </Col>
-                <Col className={ "bg-primary" }>
-                Col 2
-                </Col> */}
-            </Row>
-        </Container>
-        <Container fluid style={{ height: "70vh", backgroundColor: "#cac2b9" }} >
-            <Row >
-                {/* <Col className={ "bg-danger" }>
-                Col 1
-                </Col>
-                <Col className={ "bg-primary" }>
-                Col 2
-                </Col> */}
-            </Row>
-        </Container>
+            <ContentBlock 
+                bgColor="#7A9CC6" 
+                title="Mon titre 1" 
+                text="Voici un texte descriptif pour accompagner l’image. Il s’adapte bien à la mise en page et reste lisible sur tous les écrans." 
+                imgSrc="lol.JPG"
+                reverse = {false}
+            />
+
+            <ParallaxSection />
+
+            <ContentBlock
+                bgColor="#F0F7EE" 
+                title="Mon titre 2" 
+                text="Un autre texte avec un autre visuel, toujours parfaitement centré." 
+                imgSrc="lol2.JPG"
+                reverse = {true}
+            />
+
+            <ContentBlock
+                bgColor="#FFBE0A" 
+                title="Mon titre 3" 
+                text="Encore une section qui suit le design épuré et moderne." 
+                imgSrc="lol3.JPG"
+                reverse = {false}
+            />
+
+            <ContentBlock
+                bgColor="#cac2b9" 
+                title="Mon titre 4" 
+                text="La dernière section qui suit une mise en page cohérente et fluide." 
+                imgSrc="lol.JPG"
+                reverse = {true}
+            />
         </>
     );
 };
   
 export default Home;
-
-// const Home = () => {
-//   const [data, setData] = useState([]);
-
-//   useEffect(() => {
-//     axios.get('http://127.0.0.1:8000/api/accueil/')
-//       .then(response => setData(response.data))
-//       .catch(error => console.error('Erreur lors de la récupération des données :', error));
-//   }, []);
-
-//   return (
-//     <Container className="mt-4">
-//       <h2>Bienvenue sur notre site scout</h2>
-//       <Row>
-//         {data.map(item => (
-//           <Col key={item.id} md={4} className="mb-4">
-//             <Card>
-//               <Card.Img variant="top" src={item.image} alt={item.titre} />
-//               <Card.Body>
-//                 <Card.Title>{item.titre}</Card.Title>
-//                 <Card.Text>{item.description}</Card.Text>
-//               </Card.Body>
-//             </Card>
-//           </Col>
-//         ))}
-//       </Row>
-//     </Container>
-//   );
-// };
-
-// export default Home;

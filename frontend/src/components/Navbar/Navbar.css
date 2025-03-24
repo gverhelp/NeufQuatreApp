@@ -9,9 +9,8 @@
 
 
 .navbar-nav .nav-link {
-    font-family: 'Roboto', sans-serif;
     border-bottom: 2px solid transparent;
-    font-weight: bold;
+    font-family: 'Titan One', 'Roboto', sans-serif;
     transition: border-bottom 0.5s ease, color 0.5s ease, transform 0.25s ease;
 }
   
@@ -32,4 +31,9 @@
     font-size: 1.5em;
     /* color: #F0F7EE; */
     /* font-weight: 700; */
+}
+
+.navbar-nav .dropdown-menu {
+    background-color: #022864;
+    border: 2px solid #ffbe0b;
 }
