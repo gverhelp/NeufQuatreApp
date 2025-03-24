@@ -18,11 +18,11 @@ export const ParallaxSection: React.FC = () => {
                     src="lol.JPG"
                     alt="Parallax Background"
                     className="img-fluid w-100"
-                    style={{ height: "700px", objectFit: "cover", y }}
+                    style={{ height: "600px", objectFit: "cover", y }}
                 />
-                <div className="position-absolute top-50 start-50 translate-middle w-75">
-                    <h2 className="fw-bold">Un grand titre ici</h2>
-                    <p className="fs-5">Un sous-texte inspirant qui s’adapte bien à l’image.</p>
+                <div className="position-absolute top-50 start-50 translate-middle w-75" style={{ color: "#0F7EE"}}>
+                    <h2 className="fs-1 fw-bold">Le scoutisme</h2>
+                    <p className="fs-4">Un mouvement de jeunesse qui veut contribuer à l’éducation des jeunes  pour les aider à devenir des citoyens critiques et engagés.</p>
                 </div>
             </div>
         </div>

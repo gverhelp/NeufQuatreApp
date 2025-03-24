@@ -31,9 +31,9 @@ const Home: React.FC = () => {
     return (
         <>
             <ContentBlock 
-                bgColor="#7A9CC6" 
-                title="Mon titre 1" 
-                text="Voici un texte descriptif pour accompagner l’image. Il s’adapte bien à la mise en page et reste lisible sur tous les écrans." 
+                bgImg="background.png"
+                title="Qui sommes-nous ?" 
+                text="La 94ème Saint-Augustin est une unité scout dynamique qui se veut un lieu d'apprentissage, de solidarité et de partage pour les jeunes de toutes générations. Au cœur de notre engagement, l’esprit scout : une méthode éducative qui se fonde sur la responsabilité, l'autonomie, et la fraternité. Nous proposons à chaque jeune de découvrir la nature, de participer à des activités ludiques et enrichissantes, tout en contribuant activement à la vie de la communauté." 
                 imgSrc="lol.JPG"
                 reverse = {false}
             />
@@ -41,28 +41,28 @@ const Home: React.FC = () => {
             <ParallaxSection />
 
             <ContentBlock
-                bgColor="#F0F7EE" 
+                bgImg="background2.png" 
                 title="Mon titre 2" 
                 text="Un autre texte avec un autre visuel, toujours parfaitement centré." 
-                imgSrc="lol2.JPG"
+                imgSrc="lol.JPG"
                 reverse = {true}
             />
 
-            <ContentBlock
-                bgColor="#FFBE0A" 
+            {/* <ContentBlock
+                bgColor="#F0F7EE" 
                 title="Mon titre 3" 
                 text="Encore une section qui suit le design épuré et moderne." 
-                imgSrc="lol3.JPG"
+                imgSrc="lol.JPG"
                 reverse = {false}
-            />
+            /> */}
 
-            <ContentBlock
+            {/* <ContentBlock
                 bgColor="#cac2b9" 
                 title="Mon titre 4" 
                 text="La dernière section qui suit une mise en page cohérente et fluide." 
                 imgSrc="lol.JPG"
                 reverse = {true}
-            />
+            /> */}
         </>
     );
 };
