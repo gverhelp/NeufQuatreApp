@@ -4,7 +4,7 @@ import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";
 
 export const Footer: React.FC = () => {
     return (
-        <footer className="bg-dark text-light py-4">
+        <footer className="text-light py-4" style={ { backgroundColor: "#022864" } }>
             <Container>
                 <Row className="text-center text-md-start justify-content-center">
 

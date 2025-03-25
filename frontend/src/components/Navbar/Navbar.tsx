@@ -37,7 +37,7 @@ function NavigationBar() {
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="ms-auto text-center">
                         <Nav.Link as={Link} to="/" className="nav-link me-3">Accueil</Nav.Link>
-                        <Nav.Link as={Link} to="/events" className="nav-link me-3">Agenda</Nav.Link>
+                        <Nav.Link as={Link} to="/agenda" className="nav-link me-3">Agenda</Nav.Link>
                         <Nav.Link as={Link} to="/sections" className="nav-link me-3">Sections</Nav.Link>
                         <Nav.Link as={Link} to="/contact" className="nav-link me-3">Contacts</Nav.Link>
                     </Nav>

@@ -18,8 +18,8 @@ function App() {
         <NavigationBar/>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/events" element={<h1>Événements</h1>} />
-          <Route path="/staffs" element={<h1>Sections</h1>} />
+          <Route path="/agenda" element={<h1>Agenda</h1>} />
+          <Route path="/sections" element={<h1>Sections</h1>} />
           <Route path="/contact" element={<h1>Contacts</h1>} />
         </Routes>
         <Footer/>
