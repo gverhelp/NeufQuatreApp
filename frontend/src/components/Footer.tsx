@@ -2,7 +2,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import { motion } from "framer-motion";
 import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";
 
-export const Footer: React.FC = () => {
+function Footer() {
     return (
         <footer className="text-light py-4" style={ { backgroundColor: "#022864" } }>
             <Container>
@@ -11,7 +11,7 @@ export const Footer: React.FC = () => {
                     <Col xs={12} md={4} className="mb-3 mb-md-0">
                         <h5>À Propos</h5>
                         <p>
-                            94ème Saint-Augustin | Unité scoute.
+                            94ème Saint-Augustin | Unité scoute
                             <br/>
                             Rejoignez-nous pour vivre l’aventure, apprendre et grandir ensemble, tout en cultivant des valeurs d’amitié, de respect et de solidarité.
                         </p>

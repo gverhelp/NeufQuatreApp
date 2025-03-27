@@ -11,7 +11,7 @@ interface ContentBlockProps {
     reverse?: boolean;
 }
 
-export const ContentBlock: React.FC<ContentBlockProps> = ({ bgColor = "", bgImg = "", title, text, imgSrc, reverse = false }) => {
+function ContentBlock({ bgColor = "", bgImg = "", title, text, imgSrc, reverse = false }: ContentBlockProps) {
 
     const containerStyle = bgImg 
     ? { backgroundImage: `url(${bgImg})`, backgroundSize: 'cover', backgroundPosition: 'center center' }
@@ -21,7 +21,7 @@ export const ContentBlock: React.FC<ContentBlockProps> = ({ bgColor = "", bgImg 
         <Container fluid className="py-5 overflow-x-hidden d-flex justify-content-center" style={containerStyle}>
             <Row className="align-items-center w-100 flex-column flex-md-row">
 
-                <Col xs={12} md={6} className={`d-flex justify-content-center ${reverse ? "order-1 order-md-2" : "order-2 order-md-1"}`}>
+                <Col className={`d-flex justify-content-center ${reverse ? "order-1 order-md-2" : "order-2 order-md-1"}`}>
                     <motion.div
                         initial={{ x: reverse ? 100 : -100, opacity: 0 }}
                         whileInView={{ x: 0, opacity: 1 }}
@@ -32,7 +32,7 @@ export const ContentBlock: React.FC<ContentBlockProps> = ({ bgColor = "", bgImg 
                     </motion.div>
                 </Col>
 
-                <Col xs={12} md={6} className={`d-flex align-items-center justify-content-center ${reverse ? "order-2 order-md-1" : "order-1 order-md-2"}`}>
+                <Col className={`d-flex align-items-center justify-content-center ${reverse ? "order-2 order-md-1" : "order-1 order-md-2"}`}>
                     <motion.div
                         initial={{ x: reverse ? -100 : 100, opacity: 0 }}
                         whileInView={{ x: 0, opacity: 1 }}

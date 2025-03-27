@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 // import axios from 'axios';
 import './Home.css'
-import { ContentBlock } from '../../components/ContentBlock';
-import { ParallaxSection } from '../../components/ParallaxSection';
+import ContentBlock from '../../components/HomeComponents/ContentBlock';
+import ParallaxBlock from '../../components/HomeComponents/ParallaxBlock';
 
 // interface AccueilItem {
 //     id: number;
@@ -38,7 +38,7 @@ const Home: React.FC = () => {
                 reverse = {false}
             />
 
-            <ParallaxSection />
+            <ParallaxBlock />
 
             <ContentBlock
                 bgImg="background2.png" 
@@ -47,22 +47,6 @@ const Home: React.FC = () => {
                 imgSrc="lol.JPG"
                 reverse = {true}
             />
-
-            {/* <ContentBlock
-                bgColor="#F0F7EE" 
-                title="Mon titre 3" 
-                text="Encore une section qui suit le design épuré et moderne." 
-                imgSrc="lol.JPG"
-                reverse = {false}
-            /> */}
-
-            {/* <ContentBlock
-                bgColor="#cac2b9" 
-                title="Mon titre 4" 
-                text="La dernière section qui suit une mise en page cohérente et fluide." 
-                imgSrc="lol.JPG"
-                reverse = {true}
-            /> */}
         </>
     );
 };
