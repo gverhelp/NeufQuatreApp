@@ -6,7 +6,7 @@ function ParallaxBlock() {
     const ref = useRef(null);
     const { scrollYProgress } = useScroll({
         target: ref,
-        offset: ["start 80px", "end start"],
+        offset: ["start 70px", "end start"],
     });
 
     const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);

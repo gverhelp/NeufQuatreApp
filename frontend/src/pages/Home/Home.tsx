@@ -1,40 +1,50 @@
 import React, { useEffect, useState } from 'react';
-// import axios from 'axios';
+import axios from 'axios';
 import './Home.css'
-import ContentBlock from '../../components/HomeComponents/ContentBlock';
-import ParallaxBlock from '../../components/HomeComponents/ParallaxBlock';
+import ContentBlock from '../../components/ContentBlock';
+import ParallaxBlock from '../../components/ParallaxBlock';
 
-// interface AccueilItem {
-//     id: number;
-//     titre: string;
-//     description: string;
-//     image: string;
-// }
+interface AccueilItem {
+    id: number;
+    titre: string;
+    description: string;
+    image: string;
+}
   
 const Home: React.FC = () => {
-    // const [data, setData] = useState<AccueilItem[]>([]);
+    const [accueilItems, setAccueilItems] = useState<AccueilItem[]>([]);
+    // const [loading, setLoading] = useState<boolean>(true);
+    // const [error, setError] = useState<string | null>(null);
 
-    // useEffect(() => {
-    //     const fetchData = async () => {
-    //         try {
-    //             const response = await axios.get<AccueilItem[]>('http://127.0.0.1:8000/api/accueil/');
-    //             setData(response.data);
+    useEffect(() => {
+        const fetchData = async () => {
+            // setLoading(true);
+
+            try {
+                const response = await axios.get<AccueilItem[]>('http://127.0.0.1:8000/api/accueil/');
+                const data: AccueilItem[] = response.data;
                 
-    //         }   catch (error) {
-    //             console.error('Erreur lors de la récupération des données :', error);
-    //         }
-    //     };
+                console.log(data);
 
-    //     fetchData();
-    // }, []);
+                setAccueilItems(data);
+            } catch (error) {
+                console.error('Erreur lors de la récupération des données :', error);
+                // setError("Impossible de charger les données");
+            } finally {
+                // setLoading(false);
+            }
+        };
+
+        fetchData();
+    }, []);
 
     return (
         <>
             <ContentBlock 
-                bgImg="background.png"
-                title="Qui sommes-nous ?" 
-                text="La 94ème Saint-Augustin est une unité scout dynamique qui se veut un lieu d'apprentissage, de solidarité et de partage pour les jeunes de toutes générations. Au cœur de notre engagement, l’esprit scout : une méthode éducative qui se fonde sur la responsabilité, l'autonomie, et la fraternité. Nous proposons à chaque jeune de découvrir la nature, de participer à des activités ludiques et enrichissantes, tout en contribuant activement à la vie de la communauté." 
-                imgSrc="lol.JPG"
+                bgImg="background1.png"
+                title={accueilItems[0]?.titre}
+                text={accueilItems[0]?.description}
+                imgSrc={accueilItems[0]?.image}
                 reverse = {false}
             />
 
@@ -42,9 +52,9 @@ const Home: React.FC = () => {
 
             <ContentBlock
                 bgImg="background2.png" 
-                title="Mon titre 2" 
-                text="Un autre texte avec un autre visuel, toujours parfaitement centré." 
-                imgSrc="lol.JPG"
+                title={accueilItems[1]?.titre}
+                text={accueilItems[1]?.description}
+                imgSrc={accueilItems[1]?.image}
                 reverse = {true}
             />
         </>

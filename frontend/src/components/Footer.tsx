@@ -13,15 +13,15 @@ function Footer() {
                         <p>
                             94ème Saint-Augustin | Unité scoute
                             <br/>
-                            Rejoignez-nous pour vivre l’aventure, apprendre et grandir ensemble, tout en cultivant des valeurs d’amitié, de respect et de solidarité.
+                            Avenue Saint-Augustin 14, Uccle
                         </p>
                     </Col>
 
                     <Col xs={12} md={4} className="mb-3 mb-md-0">
                         <h5>Liens utiles</h5>
                         <ul className="list-unstyled">
-                            {["Accueil", "Agenda", "Sections", "Contacts"].map((link) => (
-                                <a href="#" className="text-decoration-none d-block">
+                            {["Accueil", "Agenda", "Sections", "Contacts"].map((link, index) => (
+                                <a key={index} href="#" className="text-decoration-none d-block">
                                     {link}
                                 </a>
                             ))}
@@ -47,7 +47,11 @@ function Footer() {
                 </Row>
 
                 <hr className="border-secondary my-3" />
-                <p className="text-center mb-0">&copy; {new Date().getFullYear()} Tous droits réservés.</p>
+                <p className="text-center mb-0">
+                    &copy; {new Date().getFullYear()} Tous droits réservés.
+                    <br />
+                    Developpé par Garreth Verhelpen (Ocelot).
+                </p>
             </Container>
         </footer>
     );
