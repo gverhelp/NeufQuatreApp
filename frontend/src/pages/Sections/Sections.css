@@ -37,6 +37,7 @@
 .group-card[data-group="guides"] { --border-color: #1D335A; }
 .group-card[data-group="scouts"] { --border-color: #005AAA; }
 .group-card[data-group="pionniers"] { --border-color: #DA1F29; }
+.group-card[data-group="clan"] { --border-color: #FFB800; }
 .group-card[data-group="unité"] { --border-color: black; }
 
 

@@ -45,6 +45,7 @@ function App() {
           <Route path="/sections/guides" element={ <BySectionPage sectionName="Guides"/> }/>
           <Route path="/sections/scouts" element={ <BySectionPage sectionName="Scouts"/> }/>
           <Route path="/sections/pionniers" element={ <BySectionPage sectionName="Pionniers"/> }/>
+          <Route path="/sections/clan" element={ <BySectionPage sectionName="Clan"/> }/>
           <Route path="/sections/unité" element={<BySectionPage sectionName="Unité"/> }/>
 
         </Routes>

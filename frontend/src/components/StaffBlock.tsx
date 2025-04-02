@@ -13,6 +13,7 @@ interface ChefData {
     totem: string;
     bafouille: string;
     image: string;
+    phoneNumber: string;
     section: SectionData;
 };
 
@@ -20,7 +21,7 @@ const StaffCard = ({ member }: { member: ChefData }) => {
     return (
         <Card className="h-100 overflow-hidden border-0">
             <Card.Img variant="top" src={member.image} alt={member.totem} style={{ height: "300px", objectFit: "cover" }} />
-            <Card.Body className="text-center text-break">
+            <Card.Body className="text-center text-break overflow-scroll" style={{ height: "350px" }}>
                 <Card.Title className="fs-4" style={{ fontFamily: "Titan One" }}>{member.totem}</Card.Title>
                 <Card.Subtitle className="mb-2 text-muted fs-5">{member.name}</Card.Subtitle>
                 <Card.Text className="fs-6">{member.bafouille}</Card.Text>
@@ -30,7 +31,7 @@ const StaffCard = ({ member }: { member: ChefData }) => {
 };
 
 
-const StaffSection = ( { sectionName }: { sectionName: string } ) => {
+const StaffBlock = ( { sectionName }: { sectionName: string } ) => {
     // const [loading, setLoading] = useState<boolean>(true);
     // const [error, setError] = useState<string | null>(null);
     const [chefsData, setChefsData] = useState<ChefData[]>([]);
@@ -43,8 +44,6 @@ const StaffSection = ( { sectionName }: { sectionName: string } ) => {
                 const response = await axios.get("http://localhost:8000/api/chefs/");
                 const data: ChefData[] = response.data;
                 const selectedChefs = data.filter(member => member.section.name.toLowerCase() === sectionName.toLowerCase());
-
-                console.log(selectedChefs);
                 
                 if (!selectedChefs) {
                     throw new Error("Chef non trouvé");
@@ -85,4 +84,4 @@ const StaffSection = ( { sectionName }: { sectionName: string } ) => {
     );
 };
 
-export default StaffSection;
+export default StaffBlock;

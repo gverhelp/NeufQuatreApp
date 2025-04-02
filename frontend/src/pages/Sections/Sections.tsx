@@ -17,6 +17,7 @@ const sections: Sections[] = [
     { name: "Guides", description: "Filles de 12 à 16 ans", path: "/sections/guides" },
     { name: "Scouts", description: "Garçons de 12 à 16 ans", path: "/sections/scouts" },
     { name: "Pionniers", description: "Adolescents de 16 à 18 ans (mixte)", path: "/sections/pionniers" },
+    { name: "Clan", description: "Les chefs à la retraite", path: "/sections/clan" },
     { name: "Unité", description: "Les chefs d'Unité", path: "/sections/unité" },
 ];
 
@@ -38,7 +39,7 @@ const Sections = () => {
                         {sections.map((section, index) => (
                             <Col 
                                 key={index} 
-                                md={["Baladins", "Pionniers", "Unité"].includes(section.name) ? 12 : 6} 
+                                md={["Baladins", "Pionniers", "Clan", "Unité"].includes(section.name) ? 12 : 6} 
                                 className="text-center"
                             >
                                 <motion.div

@@ -6,7 +6,7 @@ import "./Sections.css";
 
 import CarouselBlock from "../../components/CarouselBlock";
 import ContentBlock from "../../components/ContentBlock";
-import StaffSection from "../../components/StaffSection";
+import StaffSection from "../../components/StaffBlock";
 
 interface SectionData {
     name: string;
@@ -33,6 +33,7 @@ const sections: Section[] = [
     { name: "Guides", path: "/sections/guides" },
     { name: "Scouts", path: "/sections/scouts" },
     { name: "Pionniers", path: "/sections/pionniers" },
+    { name: "Clan", path: "/sections/clan" },
     { name: "Unité", path: "/sections/unité" },
 ];
 
@@ -41,8 +42,6 @@ const BySectionPage = ({ sectionName }: { sectionName: string }) => {
     const [sectionImages, setSectionImages] = useState<SectionImagesData[]>([]);
     // const [loading, setLoading] = useState<boolean>(true);
     // const [error, setError] = useState<string | null>(null);
-
-    const sectionCompletion = 75;
 
     useEffect(() => {
         const fetchSectionData = async () => {
@@ -116,7 +115,15 @@ const BySectionPage = ({ sectionName }: { sectionName: string }) => {
             {sectionData && (
                 <ContentBlock
                     bgImg="/background1.png"
-                    title={sectionData.name === "Unité" ? `L'${sectionData.name}` : `Les ${sectionData.name}`}
+                    title={( () => { 
+                        if (sectionData.name === "Unité") {
+                            return "L'Unité";
+                        } else if (sectionData.name === "Clan") {
+                            return "Le Clan";
+                        } else {
+                            return `Les ${sectionData.name}`;
+                        }
+                    })()}
                     text={sectionData.description} 
                     imgSrc="/lol.JPG"
                     reverse={false}
@@ -124,7 +131,7 @@ const BySectionPage = ({ sectionName }: { sectionName: string }) => {
             )}
 
             <div className="py-5 text-center" style={{ backgroundColor: "#022864" }}>
-                <h3 className="fs-1 mb-3 text-white" style={{ fontFamily: "Titan One" }}>La section est remplie à</h3>
+                <h3 className="fs-3 mb-3 text-white" style={{ fontFamily: "Titan One" }}>La section est remplie à</h3>
                 <div>
                     <ProgressBar 
                         animated

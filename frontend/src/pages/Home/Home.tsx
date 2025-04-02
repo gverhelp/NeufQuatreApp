@@ -23,8 +23,6 @@ const Home: React.FC = () => {
             try {
                 const response = await axios.get<AccueilItem[]>('http://127.0.0.1:8000/api/accueil/');
                 const data: AccueilItem[] = response.data;
-                
-                console.log(data);
 
                 setAccueilItems(data);
             } catch (error) {
