@@ -1,15 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './Home.css'
+import { AccueilItem } from '../../types/interfaces';
 import ContentBlock from '../../components/ContentBlock';
 import ParallaxBlock from '../../components/ParallaxBlock';
 
-interface AccueilItem {
-    id: number;
-    titre: string;
-    description: string;
-    image: string;
-}
   
 const Home: React.FC = () => {
     const [accueilItems, setAccueilItems] = useState<AccueilItem[]>([]);

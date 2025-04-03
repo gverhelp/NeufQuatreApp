@@ -1,25 +1,15 @@
-import { Container, Col, Row, ProgressBar } from "react-bootstrap";
+import { Container, Col, Row, ProgressBar, Card, ListGroup } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import "./Sections.css";
 
+import { SectionData, SectionImagesData, ChefData } from "../../types/interfaces";
 import CarouselBlock from "../../components/CarouselBlock";
 import ContentBlock from "../../components/ContentBlock";
-import StaffSection from "../../components/StaffBlock";
+import StaffBlock from "../../components/StaffBlock";
+import InfoCards from "../../components/InfosCards";
 
-interface SectionData {
-    name: string;
-    description: string;
-    bankAccount: string;
-    filled: number;
-}
-
-interface SectionImagesData {
-    title: string;
-    image: string;
-    section: SectionData;
-}
 
 interface Section {
     name: string;
@@ -40,6 +30,7 @@ const sections: Section[] = [
 const BySectionPage = ({ sectionName }: { sectionName: string }) => {
     const [sectionData, setSectionData] = useState<SectionData | null>(null);
     const [sectionImages, setSectionImages] = useState<SectionImagesData[]>([]);
+    const [chefsData, setChefsData] = useState<ChefData[]>([]);
     // const [loading, setLoading] = useState<boolean>(true);
     // const [error, setError] = useState<string | null>(null);
 
@@ -85,6 +76,28 @@ const BySectionPage = ({ sectionName }: { sectionName: string }) => {
             }
         };
 
+        const fetchChefsData = async () => {
+            try {
+                // setLoading(true);
+
+                const response = await axios.get("http://localhost:8000/api/chefs/");
+                const data: ChefData[] = response.data;
+                const selectedChefs = data.filter(member => member.section.name.toLowerCase() === sectionName.toLowerCase());
+                
+                if (!selectedChefs) {
+                    throw new Error("Chef non trouvé");
+                }
+                
+                setChefsData(selectedChefs);
+            } catch (err) {
+                console.error("Erreur lors de la récupération des images", err);
+                // setError("Impossible de charger les données");
+            } finally {
+                // setLoading(false);
+            }
+        };
+
+        fetchChefsData();
         fetchSectionData();
         fetchSectionImages();
     }, [sectionName]);
@@ -92,9 +105,10 @@ const BySectionPage = ({ sectionName }: { sectionName: string }) => {
 
     return (
         <Container fluid className="p-0">
+
             <CarouselBlock images={sectionImages.map(image => image.image)} captions={sectionImages.map(image => image.title)} />
 
-            <Container fluid className="py-4" style={{ backgroundColor: "#022864" }}>
+            <Container fluid className="py-4 sticky-top sticky-container" style={{ backgroundColor: "#022864", zIndex: 1000, top: "60px" }}>
                 <Row className="g-4">
                     {sections
                         .filter(section => section.name !== sectionName)
@@ -102,7 +116,7 @@ const BySectionPage = ({ sectionName }: { sectionName: string }) => {
                             <Col key={index} className="text-center">
                                 <Link to={section.path} className="text-decoration-none text-reset">
                                     <div className="group-card" data-group={section.name.toLowerCase()}>
-                                        <h2 className="fs-4" style={{ fontFamily: "Titan One" }}>
+                                        <h2 className="fs-4 m-0" style={{ fontFamily: "Titan One" }}>
                                             {section.name}
                                         </h2>
                                     </div>
@@ -130,9 +144,8 @@ const BySectionPage = ({ sectionName }: { sectionName: string }) => {
                 />
             )}
 
-            <div className="py-5 text-center" style={{ backgroundColor: "#022864" }}>
+            <Container fluid className="py-4 text-center sticky-bottom" style={{ backgroundColor: "#022864", zIndex: 900 }}>
                 <h3 className="fs-3 mb-3 text-white" style={{ fontFamily: "Titan One" }}>La section est remplie à</h3>
-                <div>
                     <ProgressBar 
                         animated
                         now={sectionData?.filled} 
@@ -140,10 +153,16 @@ const BySectionPage = ({ sectionName }: { sectionName: string }) => {
                         className="mx-5 fw-bold"
                         variant="warning"
                     />
-                </div>
-            </div>
+            </Container>
+                
+            <StaffBlock sectionName={sectionName} />
 
-            <StaffSection sectionName={sectionName} />
+            <Container fluid className="py-4 text-center" style={{ backgroundColor: "#022864" }}>
+                <div className="fs-3 text-white" style={{ fontFamily: "Titan One" }}>Informations pratiques</div>
+            </Container>
+
+            {sectionData && <InfoCards sectionData={sectionData} chefsData={chefsData} />}
+
         </Container>
     );
 };

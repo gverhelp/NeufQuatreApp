@@ -45,3 +45,9 @@
     transform: translateY(-5px);
     transition: transform 0.2s ease-in-out;
 }
+
+@media (max-width: 1052px) {
+    .sticky-container {
+        position: static !important;
+    }
+}
