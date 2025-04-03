@@ -17,7 +17,8 @@ Ce projet est le site officiel de l'unité scoute **94ème Saint-Augustin**. Il 
 - **Build Tool** : Vite
 - **Styling** : Bootstrap, React-Bootstrap
 - **Routing** : React Router
-- **Gestion des requêtes API** : Fetch API
+- **Gestion des requêtes API** : Axios
+- **Animations** : Framer Motion
 
 ## Fonctionnalités principales
 - **Affichage des informations des sections** (Baladins, Louveteaux, Guides, Scouts, Pionniers, Unité)
