@@ -124,7 +124,7 @@ const BySectionPage = ({ sectionName }: { sectionName: string }) => {
                 />
             )}
 
-            <Container fluid className="py-3 sticky-top sticky-container" style={{ backgroundColor: "#022864", zIndex: 1000, top: "65px" }}>
+            <Container fluid className="py-3" /*sticky-container sticky-top*/ style={{ backgroundColor: "#022864", zIndex: 1000 /* top: 65px */ }}>
                 <Row className="g-4">
                     {sections
                         .filter(section => section.name !== sectionName)

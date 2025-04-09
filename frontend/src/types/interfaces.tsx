@@ -29,3 +29,13 @@ export interface ChefData {
     phoneNumber: string;
     section: SectionData;
 }
+
+export interface EventData {
+    id: number;
+    title: string;
+    start_time: string;
+    end_time: string;
+    description: string;
+    location: string;
+    section: SectionData;
+}

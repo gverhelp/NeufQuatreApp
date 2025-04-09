@@ -1,16 +1,19 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
+
+import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap-icons/font/bootstrap-icons.css';
 
 import Home from './pages/Home/Home';
 import Sections from './pages/Sections/Sections';
 import BySectionPage from './pages/Sections/BySectionPage';
+import AgendaPage from './pages/Agenda/AgendaPage';
+
 import NavigationBar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer";
 
-import './App.css'
-
-import { useEffect } from "react";
-import { useLocation } from "react-router-dom";
 
 const ScrollToTop = () => {
     const { pathname } = useLocation();
@@ -35,7 +38,7 @@ function App() {
         <Routes>
 
           <Route path="/" element={ <Home/> }/>
-          <Route path="/agenda" element={ <h1>Agenda</h1> }/>
+          <Route path="/agenda" element={ <AgendaPage/> }/>
           <Route path="/contact" element={ <h1>Contacts</h1> }/>
 
           <Route path="/sections" element={ <Sections/> }/>

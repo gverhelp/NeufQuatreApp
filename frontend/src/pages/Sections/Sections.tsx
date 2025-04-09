@@ -8,13 +8,8 @@ import CarouselBlock from "../../components/CarouselBlock";
 import { SectionImagesData } from "../../types/interfaces";
 import './Sections.css';
 
-interface Sections {
-    name: string;
-    description: string;
-    path: string;
-}
 
-const sections: Sections[] = [
+const sections = [
     { name: "Baladins", description: "Enfants de 6 à 8 ans (mixte)", path: "/sections/baladins" },
     { name: "Lutins", description: "Filles de 8 à 12 ans", path: "/sections/lutins" },
     { name: "Louveteaux", description: "Garçons de 8 à 12 ans", path: "/sections/louveteaux" },
@@ -24,6 +19,7 @@ const sections: Sections[] = [
     { name: "Clan", description: "Les chefs à la retraite", path: "/sections/clan" },
     { name: "Unité", description: "Les chefs d'Unité", path: "/sections/unité" },
 ];
+
 
 const Sections = () => {
     const [sectionImages, setSectionImages] = useState<SectionImagesData[]>([]);
@@ -52,7 +48,8 @@ const Sections = () => {
         };
 
         fetchSectionImages();
-    }, [sectionImages]);
+    }, []);
+
 
     return (
         <Container fluid className="p-0">
@@ -75,9 +72,9 @@ const Sections = () => {
                                 className="text-center"
                             >
                                 <motion.div
-                                    initial={{ x: index % 2 ? -100 : 100, opacity: 0 }}
+                                    initial={{ x: -100, opacity: 0 }}
                                     whileInView={{ x: 0, opacity: 1 }}
-                                    transition={{ duration: 0.8, ease: "easeOut" }}
+                                    transition={{ duration: 0.5, ease: "easeOut" }}
                                     viewport={{ once: true }}
                                 >
                                     <Link to={section.path} className="text-decoration-none text-reset">

@@ -21,7 +21,7 @@ function InfoCards({ sectionData, chefsData } : { sectionData: SectionData, chef
                             className="h-100"
                         >
                         <Card className="p-3 text-start border-0 shadow-lg h-100">
-                            <Card.Body>
+                            <Card.Body >
                                 <Card.Title className="fs-4" style={{ fontFamily: "Titan One" }}>Uniforme</Card.Title>
                                 <Card.Text>
                                     <p>
@@ -29,7 +29,7 @@ function InfoCards({ sectionData, chefsData } : { sectionData: SectionData, chef
                                     </p>
                                     <img src="/UniformePourTous.png" alt="Uniforme pour tous" className="img-fluid rounded mt-2"/>
                                     <img src={sectionData?.uniformImage} alt="Uniforme de section" className="img-fluid rounded mt-2" />
-                                    <p className="mt-3">
+                                    <p className="mt-3 mb-0">
                                         <span className="fw-bold">
                                             Besoin d'acheter un insigne ou un uniforme ?
                                         </span>
