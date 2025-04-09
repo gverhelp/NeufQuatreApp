@@ -1,7 +1,8 @@
 import { motion } from 'framer-motion';
 
-import { Container, Row, Col, Card, ListGroup } from 'react-bootstrap';
+import { Container, Row, Col, Card, ListGroup, Button } from 'react-bootstrap';
 import { SectionData, ChefData } from '../types/interfaces';
+import '../Pages/Sections/Sections.css';
 
 
 function InfoCards({ sectionData, chefsData } : { sectionData: SectionData, chefsData: ChefData[] }) {
@@ -13,9 +14,9 @@ function InfoCards({ sectionData, chefsData } : { sectionData: SectionData, chef
                     {/* Uniforme Card */}
                     <Col md={6}>
                         <motion.div
-                            initial={{ x: -100, opacity: 0 }}
-                            whileInView={{ x: 0, opacity: 1 }}
-                            transition={{ duration: 0.8, ease: "easeOut" }}
+                            initial={{ y: 100, opacity: 0 }}
+                            whileInView={{ y: 0, opacity: 1 }}
+                            transition={{ duration: 0.5, ease: "easeOut" }}
                             viewport={{ once: true }}
                             className="h-100"
                         >
@@ -23,8 +24,24 @@ function InfoCards({ sectionData, chefsData } : { sectionData: SectionData, chef
                             <Card.Body>
                                 <Card.Title className="fs-4" style={{ fontFamily: "Titan One" }}>Uniforme</Card.Title>
                                 <Card.Text>
-                                    <p className="fs-6">Voici l'uniforme officiel à porter lors des événements scouts.</p>
-                                    <img src="/UniformePio.png" alt="Uniforme pionniers" className="img-fluid rounded mt-2" />
+                                    <p>
+                                        {sectionData?.uniformDescription}
+                                    </p>
+                                    <img src="/UniformePourTous.png" alt="Uniforme pour tous" className="img-fluid rounded mt-2"/>
+                                    <img src={sectionData?.uniformImage} alt="Uniforme de section" className="img-fluid rounded mt-2" />
+                                    <p className="mt-3">
+                                        <span className="fw-bold">
+                                            Besoin d'acheter un insigne ou un uniforme ?
+                                        </span>
+                                        <a 
+                                            href="https://www.lascouterie-economats.be/" 
+                                            target="_blank" 
+                                            rel="noopener noreferrer" 
+                                            className="scouterie-btn d-inline-block text-decoration-none text-white text-center mt-3"
+                                            >
+                                            Boutique de la Scouterie
+                                        </a>
+                                    </p>
                                 </Card.Text>
                             </Card.Body>
                         </Card>
@@ -34,18 +51,26 @@ function InfoCards({ sectionData, chefsData } : { sectionData: SectionData, chef
                     {/* Annuaire Staff Card */}
                     <Col md={6}>
                         <motion.div
-                            initial={{ x: -100, opacity: 0 }}
-                            whileInView={{ x: 0, opacity: 1 }}
-                            transition={{ duration: 0.8, ease: "easeOut" }}
+                            initial={{ y: 100, opacity: 0 }}
+                            whileInView={{ y: 0, opacity: 1 }}
+                            transition={{ duration: 0.5, ease: "easeOut" }}
                             viewport={{ once: true }}
                             className="h-100"
                         >
                         <Card className="p-3 text-start border-0 shadow-lg h-100">
                             <Card.Body>
                                 <Card.Title className="fs-4" style={{ fontFamily: "Titan One" }}>Annuaire staff</Card.Title>
-                                <Card.Text className="fs-6">Vous pouvez contacter notre staff :</Card.Text>
+                                <Card.Text className="fs-6">
+                                    Besoin d'informations?
+                                    <br />
+                                    Contactez notre staff, soit par email (de préférence), soit par message ou par appel si cela est urgent :
+                                </Card.Text>
                                 <ListGroup variant="flush">
-                                    <ListGroup.Item className="fw-bold">Email de la section : {sectionData?.email}</ListGroup.Item>
+                                    {sectionData?.email &&
+                                        <ListGroup.Item className="fw-bold">
+                                            Email de la section : {sectionData?.email}
+                                        </ListGroup.Item>
+                                    }
                                     {chefsData.map((member, index) => (
                                         <ListGroup.Item key={index}>
                                             {member.totem} : {member.phoneNumber}
@@ -58,35 +83,37 @@ function InfoCards({ sectionData, chefsData } : { sectionData: SectionData, chef
                     </Col>
                     
                     {/* Compte Bancaire Card */}
-                    <Col md={6}>
-                        <motion.div
-                            initial={{ x: -100, opacity: 0 }}
-                            whileInView={{ x: 0, opacity: 1 }}
-                            transition={{ duration: 0.8, ease: "easeOut" }}
-                            viewport={{ once: true }}
-                            className="h-100"
-                        >
-                        <Card className="p-3 text-start border-0 shadow-lg h-100">
-                            <Card.Body>
-                                <Card.Title className="fs-4" style={{ fontFamily: "Titan One" }}>Compte bancaire</Card.Title>
-                                <Card.Text>
-                                    <p className="fs-6">
-                                        Tous les virements nécessaires aux événements liés à cette section, comme les week-ends, les activités ou le camp,
-                                        sont à faire sur le compte bancaire suivant:
-                                    </p>
-                                    <p className="fw-bold">{sectionData?.bankAccount}</p>
-                                </Card.Text>
-                            </Card.Body>
-                        </Card>
-                        </motion.div>
-                    </Col>
+                    {sectionData?.name != "Clan" &&
+                        <Col md={6}>
+                            <motion.div
+                                initial={{ y: 100, opacity: 0 }}
+                                whileInView={{ y: 0, opacity: 1 }}
+                                transition={{ duration: 0.5, ease: "easeOut" }}
+                                viewport={{ once: true }}
+                                className="h-100"
+                            >
+                            <Card className="p-3 text-start border-0 shadow-lg h-100">
+                                <Card.Body>
+                                    <Card.Title className="fs-4" style={{ fontFamily: "Titan One" }}>Compte bancaire</Card.Title>
+                                    <Card.Text>
+                                        <p className="fs-6">
+                                            Tous les virements nécessaires aux événements liés à cette section, comme les week-ends, les activités ou le camp,
+                                            sont à faire sur le compte bancaire suivant :
+                                        </p>
+                                        <p className="fw-bold">{sectionData?.bankAccount}</p>
+                                    </Card.Text>
+                                </Card.Body>
+                            </Card>
+                            </motion.div>
+                        </Col>
+                    }
                     
                     {/* Radio Camp Card */}
-                    <Col md={6}>
+                    {!["Unité", "Clan"].includes(sectionData?.name) && (<Col md={6}>
                         <motion.div
-                            initial={{ x: -100, opacity: 0 }}
-                            whileInView={{ x: 0, opacity: 1 }}
-                            transition={{ duration: 0.8, ease: "easeOut" }}
+                            initial={{ y: 100, opacity: 0 }}
+                            whileInView={{ y: 0, opacity: 1 }}
+                            transition={{ duration: 0.5, ease: "easeOut" }}
                             viewport={{ once: true }}
                             className="h-100"
                         >
@@ -104,6 +131,7 @@ function InfoCards({ sectionData, chefsData } : { sectionData: SectionData, chef
                         </Card>
                         </motion.div>
                     </Col>
+                    )}
                 </Row>
             </Container>
         </Container>

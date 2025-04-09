@@ -1,4 +1,4 @@
-import { Container, Col, Row, ProgressBar, Card, ListGroup } from "react-bootstrap";
+import { Container, Col, Row, ProgressBar } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
@@ -106,9 +106,25 @@ const BySectionPage = ({ sectionName }: { sectionName: string }) => {
     return (
         <Container fluid className="p-0">
 
-            <CarouselBlock images={sectionImages.map(image => image.image)} captions={sectionImages.map(image => image.title)} />
+            {sectionData && (
+                <ContentBlock
+                    bgImg="/background5.png"
+                    title={( () => { 
+                        if (sectionData.name === "Unité") {
+                            return "L'Unité";
+                        } else if (sectionData.name === "Clan") {
+                            return "Le Clan";
+                        } else {
+                            return `Les ${sectionData.name}`;
+                        }
+                    })()}
+                    text={sectionData.description} 
+                    imgSrc={sectionData?.sectionImage}
+                    reverse={false}
+                />
+            )}
 
-            <Container fluid className="py-4 sticky-top sticky-container" style={{ backgroundColor: "#022864", zIndex: 1000, top: "60px" }}>
+            <Container fluid className="py-3 sticky-top sticky-container" style={{ backgroundColor: "#022864", zIndex: 1000, top: "65px" }}>
                 <Row className="g-4">
                     {sections
                         .filter(section => section.name !== sectionName)
@@ -126,23 +142,7 @@ const BySectionPage = ({ sectionName }: { sectionName: string }) => {
                 </Row>
             </Container>
 
-            {sectionData && (
-                <ContentBlock
-                    bgImg="/background1.png"
-                    title={( () => { 
-                        if (sectionData.name === "Unité") {
-                            return "L'Unité";
-                        } else if (sectionData.name === "Clan") {
-                            return "Le Clan";
-                        } else {
-                            return `Les ${sectionData.name}`;
-                        }
-                    })()}
-                    text={sectionData.description} 
-                    imgSrc="/lol.JPG"
-                    reverse={false}
-                />
-            )}
+            <CarouselBlock images={sectionImages.map(image => image.image)} captions={sectionImages.map(image => image.title)} />
 
             <Container fluid className="py-4 text-center sticky-bottom" style={{ backgroundColor: "#022864", zIndex: 900 }}>
                 <h3 className="fs-3 mb-3 text-white" style={{ fontFamily: "Titan One" }}>La section est remplie à</h3>

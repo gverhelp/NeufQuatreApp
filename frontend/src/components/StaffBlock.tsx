@@ -2,20 +2,8 @@ import { Container, Row, Col, Card } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { motion } from "framer-motion";
+import { ChefData } from "../types/interfaces";
 
-
-interface SectionData {
-    name: string;
-}
-
-interface ChefData {
-    name: string;
-    totem: string;
-    bafouille: string;
-    image: string;
-    phoneNumber: string;
-    section: SectionData;
-};
 
 const StaffCard = ({ member }: { member: ChefData }) => {
     return (
@@ -63,14 +51,14 @@ const StaffBlock = ( { sectionName }: { sectionName: string } ) => {
 
 
     return (
-        <Container fluid className="p-5" style={{ backgroundImage: "url('/background5.png')", backgroundSize: 'cover', backgroundPosition: 'center center' }}>
+        <Container fluid className="p-5" style={{ backgroundImage: "url('/background1.png')", backgroundSize: 'cover', backgroundPosition: 'center center' }}>
             <h2 className="text-center mb-4 fs-1" style={{ fontFamily: "Titan One" }}>Les chefs {sectionName === "Unité" ? "d'" : ""}{sectionName}</h2>
             <Row className="g-4 justify-content-center">
                 {chefsData.map((member, index) => (
                     <Col key={index} md={6} lg={4} xl={3}>
                         <motion.div
-                            initial={{ x: -100, opacity: 0 }}
-                            whileInView={{ x: 0, opacity: 1 }}
+                            initial={{ y: 100, opacity: 0 }}
+                            whileInView={{ y: 0, opacity: 1 }}
                             transition={{ duration: 0.8, ease: "easeOut" }}
                             viewport={{ once: true }}
                             className="h-100"

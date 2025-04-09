@@ -6,9 +6,12 @@ export interface AccueilItem {
 
 export interface SectionData {
     name: string;
+    sectionImage: string;
     description: string;
     bankAccount: string;
     email: string;
+    uniformDescription: string;
+    uniformImage: string;
     filled: number;
 }
 

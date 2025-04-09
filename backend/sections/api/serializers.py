@@ -5,7 +5,7 @@ from ..models import Section, SectionImage, Chef
 class SectionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Section
-        fields = ['id', 'name', 'description', 'bankAccount', 'email', 'filled']
+        fields = ['id', 'name', 'sectionImage', 'description', 'bankAccount', 'email', 'uniformDescription', 'uniformImage', 'filled']
 
 class SectionImageSerializer(serializers.ModelSerializer):
     section = SectionSerializer()

@@ -28,7 +28,7 @@ function App() {
     <>
       <Router>
 
-        <ScrollToTop />
+        <ScrollToTop/>
 
         <NavigationBar/>
 

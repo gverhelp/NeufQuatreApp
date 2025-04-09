@@ -1,7 +1,11 @@
-import { Container, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import CarouselBlock from "../../components/CarouselBlock";
 import { motion } from "framer-motion";
+import axios from "axios";
+import { useEffect, useState } from "react";
+
+import { Container, Row, Col } from "react-bootstrap";
+import CarouselBlock from "../../components/CarouselBlock";
+import { SectionImagesData } from "../../types/interfaces";
 import './Sections.css';
 
 interface Sections {
@@ -22,11 +26,39 @@ const sections: Sections[] = [
 ];
 
 const Sections = () => {
+    const [sectionImages, setSectionImages] = useState<SectionImagesData[]>([]);
+    // const [loading, setLoading] = useState<boolean>(true);
+    // const [error, setError] = useState<string | null>(null);
+
+    useEffect(() => {
+        const fetchSectionImages = async () => {
+            try {
+                // setLoading(true);
+
+                const response = await axios.get("http://localhost:8000/api/section-images/");
+                const data: SectionImagesData[] = response.data;
+                const selectedImages = data.filter(image => image.section.name === "Global")
+                // .map(image => image.image)
+                
+                if (selectedImages) {
+                    setSectionImages(selectedImages);
+                }
+            } catch (err) {
+                console.error("Erreur lors de la récupération des images", err);
+                // setError("Impossible de charger les données");
+            } finally {
+                // setLoading(false);
+            }
+        };
+
+        fetchSectionImages();
+    }, [sectionImages]);
+
     return (
         <Container fluid className="p-0">
             <CarouselBlock 
-                images={["lol.JPG", "lol2.JPG", "lol3.JPG"]} 
-                captions={["", "", ""]} 
+                images={sectionImages.map(image => image.image)}
+                captions={sectionImages.map(image => image.title)}
             />
 
             <Container 

@@ -11,9 +11,9 @@ function Footer() {
                     <Col xs={12} md={4} className="mb-3 mb-md-0">
                         <h5>À Propos</h5>
                         <p>
-                            94ème Saint-Augustin | Unité scoute
+                            LC94 Saint-Augustin | Unité scoute
                             <br/>
-                            Avenue Saint-Augustin 14, Uccle
+                            Avenue Saint-Augustin 14, 1190 Forest
                         </p>
                     </Col>
 
