@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 
-import { Container, Row, Col, Card, ListGroup, Button } from 'react-bootstrap';
+import { Container, Row, Col, Card, ListGroup } from 'react-bootstrap';
 import { SectionData, ChefData } from '../types/interfaces';
 import '../Pages/Sections/Sections.css';
 
