@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 
-import { Container, Row, Col, Card, ListGroup } from 'react-bootstrap';
+import { Container, Row, Col, Card, ListGroup, ListGroupItem } from 'react-bootstrap';
 import { SectionData, ChefData } from '../types/interfaces';
 import '../Pages/Sections/Sections.css';
 
@@ -67,14 +67,14 @@ function InfoCards({ sectionData, chefsData } : { sectionData: SectionData, chef
                                 </Card.Text>
                                 <ListGroup variant="flush">
                                     {sectionData?.email &&
-                                        <ListGroup.Item className="fw-bold">
+                                        <ListGroupItem className="fw-bold">
                                             Email de la section : {sectionData?.email}
-                                        </ListGroup.Item>
+                                        </ListGroupItem>
                                     }
                                     {chefsData.map((member, index) => (
-                                        <ListGroup.Item key={index}>
+                                        <ListGroupItem key={index}>
                                             {member.totem} : {member.phoneNumber}
-                                        </ListGroup.Item>
+                                        </ListGroupItem>
                                     ))}
                                 </ListGroup>
                             </Card.Body>

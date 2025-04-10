@@ -8,7 +8,8 @@ import bootstrap5Plugin from "@fullcalendar/bootstrap5";
 import "@fullcalendar/bootstrap5";
 import { motion } from "framer-motion";
 
-import { Container, Row, Card, ListGroup, ListGroupItem } from "react-bootstrap";
+import { Container, Row, Col, Card, ListGroup, ListGroupItem } from "react-bootstrap";
+import SectionEventsCards from "../../components/SectionEventsCards";
 import { EventData } from "../../types/interfaces";
 
 
@@ -61,91 +62,106 @@ const AgendaPage = () => {
     return (
         <Container
             fluid
-            className="p-5"
+            className="p-0"
             style={{
                 backgroundImage: "url('/background2.png')",
                 backgroundSize: "cover",
                 backgroundPosition: "center center",
             }}
         >
-            <Container>
+            <Container fluid className="p-5 pt-4">
                 <h1 className="text-center mb-4" style={{ fontFamily: "Titan One" }}>
                     Agenda
                 </h1>
 
-                <Row className="g-3">
+                <Row className="g-3 align-items-stretch">
                     {/* Calendrier */}
-                    <motion.div
-                        initial={{ x: -100, opacity: 0 }}
-                        whileInView={{ x: 0, opacity: 1 }}
-                        transition={{ duration: 0.5, ease: "easeOut" }}
-                        viewport={{ once: true }}
-                        className="p-0"
-                    >
-                        <Card className="shadow rounded-4 p-3 border-0">
-                            <FullCalendar
-                                plugins={[dayGridPlugin, interactionPlugin, bootstrap5Plugin]}
-                                initialView="dayGridMonth"
-                                themeSystem="bootstrap5"
-                                events={events.map(event => ({
-                                    id: event.id.toString(),
-                                    title: event.title,
-                                    start: event.start_time,
-                                    end: event.end_time,
-                                    color: getSectionColor(event.section.name),
-                                }))}
-                                locale="fr"
-                                height="auto"
-                                dayMaxEventRows={true}
-                                headerToolbar={{
-                                    left: "today",
-                                    center: "title",
-                                    right: "prevYear,prev,next,nextYear",
-                                }}
-                                buttonText={{
-                                    today: "Aujourd'hui",
-                                    month: "Mois",
-                                    week: "Semaine",
-                                    day: "Jour",
-                                }}
-                                firstDay={1}
-                            />
-                        </Card>
-                    </motion.div>
+                    <Col xl={10} md={12}>
+                        <motion.div
+                            initial={{ x: -100, opacity: 0 }}
+                            whileInView={{ x: 0, opacity: 1 }}
+                            transition={{ duration: 0.5, ease: "easeOut" }}
+                            viewport={{ once: true }}
+                            className="h-100"
+                        >
+                            <Card className="shadow rounded-4 p-3 border-0 h-100">
+                                <FullCalendar
+                                    plugins={[dayGridPlugin, interactionPlugin, bootstrap5Plugin]}
+                                    initialView="dayGridMonth"
+                                    themeSystem="bootstrap5"
+                                    events={events.map(event => ({
+                                        id: event.id.toString(),
+                                        title: event.title,
+                                        start: event.start_time,
+                                        end: event.end_time,
+                                        color: getSectionColor(event.section.name),
+                                    }))}
+                                    locale="fr"
+                                    height="auto"
+                                    dayMaxEventRows={true}
+                                    headerToolbar={{
+                                        left: "today",
+                                        center: "title",
+                                        right: "prevYear,prev,next,nextYear",
+                                    }}
+                                    buttonText={{
+                                        today: "Aujourd'hui",
+                                        month: "Mois",
+                                        week: "Semaine",
+                                        day: "Jour",
+                                    }}
+                                    firstDay={1}
+                                />
+                            </Card>
+                        </motion.div>
+                    </Col>
 
                     {/* Légende */}
-                    <motion.div
-                        initial={{ x: 100, opacity: 0 }}
-                        whileInView={{ x: 0, opacity: 1 }}
-                        transition={{ duration: 0.5, ease: "easeOut" }}
-                        viewport={{ once: true }}
-                        className="p-0"
-                    >
-                        <Card className="shadow rounded-4 border-0">
-                            <Card.Body className="text-center">
-                                <Card.Title style={{ fontFamily: "Titan One" }}>Légende</Card.Title>
-                                <ListGroup variant="flush" className="d-flex flex-row flex-wrap justify-content-center gap-3">
-                                    {legendItems.map((section) => (
-                                        <ListGroupItem key={section.name} className="d-flex align-items-center border-0">
-                                            <span
-                                                className="me-2"
-                                                style={{
-                                                    display: "inline-block",
-                                                    width: "16px",
-                                                    height: "16px",
-                                                    borderRadius: "50%",
-                                                    backgroundColor: section.color,
-                                                }}
-                                            />
-                                            {section.name}
-                                        </ListGroupItem>
-                                    ))}
-                                </ListGroup>
-                            </Card.Body>
-                        </Card>
-                    </motion.div>
+                    <Col xl={2} md={12}>
+                        <motion.div
+                            initial={{ x: 100, opacity: 0 }}
+                            whileInView={{ x: 0, opacity: 1 }}
+                            transition={{ duration: 0.5, ease: "easeOut" }}
+                            viewport={{ once: true }}
+                            className="h-100"
+                        >
+                            <Card className="shadow rounded-4 border-0 h-100">
+                                <Card.Body className="text-center">
+                                    <Card.Title style={{ fontFamily: "Titan One" }}>Légende</Card.Title>
+                                    <ListGroup variant="flush" className="d-flex flex-xl-column flex-md-row flex-wrap justify-content-center align-items-center gap-4 pt-4">
+                                        {legendItems.map((section) => (
+                                            <ListGroupItem
+                                                key={section.name}
+                                                className="d-flex align-items-center border-0 ps-0"
+                                                style={{ minWidth: "120px" }}
+                                            >
+                                                <span
+                                                    className="me-2"
+                                                    style={{
+                                                        display: "inline-block",
+                                                        width: "16px",
+                                                        height: "16px",
+                                                        borderRadius: "50%",
+                                                        backgroundColor: section.color,
+                                                    }}
+                                                />
+                                                {section.name}
+                                            </ListGroupItem>
+                                        ))}
+                                    </ListGroup>
+                                </Card.Body>
+                            </Card>
+                        </motion.div>
+                    </Col>
                 </Row>
             </Container>
+
+            <Container fluid className="py-4 text-center" style={{ backgroundColor: "#022864" }}>
+                <div className="fs-3 text-white" style={{ fontFamily: "Titan One" }}>Agenda détaillé par section</div>
+            </Container>
+
+            <SectionEventsCards events={events} />
+
         </Container>
     );
 };
