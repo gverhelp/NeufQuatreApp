@@ -20,7 +20,7 @@ function InfoCards({ sectionData, chefsData } : { sectionData: SectionData, chef
                             viewport={{ once: true }}
                             className="h-100"
                         >
-                        <Card className="p-3 text-start border-0 shadow-lg h-100">
+                        <Card className="p-3 text-start border-5 shadow-lg h-100" style={{ borderColor: "#022864" }}>
                             <Card.Body >
                                 <Card.Title className="fs-4" style={{ fontFamily: "Titan One" }}>Uniforme</Card.Title>
                                 <Card.Text>
@@ -57,7 +57,7 @@ function InfoCards({ sectionData, chefsData } : { sectionData: SectionData, chef
                             viewport={{ once: true }}
                             className="h-100"
                         >
-                        <Card className="p-3 text-start border-0 shadow-lg h-100">
+                        <Card className="p-3 text-start border-5 shadow-lg h-100" style={{ borderColor: "#022864" }}>
                             <Card.Body>
                                 <Card.Title className="fs-4" style={{ fontFamily: "Titan One" }}>Annuaire staff</Card.Title>
                                 <Card.Text className="fs-6">
@@ -67,12 +67,12 @@ function InfoCards({ sectionData, chefsData } : { sectionData: SectionData, chef
                                 </Card.Text>
                                 <ListGroup variant="flush">
                                     {sectionData?.email &&
-                                        <ListGroupItem className="fw-bold">
+                                        <ListGroupItem className="fw-bold" style={{ borderColor: "#022864" }}>
                                             Email de la section : {sectionData?.email}
                                         </ListGroupItem>
                                     }
                                     {chefsData.map((member, index) => (
-                                        <ListGroupItem key={index}>
+                                        <ListGroupItem key={index} style={{ borderColor: "#022864" }}>
                                             {member.totem} : {member.phoneNumber}
                                         </ListGroupItem>
                                     ))}
@@ -92,7 +92,7 @@ function InfoCards({ sectionData, chefsData } : { sectionData: SectionData, chef
                                 viewport={{ once: true }}
                                 className="h-100"
                             >
-                            <Card className="p-3 text-start border-0 shadow-lg h-100">
+                            <Card className="p-3 text-start border-5 shadow-lg h-100" style={{ borderColor: "#022864" }}>
                                 <Card.Body>
                                     <Card.Title className="fs-4" style={{ fontFamily: "Titan One" }}>Compte bancaire</Card.Title>
                                     <Card.Text>
@@ -117,15 +117,23 @@ function InfoCards({ sectionData, chefsData } : { sectionData: SectionData, chef
                             viewport={{ once: true }}
                             className="h-100"
                         >
-                        <Card className="p-3 text-start border-0 shadow-lg h-100">
+                        <Card className="p-3 text-start border-5 shadow-lg h-100" style={{ borderColor: "#022864" }}>
                             <Card.Body>
                                 <Card.Title className="fs-4" style={{ fontFamily: "Titan One" }}>Radio camp</Card.Title>
                                 <Card.Text>
                                     <p className="fs-6">
-                                        Radio camp est un outil mis à la disposition des parents pour que ces derniers puissent suivre les aventures de leurs enfants durant le camp!
+                                        Radio camp est un outil mis à la disposition des parents pour que ces derniers puissent suivre les aventures de leurs enfants durant le camp.
                                         <br />
-                                        Pour y accéder, il vous suffit de cliquer sur le lien ci-dessous et d'ensuite introduire le mot de passe fourni au préalable par le staff.
+                                        Pour y accéder, il vous suffit de cliquer sur le bouton ci-dessous et d'ensuite introduire le mot de passe fourni au préalable par le staff.
                                     </p>
+                                    <a 
+                                        href={`/radio-camp-${sectionData?.name.toLowerCase()}`}
+                                        target="_blank" 
+                                        rel="noopener noreferrer" 
+                                        className="scouterie-btn d-inline-block text-decoration-none text-white text-center"
+                                        >
+                                        Radio camp
+                                    </a>
                                 </Card.Text>
                             </Card.Body>
                         </Card>

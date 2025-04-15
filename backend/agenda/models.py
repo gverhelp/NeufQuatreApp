@@ -8,7 +8,8 @@ class Event(models.Model):
     start_time = models.DateTimeField(blank=False, null=False)
     end_time = models.DateTimeField(blank=False, null=False)
     location = models.CharField(max_length=100, blank=True, null=True)
-    section = models.ForeignKey(Section, on_delete=models.CASCADE, related_name='events', null=True, blank=True)
+    section = models.ForeignKey(Section, on_delete=models.CASCADE, related_name='events', null=False, blank=False)
+    highlight = models.BooleanField(default=False)
 
     def __str__(self):
         return self.title

@@ -7,11 +7,11 @@ import { ChefData } from "../types/interfaces";
 
 const StaffCard = ({ member }: { member: ChefData }) => {
     return (
-        <Card className="h-100 overflow-hidden border-0 staff-card">
+        <Card className="h-100 overflow-hidden border-5 staff-card" style={{ borderColor: "#022864" }}>
             <Card.Img variant="top" src={member.image} alt={member.totem} style={{ height: "350px", objectFit: "cover" }} />
             <Card.Body className="text-center text-break overflow-scroll" style={{ height: "400px" }}>
                 <Card.Title className="fs-4" style={{ fontFamily: "Titan One" }}>{member.totem}</Card.Title>
-                <Card.Subtitle className="mb-2 text-muted fs-5">{member.name}</Card.Subtitle>
+                <Card.Subtitle className="pb-2 mb-2 text-muted fs-5" style={{ borderBottom: "2px solid #022864" }}>{member.name}</Card.Subtitle>
                 <Card.Text className="fs-6">{member.bafouille}</Card.Text>
             </Card.Body>
         </Card>

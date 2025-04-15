@@ -124,7 +124,7 @@ const BySectionPage = ({ sectionName }: { sectionName: string }) => {
                 />
             )}
 
-            <Container fluid className="py-3" /*sticky-container sticky-top*/ style={{ backgroundColor: "#022864", zIndex: 1000 /* top: 65px */ }}>
+            <Container fluid className="py-3" /*sticky-container sticky-top*/ style={{ backgroundColor: "#022864" /*, zIndex: 1050*/ }}>
                 <Row className="g-3">
                     {sections
                         .filter(section => section.name !== sectionName)
@@ -157,8 +157,8 @@ const BySectionPage = ({ sectionName }: { sectionName: string }) => {
                 
             <StaffBlock sectionName={sectionName} />
 
-            <Container fluid className="py-4 text-center" style={{ backgroundColor: "#022864" }}>
-                <div className="fs-3 text-white" style={{ fontFamily: "Titan One" }}>Informations pratiques</div>
+            <Container fluid className="py-3 text-center" /*sticky-container sticky-top*/ style={{ backgroundColor: "#022864" /*, zIndex: 1100*/ }}>
+                <div className="fs-2 text-white" style={{ fontFamily: "Titan One" }}>Informations pratiques</div>
             </Container>
 
             {sectionData && <InfoCards sectionData={sectionData} chefsData={chefsData} />}

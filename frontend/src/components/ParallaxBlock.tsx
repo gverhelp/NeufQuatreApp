@@ -18,9 +18,9 @@ function ParallaxBlock() {
                     src="bg4.jpeg"
                     alt="Parallax Background"
                     className="img-fluid w-100"
-                    style={{ height: "800px", objectFit: "cover", y }}
+                    style={{ height: "600px", objectFit: "cover", y }}
                 />
-                <div className="position-absolute top-50 start-50 translate-middle w-75" style={{ color: "black" }}>
+                <div className="position-absolute top-50 start-50 translate-middle w-75 text-black">
                     <h2 className="fs-1" style={{ fontFamily: "Titan One" }}>Le scoutisme</h2>
                     <p className="fs-2 fw-medium">Un mouvement de jeunesse qui veut contribuer à l’éducation des jeunes  pour les aider à devenir des citoyens critiques et engagés.</p>
                 </div>

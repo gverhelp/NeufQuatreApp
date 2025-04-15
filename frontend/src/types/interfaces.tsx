@@ -38,4 +38,5 @@ export interface EventData {
     description: string;
     location: string;
     section: SectionData;
+    highlight: boolean;
 }

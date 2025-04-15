@@ -57,14 +57,12 @@
     font-family: 'Titan One', sans-serif;
     font-size: 1.1rem;
     border-radius: 15px;
-    transition: all 0.3s ease;
+    transition: transform 0.2s ease;
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
   
 .scouterie-btn:hover {
-    /* background-color: #011c47; */
     transform: translateY(-2px);
-    /* box-shadow: 0 8px 20px rgba(0,0,0,0.25); */
 }
 
 @media (max-width: 1052px) {
