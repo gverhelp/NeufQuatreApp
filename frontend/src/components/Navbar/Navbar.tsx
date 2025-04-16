@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import './Navbar.css';
 import { Navbar, Nav, Container } from "react-bootstrap";
 import { useState, useEffect } from "react";
@@ -6,6 +6,10 @@ import { useState, useEffect } from "react";
 function NavigationBar() {
     const [scrolled, setScrolled] = useState(false);
     const [menuOpen, setMenuOpen] = useState(false);
+
+    const location = useLocation();
+    const currentPath = location.pathname;
+
 
     useEffect(() => {
         const handleScroll = () => {
@@ -35,12 +39,43 @@ function NavigationBar() {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" onClick={ () => setMenuOpen(!menuOpen) }/>
 
                 <Navbar.Collapse id="basic-navbar-nav">
+
                     <Nav className="ms-auto text-center">
-                        <Nav.Link as={Link} to="/" className="nav-link me-3">Accueil</Nav.Link>
-                        <Nav.Link as={Link} to="/agenda" className="nav-link me-3">Agenda</Nav.Link>
-                        <Nav.Link as={Link} to="/sections" className="nav-link me-3">Sections</Nav.Link>
-                        <Nav.Link as={Link} to="/contact" className="nav-link me-3">Contacts</Nav.Link>
+
+                        <Nav.Link
+                            as={Link}
+                            to="/"
+                            className={`nav-link me-3 ${currentPath === "/" ? "active" : ""}`}
+                        >
+                            Accueil
+                        </Nav.Link>
+
+                        <Nav.Link
+                            as={Link}
+                            to="/agenda"
+                            className={`nav-link me-3 ${currentPath === "/agenda" ? "active" : ""}`}
+                        >
+                        Agenda
+                        </Nav.Link>
+
+                        <Nav.Link
+                            as={Link}
+                            to="/sections"
+                            className={`nav-link me-3 ${currentPath === "/sections" ? "active" : ""}`}
+                        >
+                        Sections
+                        </Nav.Link>
+
+                        <Nav.Link
+                            as={Link}
+                            to="/contact"
+                            className={`nav-link me-3 ${currentPath === "/contact" ? "active" : ""}`}
+                        >
+                        Contacts
+                        </Nav.Link>
+
                     </Nav>
+                    
                 </Navbar.Collapse>
             </Container>
         </Navbar>

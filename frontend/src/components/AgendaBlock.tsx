@@ -26,7 +26,7 @@ const getSectionColor = (sectionName: string): string => {
 
 
 const AgendaBlock = ({ events } : { events : EventData[] }) => {
-    const hasHighlight = events.some(event => event.highlight);
+    const hasHighlight = events.filter((event) => (event.highlight));
 
     return (
         <Container

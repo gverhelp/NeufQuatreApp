@@ -40,7 +40,7 @@ const Home: React.FC = () => {
                 reverse = {false}
             />
 
-            <ParallaxBlock />
+            <ParallaxBlock/>
 
             <ContentBlock
                 bgImg="background2.png" 

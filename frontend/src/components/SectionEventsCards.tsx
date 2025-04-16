@@ -78,7 +78,7 @@ const SectionEventsCards: React.FC<Props> = ({ events }) => {
                                                         <div className="mb-1 fw-bolder">{event.title}</div>
 
                                                         {event.description && (
-                                                            <div className="text-muted small mb-1">
+                                                            <div className="text-muted small mb-2">
                                                                 {event.description}
                                                             </div>
                                                         )}

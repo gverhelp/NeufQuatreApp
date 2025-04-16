@@ -15,7 +15,7 @@ function ParallaxBlock() {
         <div ref={ref} className="position-relative text-center text-white overflow-hidden">
             <div>
                 <motion.img
-                    src="bg4.jpeg"
+                    src="lol.JPG"
                     alt="Parallax Background"
                     className="img-fluid w-100"
                     style={{ height: "600px", objectFit: "cover", y }}

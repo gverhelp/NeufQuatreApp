@@ -1,7 +1,7 @@
 import React from "react";
 import { Card, Col, Container, Row } from "react-bootstrap";
 import { EventData } from "../types/interfaces";
-import { motion } from "framer-motion";
+import { delay, motion } from "framer-motion";
 import "../Pages/Agenda/AgendaPage.css";
 import { BsGeoAltFill, BsCalendarEvent } from "react-icons/bs";
 
@@ -18,7 +18,7 @@ const formatDate = (start: string, end: string) => {
         timeStyle: "short",
     };
 
-    return `${startDate.toLocaleString("fr-FR", options)} au ${endDate.toLocaleString("fr-FR", options)}`;
+    return `Du ${startDate.toLocaleString("fr-FR", options)} au ${endDate.toLocaleString("fr-FR", options)}`;
 };
 
 const HighlightEventsBlock: React.FC<Props> = ({ events }) => {
@@ -45,22 +45,41 @@ const HighlightEventsBlock: React.FC<Props> = ({ events }) => {
                             <motion.div
                                 initial={{ y: 30, opacity: 0 }}
                                 whileInView={{ y: 0, opacity: 1 }}
-                                transition={{ duration: 0.5, ease: "easeOut", delay: index * 0.1 }}
                                 viewport={{ once: true }}
+                                animate={{ scale: [1, 1.02, 1] }}
+                                className="h-100"
+                                transition={{
+                                    scale: {
+                                        duration: 2.5,
+                                        ease: "easeInOut",
+                                        repeat: Infinity,
+                                        delay: index * 0.2,
+                                    },
+                                    y: {
+                                        duration: 0.5,
+                                        ease: "easeOut",
+                                        delay: index * 0.1,
+                                    },
+                                    opacity: {
+                                        duration: 0.5,
+                                        ease: "easeOut",
+                                        delay: index * 0.1,
+                                    }
+                                }}
                             >
-                                <Card className="shadow rounded-4 border-5 h-100 section-event-card" style={{ borderColor: "#022864" }}>
+                                <Card className="shadow rounded-4 border-5 h-100" style={{ borderColor: "#022864" }}>
                                     <Card.Body>
-                                        <Card.Title style={{ fontFamily: "Titan One", color: "#022864" }}>
+                                        <Card.Title className="fs-4" style={{ fontFamily: "Titan One", color: "#022864" }}>
                                             {event.title}
                                         </Card.Title>
 
                                         <Card.Subtitle className="mt-3 mb-2 text-muted d-flex align-items-center">
-                                            <BsGeoAltFill size={18} className="text-secondary me-1" />
-                                            {event.location}
+                                            <BsGeoAltFill size={18} className="me-2" style={{ color: "#022864" }}/>
+                                            {event.location || "Lieu non spécifié"}
                                         </Card.Subtitle>
 
-                                        <Card.Text className="mb-3 d-flex align-items-center">
-                                            <BsCalendarEvent size={18} className="text-secondary me-1" />
+                                        <Card.Text className="mb-3 text-muted d-flex align-items-center">
+                                            <BsCalendarEvent size={18} className="me-2" style={{ color: "#022864" }}/>
                                             <span>
                                                 {formatDate(event.start_time, event.end_time)}
                                             </span>
