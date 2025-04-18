@@ -33,7 +33,7 @@ const Home: React.FC = () => {
     return (
         <>
             <ContentBlock 
-                bgImg="background1.png"
+                bgImg="background5.png"
                 title={accueilItems[0]?.titre}
                 text={accueilItems[0]?.description}
                 imgSrc={accueilItems[0]?.image}

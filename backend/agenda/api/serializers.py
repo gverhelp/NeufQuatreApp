@@ -1,9 +1,12 @@
 from rest_framework import serializers
 from ..models import Event
-from sections.api.serializers import SectionSerializer
+from sections.models import Section
 
 class EventSerializer(serializers.ModelSerializer):
-    section = SectionSerializer()
+    section = serializers.SlugRelatedField(
+        slug_field='slug',
+        queryset=Section.objects.all()
+    )
     
     class Meta:
         model = Event

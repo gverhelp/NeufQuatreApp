@@ -33,7 +33,7 @@ const Sections = () => {
 
                 const response = await axios.get("http://localhost:8000/api/section-images/");
                 const data: SectionImagesData[] = response.data;
-                const selectedImages = data.filter(image => image.section.name === "Global")
+                const selectedImages = data.filter(image => image.section === "global")
                 // .map(image => image.image)
                 
                 if (selectedImages) {

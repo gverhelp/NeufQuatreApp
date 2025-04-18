@@ -2,13 +2,11 @@ from rest_framework import serializers
 from ..models import Section, SectionImage, Chef
 
 
-class SectionSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Section
-        fields = ['id', 'name', 'sectionImage', 'description', 'bankAccount', 'email', 'uniformDescription', 'uniformImage', 'filled']
-
 class SectionImageSerializer(serializers.ModelSerializer):
-    section = SectionSerializer()
+    section = serializers.SlugRelatedField(
+        slug_field='slug',
+        queryset=Section.objects.all()
+    )
     
     class Meta:
         model = SectionImage
@@ -16,9 +14,24 @@ class SectionImageSerializer(serializers.ModelSerializer):
 
 
 class ChefSerializer(serializers.ModelSerializer):
-    section = SectionSerializer()
+    section = serializers.SlugRelatedField(
+        slug_field='slug',
+        queryset=Section.objects.all()
+    )
 
     class Meta:
         model = Chef
         fields = ['id', 'name', 'totem', 'bafouille', 'image', 'phoneNumber', 'section']
 
+
+class SectionSerializer(serializers.ModelSerializer):
+    section_images = SectionImageSerializer(source='sectionimage_set', many=True, read_only=True)
+    chefs = ChefSerializer(source='chef_set', many=True, read_only=True)
+
+    class Meta:
+        model = Section
+        fields = [
+            'id', 'name', 'showcaseImage', 'description', 'bankAccount', 'email',
+            'uniformDescription', 'uniformImage', 'filled',
+            'section_images', 'chefs'
+        ]

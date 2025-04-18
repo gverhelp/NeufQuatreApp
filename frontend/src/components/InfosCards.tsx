@@ -7,7 +7,7 @@ import '../Pages/Sections/Sections.css';
 
 function InfoCards({ sectionData, chefsData } : { sectionData: SectionData, chefsData: ChefData[] }) {
     return (
-        <Container fluid className="py-5 text-center" style={{ backgroundImage: "url('/background2.png')", backgroundSize: 'cover', backgroundPosition: 'center center' }}>
+        <Container fluid className="py-5 text-center" style={{ backgroundImage: "url('/background7.png')", backgroundSize: 'cover', backgroundPosition: 'center center' }}>
             <Container>
                 <Row className="justify-content-center align-items-stretch g-4">
                     
@@ -127,7 +127,7 @@ function InfoCards({ sectionData, chefsData } : { sectionData: SectionData, chef
                                         Pour y accéder, il vous suffit de cliquer sur le bouton ci-dessous et d'ensuite introduire le mot de passe fourni au préalable par le staff.
                                     </p>
                                     <a 
-                                        href={`/radio-camp-${sectionData?.name.toLowerCase()}`}
+                                        href={`/radio-camp/${sectionData?.name.toLowerCase()}`}
                                         target="_blank" 
                                         rel="noopener noreferrer" 
                                         className="scouterie-btn d-inline-block text-decoration-none text-white text-center"

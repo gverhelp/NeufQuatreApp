@@ -7,6 +7,8 @@ function NavigationBar() {
     const [scrolled, setScrolled] = useState(false);
     const [menuOpen, setMenuOpen] = useState(false);
 
+    const navbarBg = menuOpen ? "white" : "transparent";
+    
     const location = useLocation();
     const currentPath = location.pathname;
 
@@ -20,7 +22,6 @@ function NavigationBar() {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
-    const navbarBg = menuOpen ? "white" : "transparent";
 
     return (
         <Navbar

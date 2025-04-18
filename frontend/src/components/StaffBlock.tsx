@@ -31,7 +31,7 @@ const StaffBlock = ( { sectionName }: { sectionName: string } ) => {
 
                 const response = await axios.get("http://localhost:8000/api/chefs/");
                 const data: ChefData[] = response.data;
-                const selectedChefs = data.filter(member => member.section.name.toLowerCase() === sectionName.toLowerCase());
+                const selectedChefs = data.filter(member => member.section.toLowerCase() === sectionName.toLowerCase());
                 
                 if (!selectedChefs) {
                     throw new Error("Chef non trouvé");

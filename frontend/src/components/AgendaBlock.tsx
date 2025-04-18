@@ -9,14 +9,14 @@ import "../pages/Agenda/AgendaPage.css";
 
 
 const legendItems = [
-    { name: "Baladins", color: "#00A0DD" },
-    { name: "Lutins", color: "#CC0739" },
-    { name: "Louveteaux", color: "#186E54" },
-    { name: "Guides", color: "#1D325A" },
-    { name: "Scouts", color: "#015AA9" },
-    { name: "Pionniers", color: "#DA1F29" },
-    { name: "Clan", color: "#FEB800" },
-    { name: "Unité", color: "#000000" },
+    { name: "baladins", color: "#00A0DD" },
+    { name: "lutins", color: "#CC0739" },
+    { name: "louveteaux", color: "#186E54" },
+    { name: "guides", color: "#1D325A" },
+    { name: "scouts", color: "#015AA9" },
+    { name: "pionniers", color: "#DA1F29" },
+    { name: "clan", color: "#FEB800" },
+    { name: "unité", color: "#000000" },
 ];
 
 const getSectionColor = (sectionName: string): string => {
@@ -31,14 +31,14 @@ const AgendaBlock = ({ events } : { events : EventData[] }) => {
     return (
         <Container
             fluid
-            className={`p-5 angenda-padding-xl ${hasHighlight ? "" : "pt-4"}`}
+            className={`p-5 angenda-padding-xl ${hasHighlight.length ? "" : "pt-4"}`}
             style={{
                 backgroundImage: "url('/background7.png')",
                 backgroundSize: "cover",
                 backgroundPosition: "center center",
             }}
         >
-            {!hasHighlight && (
+            {!hasHighlight.length && (
                 <h1 className="text-center mb-4" style={{ fontFamily: "Titan One" }}>
                     Agenda
                 </h1>
@@ -64,7 +64,7 @@ const AgendaBlock = ({ events } : { events : EventData[] }) => {
                                     title: event.title,
                                     start: event.start_time,
                                     end: event.end_time,
-                                    color: getSectionColor(event.section.name),
+                                    color: getSectionColor(event.section),
                                 }))}
                                 locale="fr"
                                 height="auto"

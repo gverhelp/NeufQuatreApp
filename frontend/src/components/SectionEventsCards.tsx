@@ -5,14 +5,14 @@ import { EventData } from "../types/interfaces";
 import { motion } from "framer-motion";
 
 const legendItems = [
-    { name: "Baladins", color: "#00A0DD" },
-    { name: "Lutins", color: "#CC0739" },
-    { name: "Louveteaux", color: "#186E54" },
-    { name: "Guides", color: "#1D325A" },
-    { name: "Scouts", color: "#015AA9" },
-    { name: "Pionniers", color: "#DA1F29" },
-    { name: "Clan", color: "#FEB800" },
-    { name: "Unité", color: "#000000" },
+    { name: "baladins", color: "#00A0DD" },
+    { name: "lutins", color: "#CC0739" },
+    { name: "louveteaux", color: "#186E54" },
+    { name: "guides", color: "#1D325A" },
+    { name: "scouts", color: "#015AA9" },
+    { name: "pionniers", color: "#DA1F29" },
+    { name: "clan", color: "#FEB800" },
+    { name: "unité", color: "#000000" },
 ];
 
 interface Props {
@@ -38,7 +38,7 @@ const SectionEventsCards: React.FC<Props> = ({ events }) => {
                 <Row className="g-4 justify-content-center">
                     {legendItems.map((section) => {
                         const sectionEvents = events
-                        .filter((event) => event.section?.name === section.name)
+                        .filter((event) => event.section === section.name)
                         .sort((a, b) => new Date(a.start_time).getTime() - new Date(b.start_time).getTime());
 
                         if (sectionEvents.length === 0) return null;
