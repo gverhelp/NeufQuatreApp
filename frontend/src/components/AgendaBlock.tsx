@@ -9,18 +9,20 @@ import "../pages/Agenda/AgendaPage.css";
 
 
 const legendItems = [
-    { name: "baladins", color: "#00A0DD" },
-    { name: "lutins", color: "#CC0739" },
-    { name: "louveteaux", color: "#186E54" },
-    { name: "guides", color: "#1D325A" },
-    { name: "scouts", color: "#015AA9" },
-    { name: "pionniers", color: "#DA1F29" },
-    { name: "clan", color: "#FEB800" },
-    { name: "unité", color: "#000000" },
+    { name: "Baladins", color: "#00A0DD" },
+    { name: "Lutins", color: "#CC0739" },
+    { name: "Louveteaux", color: "#186E54" },
+    { name: "Guides", color: "#1D325A" },
+    { name: "Scouts", color: "#015AA9" },
+    { name: "Pionniers", color: "#DA1F29" },
+    { name: "Clan", color: "#FEB800" },
+    { name: "Unité", color: "#000000" },
 ];
 
 const getSectionColor = (sectionName: string): string => {
-    const section = legendItems.find(item => item.name === sectionName);
+    const formattedName = sectionName.charAt(0).toUpperCase() + sectionName.slice(1);
+    const section = legendItems.find(item => item.name === formattedName);
+
     return section ? section.color : "#000000";
 };
 
@@ -156,6 +158,7 @@ const AgendaBlock = ({ events } : { events : EventData[] }) => {
                                 <Button
                                     className="download-btn d-inline-block text-decoration-none text-white text-center"
                                     style={{ backgroundColor: "#022864", borderColor: "#022864" }}
+                                    target="_blank"
                                     href="/path/to/agenda.pdf"
                                 >
                                     Télécharger l’agenda

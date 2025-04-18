@@ -35,7 +35,7 @@ function InfoCards({ sectionData, chefsData } : { sectionData: SectionData, chef
                                         </span>
                                         <a 
                                             href="https://www.lascouterie-economats.be/" 
-                                            target="_blank" 
+                                            target="_blank"
                                             rel="noopener noreferrer" 
                                             className="scouterie-btn d-inline-block text-decoration-none text-white text-center mt-3"
                                             >
@@ -128,7 +128,7 @@ function InfoCards({ sectionData, chefsData } : { sectionData: SectionData, chef
                                     </p>
                                     <a 
                                         href={`/radio-camp/${sectionData?.name.toLowerCase()}`}
-                                        target="_blank" 
+                                        // target="_blank"
                                         rel="noopener noreferrer" 
                                         className="scouterie-btn d-inline-block text-decoration-none text-white text-center"
                                         >

@@ -19,7 +19,7 @@ const RadioCampPage = ({ sectionName }: { sectionName: string }) => {
         setError("");
 
         try {
-            const response = await axios.post(`http://localhost:8000/api/radio-camp/${sectionName}/verify-password/`, {
+            const response = await axios.post(`http://localhost:8000/api/radio-camp/${sectionName.toLowerCase()}/verify-password/`, {
                 password,
             });
 
