@@ -1,6 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import './Navbar.css';
-import { Navbar, Nav, Container } from "react-bootstrap";
+import { Navbar, Nav, NavDropdown, Container } from "react-bootstrap";
 import { useState, useEffect } from "react";
 
 function NavigationBar() {
@@ -69,8 +69,16 @@ function NavigationBar() {
 
                         <Nav.Link
                             as={Link}
+                            to="/radio-camps"
+                            className={`nav-link me-3 ${currentPath === "/radio-camps" ? "active" : ""}`}
+                        >
+                        Radio Camps
+                        </Nav.Link>
+
+                        <Nav.Link
+                            as={Link}
                             to="/contact"
-                            className={`nav-link me-3 ${currentPath === "/contact" ? "active" : ""}`}
+                            className={`nav-link ${currentPath === "/contact" ? "active" : ""}`}
                         >
                         Contacts
                         </Nav.Link>

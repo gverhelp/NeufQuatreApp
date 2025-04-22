@@ -29,11 +29,5 @@
 .navbar .navbar-brand {
     font-family: 'Titan One', 'Bungee Shade', 'Archivo Black', 'Abril Fatface', 'Roboto', sans-serif;
     font-size: 1.5em;
-    /* color: #F0F7EE; */
-    /* font-weight: 700; */
 }
 
-.navbar-nav .dropdown-menu {
-    background-color: #022864;
-    border: 2px solid #ffbe0b;
-}

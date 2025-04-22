@@ -62,6 +62,7 @@ export interface RadioCampData {
     password: string;
     start_date: string;
     end_date: string;
+    posts: PostData[];
 }
 
 export interface PostData {
@@ -70,12 +71,20 @@ export interface PostData {
     title: string;
     content: string;
     date: string;
-    photos: PhotoData[]; 
+    photos: PhotoData[];
+    videos: VideoData[];
 }
 
 export interface PhotoData {
     id: number;
     post: number;
     image: string;
+    caption: string;
+}
+
+export interface VideoData {
+    id: number;
+    post: number;
+    video: string;
     caption: string;
 }

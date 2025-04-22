@@ -14,5 +14,5 @@ router.registry.extend(radio_camp_router.registry)
 
 urlpatterns = [
     path('', include(router.urls)),
-    path('radio-camp/<str:section_slug>/verify-password/', VerifyRadioCampPassword.as_view(), name='verify-radio-camp-password'),
+    path('radio-camps/<str:section_slug>/verify-password/', VerifyRadioCampPassword.as_view(), name='verify-radio-camp-password'),
 ]

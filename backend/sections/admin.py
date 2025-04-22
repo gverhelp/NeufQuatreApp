@@ -10,6 +10,7 @@ class SectionAdmin(admin.ModelAdmin):
     inlines = [SectionImageInline]
     list_display = ['name', 'bankAccount', 'email']
     search_fields = ['name', 'email']
+    readonly_fields = ("slug",)
     
 class ChefAdmin(admin.ModelAdmin):
     list_display = ['name', 'totem', 'phoneNumber', 'section']

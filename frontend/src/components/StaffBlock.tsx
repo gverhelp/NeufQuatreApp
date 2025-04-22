@@ -51,7 +51,7 @@ const StaffBlock = ( { sectionName }: { sectionName: string } ) => {
 
 
     return (
-        <Container fluid className="p-5" style={{ backgroundImage: "url('/background1.png')", backgroundSize: 'cover', backgroundPosition: 'center center' }}>
+        <Container fluid className="p-4" style={{ backgroundImage: "url('/background1.png')", backgroundSize: 'cover', backgroundPosition: 'center center' }}>
             <h2 className="text-center mb-4 fs-1" style={{ fontFamily: "Titan One" }}>Les chefs {sectionName === "Unité" ? "d'" : ""}{sectionName}</h2>
             <Row className="g-4 justify-content-center">
                 {chefsData.map((member, index) => (

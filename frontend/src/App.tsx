@@ -10,7 +10,9 @@ import Home from './pages/Home/Home';
 import Sections from './pages/Sections/Sections';
 import BySectionPage from './pages/Sections/BySectionPage';
 import AgendaPage from './pages/Agenda/AgendaPage';
-import RadioCampPage from './pages/RadioCamp/RadioCamp';
+import RadioCampBySection from './pages/RadioCamp/RadioCampBySection';
+import RadioCamps from './pages/RadioCamp/RadioCamps';
+import NotFound from './pages/NotFound/NotFound';
 
 import NavigationBar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer";
@@ -50,14 +52,17 @@ function App() {
                 <Route path="/sections/scouts" element={ <BySectionPage sectionName="Scouts"/> }/>
                 <Route path="/sections/pionniers" element={ <BySectionPage sectionName="Pionniers"/> }/>
                 <Route path="/sections/clan" element={ <BySectionPage sectionName="Clan"/> }/>
-                <Route path="/sections/unité" element={<BySectionPage sectionName="Unité"/> }/>
+                <Route path="/sections/unite" element={<BySectionPage sectionName="Unite"/> }/>
 
-                <Route path="radio-camp/baladins" element={ <RadioCampPage sectionName="Baladins"/> }/>
-                <Route path="radio-camp/lutins" element={ <RadioCampPage sectionName="Lutins"/> }/>
-                <Route path="radio-camp/louveteaux" element={ <RadioCampPage sectionName="Louveteaux"/> }/>
-                <Route path="radio-camp/guides" element={ <RadioCampPage sectionName="Guides"/> }/>
-                <Route path="radio-camp/scouts" element={ <RadioCampPage sectionName="Scouts"/> }/>
-                <Route path="radio-camp/pionniers" element={ <RadioCampPage sectionName="Pionniers"/> }/>
+                <Route path="/radio-camps" element={ <RadioCamps/> }/>
+                <Route path="radio-camps/baladins" element={ <RadioCampBySection sectionName="Baladins"/> }/>
+                <Route path="radio-camps/lutins" element={ <RadioCampBySection sectionName="Lutins"/> }/>
+                <Route path="radio-camps/louveteaux" element={ <RadioCampBySection sectionName="Louveteaux"/> }/>
+                <Route path="radio-camps/guides" element={ <RadioCampBySection sectionName="Guides"/> }/>
+                <Route path="radio-camps/scouts" element={ <RadioCampBySection sectionName="Scouts"/> }/>
+                <Route path="radio-camps/pionniers" element={ <RadioCampBySection sectionName="Pionniers"/> }/>
+
+                <Route path="*" element={<NotFound/>} />
 
                 </Routes>
 

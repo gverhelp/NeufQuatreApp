@@ -1,7 +1,7 @@
 import React from "react";
 import { Card, Col, Container, Row } from "react-bootstrap";
 import { EventData } from "../types/interfaces";
-import { delay, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import "../Pages/Agenda/AgendaPage.css";
 import { BsGeoAltFill, BsCalendarEvent } from "react-icons/bs";
 

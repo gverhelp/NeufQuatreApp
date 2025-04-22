@@ -1,9 +1,8 @@
 from rest_framework import viewsets
-from ..models import RadioCamp, Post, Photo, Section
-from .serializers import RadioCampSerializer, PostSerializer, PhotoSerializer
+from ..models import RadioCamp, Post, Photo, Video, Section
+from .serializers import RadioCampSerializer, PostSerializer, PhotoSerializer, VideoSerializer
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from rest_framework import status
 from django.shortcuts import get_object_or_404
 from django.contrib.auth.hashers import check_password
 
@@ -11,15 +10,19 @@ from django.contrib.auth.hashers import check_password
 class RadioCampViewSet(viewsets.ModelViewSet):
     queryset = RadioCamp.objects.all()
     serializer_class = RadioCampSerializer
+    lookup_field = 'section__slug'
 
 class PostViewSet(viewsets.ModelViewSet):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
     
 class PhotoViewSet(viewsets.ModelViewSet):
-
     queryset = Photo.objects.all()
     serializer_class = PhotoSerializer
+    
+class VideoViewSet(viewsets.ModelViewSet):
+    queryset = Video.objects.all()
+    serializer_class = VideoSerializer
     
 
 # API View to verify the password for a RadioCamp
@@ -30,7 +33,7 @@ class VerifyRadioCampPassword(APIView):
         section = get_object_or_404(Section, slug=section_slug)
         radio_camp = get_object_or_404(RadioCamp, section=section)
 
-        if radio_camp.password == password_input:
+        if check_password(password_input, radio_camp.password):
             return Response({"success": True})
         else:
-            return Response({"success": False}, status=status.HTTP_401_UNAUTHORIZED)
+            return Response({"success": False, "error": "Mot de passe invalide."})

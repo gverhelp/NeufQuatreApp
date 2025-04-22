@@ -4,6 +4,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import "./Sections.css";
 
+
 import { SectionData } from "../../types/interfaces";
 import CarouselBlock from "../../components/CarouselBlock";
 import ContentBlock from "../../components/ContentBlock";
@@ -24,7 +25,7 @@ const sectionsPath: SectionPath[] = [
     { name: "Scouts", path: "/sections/scouts" },
     { name: "Pionniers", path: "/sections/pionniers" },
     { name: "Clan", path: "/sections/clan" },
-    { name: "Unité", path: "/sections/unité" },
+    { name: "Unité", path: "/sections/unite" },
 ];
 
 const BySectionPage = ({ sectionName }: { sectionName: string }) => {
@@ -81,7 +82,12 @@ const BySectionPage = ({ sectionName }: { sectionName: string }) => {
             <Container fluid className="py-3" /*sticky-container sticky-top*/ style={{ backgroundColor: "#022864" /*, zIndex: 1050*/ }}>
                 <Row className="g-3">
                     {sectionsPath
-                        .filter(section => section.name !== sectionName)
+                        .filter((section) => (
+                            section.name
+                            .normalize("NFD")
+                            .replace(/[\u0300-\u036f]/g, "")
+                            .toLowerCase() !== sectionName.toLowerCase()
+                        ))
                         .map((section, index) => (
                             <Col key={index} className="text-center">
                                 <Link to={section.path} className="text-decoration-none text-reset">

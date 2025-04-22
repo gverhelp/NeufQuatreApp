@@ -16,6 +16,11 @@ class RadioCamp(models.Model):
             self.password = make_password(self.password)
         super().save(*args, **kwargs)
         
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(fields=["section"], name="unique_section_radiocamp")
+        ]
+        
     def __str__(self):
         return f"{self.title} - {self.section.name}"
 
@@ -37,3 +42,12 @@ class Photo(models.Model):
 
     def __str__(self):
         return f"Photo de {self.post.title}"
+    
+
+class Video(models.Model):
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='videos')
+    video = models.FileField(upload_to='radio_camp_videos/')
+    caption = models.CharField(max_length=255, blank=True, null=True)
+
+    def __str__(self):
+        return f"Video de {self.post.title}"

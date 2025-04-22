@@ -17,7 +17,7 @@ const sections = [
     { name: "Scouts", description: "Garçons de 12 à 16 ans", path: "/sections/scouts" },
     { name: "Pionniers", description: "Adolescents de 16 à 18 ans (mixte)", path: "/sections/pionniers" },
     { name: "Clan", description: "Les chefs à la retraite", path: "/sections/clan" },
-    { name: "Unité", description: "Les chefs d'Unité", path: "/sections/unité" },
+    { name: "Unité", description: "Les chefs d'Unité", path: "/sections/unite" },
 ];
 
 
