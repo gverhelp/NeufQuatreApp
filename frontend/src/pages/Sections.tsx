@@ -64,7 +64,7 @@ const Sections = () => {
                 style={{ backgroundImage: "url('background1.png')", backgroundSize: 'cover', backgroundPosition: 'center center' }}
             >
                 <Container>
-                    <Row className="g-4">
+                    <Row className="g-3">
                         {sections.map((section, index) => (
                             <Col 
                                 key={index} 

@@ -22,7 +22,7 @@
 }
 
 @media (max-width: 576px) {
-    .angenda-padding-xl {
+    .agenda-padding-xl {
         padding-inline: 1rem !important;
     }
 }

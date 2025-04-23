@@ -100,13 +100,24 @@ const RadioCamps = () => {
                 <Row className="g-3">
                     {buttonsDesktop.map((btn, index) => (
                         <Col key={index} xs={12}>
+                            <motion.div
+                                initial={{ x: -30, opacity: 0 }}
+                                whileInView={{ x: 0, opacity: 1 }}
+                                viewport={{ once: true }}
+                                transition={{
+                                    duration: 0.5,
+                                    ease: "easeOut",
+                                    delay: index * 0.1,
+                                }}
+                            >
                             <Button
-                                className="fs-4 map-lg-btn w-100"
+                                className="fs-4 map-lg-btn rounded-2 w-100"
                                 onClick={() => navigate(btn.path)}
                                 style={{ backgroundColor: "#022864", borderColor: "#022864" }}
                             >
                                 {btn.label}
                             </Button>
+                            </motion.div>
                         </Col>
                     ))}
                 </Row>
