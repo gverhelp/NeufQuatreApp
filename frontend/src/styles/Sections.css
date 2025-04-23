@@ -1,0 +1,72 @@
+.group-card {
+    border: 2px solid transparent;
+    border-radius: 15px;
+    padding: 1rem;
+    background-color: #fff;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.group-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--border-color);
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.group-card::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 5px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--border-color);
+    transition: height 0.2s ease-in-out;
+}
+
+.group-card:hover::before {
+    height: 10px;
+}
+
+.group-card[data-group="baladins"] { --border-color: #00A0DD; }
+.group-card[data-group="lutins"] { --border-color: #CC0739; }
+.group-card[data-group="louveteaux"] { --border-color: #176F54; }
+.group-card[data-group="guides"] { --border-color: #1D335A; }
+.group-card[data-group="scouts"] { --border-color: #005AAA; }
+.group-card[data-group="pionniers"] { --border-color: #DA1F29; }
+.group-card[data-group="clan"] { --border-color: #FFB800; }
+.group-card[data-group="unité"] { --border-color: black; }
+
+
+.staff-card {
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transition: transform 0.2s ease-in-out;
+}
+
+.staff-card:hover {
+    transform: scale(1.015);
+}
+
+.scouterie-btn {
+    background-color: #022864;
+    padding: 0.6rem 1.6rem;
+    font-family: 'Titan One', sans-serif;
+    font-size: 1.1rem;
+    border-radius: 6px;
+    transition: transform 0.2s ease;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+  
+.scouterie-btn:hover {
+    transform: translateY(-2px);
+}
+
+@media (max-width: 1052px) {
+    .sticky-container {
+        position: static !important;
+    }
+}
