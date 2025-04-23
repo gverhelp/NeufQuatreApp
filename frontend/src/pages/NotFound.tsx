@@ -8,7 +8,7 @@ const NotFound = () => {
             <Container>
                 <h1 style={{ fontFamily: "Titan One", fontSize: "5rem" }}>404</h1>
                 <p className="fs-4 mb-4" style={{ fontFamily: "Titan One" }}>Oups ! Cette page n'existe pas.</p>
-                <Link to="/" className="validate-btn d-inline-block text-decoration-none text-white text-center">
+                <Link to="/" className="validate-btn rounded-2 d-inline-block text-decoration-none text-white text-center">
                     Retour à l'accueil
                 </Link>
             </Container>

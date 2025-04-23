@@ -56,7 +56,7 @@ const AgendaBlock = ({ events } : { events : EventData[] }) => {
                         viewport={{ once: true }}
                         className="h-100"
                     >
-                        <Card className="shadow rounded-4 p-3 border-5 h-100" style={{ borderColor: "#022864" }}>
+                        <Card className="shadow rounded-2 p-3 border-5 h-100" style={{ borderColor: "#022864" }}>
                             <FullCalendar
                                 plugins={[dayGridPlugin, interactionPlugin, bootstrap5Plugin]}
                                 initialView="dayGridMonth"
@@ -97,7 +97,7 @@ const AgendaBlock = ({ events } : { events : EventData[] }) => {
                         transition={{ duration: 0.5, delay: 0.2 }}
                         viewport={{ once: true }}
                     >
-                        <Card className="shadow rounded-4 border-5" style={{ borderColor: "#022864" }}>
+                        <Card className="shadow rounded-2 border-5" style={{ borderColor: "#022864" }}>
                             <Card.Body className="text-center">
                                 <Card.Title
                                     className="fs-4 pb-2"
@@ -141,7 +141,7 @@ const AgendaBlock = ({ events } : { events : EventData[] }) => {
                         viewport={{ once: true }}
                         className="mt-3"
                     >
-                        <Card className="shadow rounded-4 border-5" style={{ borderColor: "#022864" }}>
+                        <Card className="shadow rounded-2 border-5" style={{ borderColor: "#022864" }}>
                             <Card.Body className="text-center d-flex flex-column justify-content-between">
                                 <Card.Title
                                     className="fs-5 pb-2"
@@ -156,7 +156,7 @@ const AgendaBlock = ({ events } : { events : EventData[] }) => {
                                     Cliquez sur le bouton ci-dessous pour télécharger l'agenda complet au format PDF.
                                 </p>
                                 <Button
-                                    className="download-btn d-inline-block text-decoration-none text-white text-center"
+                                    className="download-btn rounded-2 d-inline-block text-decoration-none text-white text-center"
                                     style={{ backgroundColor: "#022864", borderColor: "#022864" }}
                                     target="_blank"
                                     rel="noopener noreferrer"

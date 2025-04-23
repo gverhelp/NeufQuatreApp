@@ -20,7 +20,7 @@ function InfoCards({ sectionData, chefsData } : { sectionData: SectionData, chef
                             viewport={{ once: true }}
                             className="h-100"
                         >
-                        <Card className="p-3 border-5 shadow-lg h-100" style={{ borderColor: "#022864" }}>
+                        <Card className="p-3 border-5 shadow h-100" style={{ borderColor: "#022864" }}>
                             <Card.Body >
                                 <Card.Title className="fs-4" style={{ fontFamily: "Titan One" }}>Uniforme</Card.Title>
                                 <Card.Text>
@@ -34,7 +34,7 @@ function InfoCards({ sectionData, chefsData } : { sectionData: SectionData, chef
                                         href="https://www.lascouterie-economats.be/" 
                                         target="_blank"
                                         rel="noopener noreferrer" 
-                                        className="scouterie-btn d-inline-block text-decoration-none text-white text-center mt-2"
+                                        className="scouterie-btn rounded-2 d-inline-block text-decoration-none text-white text-center mt-2"
                                     >
                                         Boutique de la Scouterie
                                     </a>
@@ -53,7 +53,7 @@ function InfoCards({ sectionData, chefsData } : { sectionData: SectionData, chef
                             viewport={{ once: true }}
                             className="h-100"
                         >
-                        <Card className="p-3 border-5 shadow-lg h-100" style={{ borderColor: "#022864" }}>
+                        <Card className="p-3 border-5 shadow h-100" style={{ borderColor: "#022864" }}>
                             <Card.Body>
                                 <Card.Title className="fs-4" style={{ fontFamily: "Titan One" }}>Annuaire staff</Card.Title>
                                 <Card.Text className="fs-6">
@@ -88,7 +88,7 @@ function InfoCards({ sectionData, chefsData } : { sectionData: SectionData, chef
                                 viewport={{ once: true }}
                                 className="h-100"
                             >
-                            <Card className="p-3 border-5 shadow-lg h-100" style={{ borderColor: "#022864" }}>
+                            <Card className="p-3 border-5 shadow h-100" style={{ borderColor: "#022864" }}>
                                 <Card.Body>
                                     <Card.Title className="fs-4" style={{ fontFamily: "Titan One" }}>Compte bancaire</Card.Title>
                                     <Card.Text>
@@ -113,7 +113,7 @@ function InfoCards({ sectionData, chefsData } : { sectionData: SectionData, chef
                             viewport={{ once: true }}
                             className="h-100"
                         >
-                        <Card className="p-3 border-5 shadow-lg h-100" style={{ borderColor: "#022864" }}>
+                        <Card className="p-3 border-5 shadow h-100" style={{ borderColor: "#022864" }}>
                             <Card.Body>
                                 <Card.Title className="fs-4" style={{ fontFamily: "Titan One" }}>Radio camp</Card.Title>
                                 <Card.Text>
@@ -127,7 +127,7 @@ function InfoCards({ sectionData, chefsData } : { sectionData: SectionData, chef
                                         href={`/radio-camps/${sectionData?.name.toLowerCase()}`}
                                         target="_blank"
                                         rel="noopener noreferrer" 
-                                        className="scouterie-btn d-inline-block text-decoration-none text-white text-center mt-3"
+                                        className="scouterie-btn rounded-2 d-inline-block text-decoration-none text-white text-center mt-3"
                                         >
                                         Radio camp
                                     </a>

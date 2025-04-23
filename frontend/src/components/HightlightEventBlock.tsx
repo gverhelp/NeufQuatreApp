@@ -67,7 +67,7 @@ const HighlightEventsBlock: React.FC<Props> = ({ events }) => {
                                     }
                                 }}
                             >
-                                <Card className="shadow rounded-4 border-5 h-100" style={{ borderColor: "#022864" }}>
+                                <Card className="shadow rounded-2 border-5 h-100" style={{ borderColor: "#022864" }}>
                                     <Card.Body>
                                         <Card.Title className="fs-4" style={{ fontFamily: "Titan One", color: "#022864" }}>
                                             {event.title}

@@ -160,7 +160,7 @@ const RadioCampBySection = ({ sectionName }: { sectionName: string }) => {
                                 transition={{ delay: index * 0.1, duration: 0.5 }}
                                 className="h-100"
                             >
-                                <Card className="h-100 shadow rounded-3 border-5" style={{ borderColor: "#022864" }}>
+                                <Card className="h-100 shadow rounded-2 border-5" style={{ borderColor: "#022864" }}>
                                     <Card.Body>
                                         <Card.Title className="fs-3 mb-2" style={{ fontFamily: "Titan One" }}>
                                             {post.title}

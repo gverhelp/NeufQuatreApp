@@ -39,7 +39,7 @@ const RadioCamps = () => {
                             initial={{ y: 30, opacity: 0 }}
                             whileInView={{ y: 0, opacity: 1 }}
                             viewport={{ once: true }}
-                            className="fs-4 border-0 position-absolute map-btn"
+                            className="fs-4 border-0 rounded-2 position-absolute map-btn"
                             style={{
                                 top: btn.top,
                                 left: btn.left,

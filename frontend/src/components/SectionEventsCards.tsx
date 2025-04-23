@@ -54,7 +54,7 @@ const SectionEventsCards: React.FC<Props> = ({ events }) => {
                                     className="h-100"
                                 >
                                     <Card
-                                        className="shadow rounded-4 border-5 h-100 section-event-card"
+                                        className="shadow rounded-2 border-5 h-100 section-event-card"
                                         style={{ borderColor: section.color }}
                                     >
                                         <Card.Body>
