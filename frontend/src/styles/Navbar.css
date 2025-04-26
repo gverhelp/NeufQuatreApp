@@ -1,0 +1,33 @@
+.navbar {
+    background-color: white;
+    transition : background-color 0.3s ease-in-out;
+}
+
+.navbar-scrolled {
+    background-color: #022864;
+}
+
+
+.navbar-nav .nav-link {
+    border-bottom: 2px solid transparent;
+    font-family: 'Titan One', 'Roboto', sans-serif;
+    transition: border-bottom 0.5s ease, color 0.5s ease, transform 0.25s ease;
+}
+  
+.navbar-nav .nav-link:hover {
+    color: #ffbe0b;
+    border-bottom: 2px solid #ffbe0b;
+    transform: scale(1.1);
+}
+
+.navbar-nav .nav-link.active {
+    color: #ffbe0b;
+    border-bottom: 2px solid #ffbe0b;
+}
+
+
+.navbar .navbar-brand {
+    font-family: 'Titan One', 'Bungee Shade', 'Archivo Black', 'Abril Fatface', 'Roboto', sans-serif;
+    font-size: 1.5em;
+}
+
