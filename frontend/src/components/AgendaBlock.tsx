@@ -1,27 +1,28 @@
 import { Container, Row, Col, Card, ListGroup, ListGroupItem, Button } from "react-bootstrap";
-import { EventData } from "../types/interfaces";
+import { EventData, AgendaDocument } from "../types/interfaces";
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import interactionPlugin from "@fullcalendar/interaction";
 import bootstrap5Plugin from "@fullcalendar/bootstrap5";
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
+import axios from "axios";
 import "../styles/AgendaPage.css";
 
 
-const legendItems = [
-    { name: "Baladins", color: "#00A0DD" },
-    { name: "Lutins", color: "#CC0739" },
-    { name: "Louveteaux", color: "#186E54" },
-    { name: "Guides", color: "#1D325A" },
-    { name: "Scouts", color: "#015AA9" },
-    { name: "Pionniers", color: "#DA1F29" },
-    { name: "Clan", color: "#FEB800" },
-    { name: "Unité", color: "#000000" },
+const sections = [
+    { name: "Baladins", slug: "baladins", color: "#00A0DD" },
+    { name: "Lutins", slug: "lutins", color: "#CC0739" },
+    { name: "Louveteaux", slug: "louveteaux", color: "#186E54" },
+    { name: "Guides", slug: "guides", color: "#1D325A" },
+    { name: "Éclaireurs", slug: "eclaireurs", color: "#015AA9" },
+    { name: "Pionniers", slug: "pionniers", color: "#DA1F29" },
+    { name: "Clan", slug: "clan", color: "#FEB800" },
+    { name: "Unité", slug: "unite", color: "#000000" },
 ];
 
 const getSectionColor = (sectionName: string): string => {
-    const formattedName = sectionName.charAt(0).toUpperCase() + sectionName.slice(1);
-    const section = legendItems.find(item => item.name === formattedName);
+    const section = sections.find(section => section.slug === sectionName);
 
     return section ? section.color : "#000000";
 };
@@ -29,6 +30,31 @@ const getSectionColor = (sectionName: string): string => {
 
 const AgendaBlock = ({ events } : { events : EventData[] }) => {
     const hasHighlight = events.filter((event) => (event.highlight));
+    const [agendaDocument, setAgendaDocument] = useState<AgendaDocument>();
+    // const [loading, setLoading] = useState<boolean>(true);
+    // const [error, setError] = useState<string | null>(null);
+
+    useEffect(() => {
+        const fetchAgendaDocument = async () => {
+            try {
+                // setLoading(true);
+                const response = await axios.get("http://localhost:8000/api/agenda-document/");
+                const data: AgendaDocument = response.data[0];
+
+                if (data) {
+                    setAgendaDocument(data);
+                }
+
+            } catch (err) {
+                console.error("Erreur lors de la récupération des événements", err);
+                // setError("Impossible de charger les données");
+            } finally {
+                // setLoading(false);
+            }
+        };
+
+        fetchAgendaDocument();
+    }, [events]);
 
     return (
         <Container
@@ -90,7 +116,7 @@ const AgendaBlock = ({ events } : { events : EventData[] }) => {
                 </Col>
 
                 {/* Colonne Légende + Téléchargement */}
-                <Col xl={2} md={12}>
+                <Col xl={2} md={12} className="d-flex flex-column align-content-stretch">
                     <motion.div
                         initial={{ x: 30, opacity: 0 }}
                         whileInView={{ x: 0, opacity: 1 }}
@@ -109,7 +135,7 @@ const AgendaBlock = ({ events } : { events : EventData[] }) => {
                                     variant="flush"
                                     className="d-flex flex-xl-column flex-md-row flex-wrap justify-content-center align-items-center gap-2"
                                 >
-                                    {legendItems.map((section) => (
+                                    {sections.map((section) => (
                                         <ListGroupItem
                                             key={section.name}
                                             className="d-flex align-items-center border-0 ps-0"
@@ -134,39 +160,41 @@ const AgendaBlock = ({ events } : { events : EventData[] }) => {
                     </motion.div>
 
                     {/* Carte téléchargement */}
-                    <motion.div
-                        initial={{ y: 30, opacity: 0 }}
-                        whileInView={{ y: 0, opacity: 1 }}
-                        transition={{ duration: 0.5, delay: 0.3 }}
-                        viewport={{ once: true }}
-                        className="mt-3"
-                    >
-                        <Card className="shadow rounded-2 border-5" style={{ borderColor: "#022864" }}>
-                            <Card.Body className="text-center d-flex flex-column justify-content-between">
-                                <Card.Title
-                                    className="fs-5 pb-2"
-                                    style={{
-                                        fontFamily: "Titan One",
-                                        borderBottom: "2px solid #022864",
-                                    }}
-                                >
-                                    Télécharger l’agenda
-                                </Card.Title>
-                                <p>
-                                    Cliquez sur le bouton ci-dessous pour télécharger l'agenda complet au format PDF.
-                                </p>
-                                <Button
-                                    className="download-btn rounded-2 d-inline-block text-decoration-none text-white text-center"
-                                    style={{ backgroundColor: "#022864", borderColor: "#022864" }}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    href="/path/to/agenda.pdf"
-                                >
-                                    Télécharger l'agenda
-                                </Button>
-                            </Card.Body>
-                        </Card>
-                    </motion.div>
+                    {agendaDocument && (
+                        <motion.div
+                            initial={{ y: 30, opacity: 0 }}
+                            whileInView={{ y: 0, opacity: 1 }}
+                            transition={{ duration: 0.5, delay: 0.3 }}
+                            viewport={{ once: true }}
+                            className="mt-3 h-100"
+                        >
+                            <Card className="shadow rounded-2 border-5 h-100" style={{ borderColor: "#022864" }}>
+                                <Card.Body className="text-center d-flex flex-column justify-content-between">
+                                        <Card.Title
+                                            className="fs-5 pb-2"
+                                            style={{
+                                                fontFamily: "Titan One",
+                                                borderBottom: "2px solid #022864",
+                                            }}
+                                        >
+                                            {agendaDocument.title}
+                                        </Card.Title>
+                                        <Card.Text className="text-center">
+                                            {agendaDocument.description}
+                                        </Card.Text>
+                                        <Button
+                                            className="download-btn rounded-2 d-inline-block text-decoration-none text-white text-center"
+                                            style={{ backgroundColor: "#022864", borderColor: "#022864" }}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            href={agendaDocument.file}
+                                        >
+                                            Télécharger
+                                        </Button>
+                                </Card.Body>
+                            </Card>
+                        </motion.div>
+                    )}
                 </Col>
             </Row>
         </Container>

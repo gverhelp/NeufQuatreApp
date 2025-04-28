@@ -11,3 +11,17 @@
 .download-btn:hover {
     transform: translateY(-2px);
 }
+
+.left-side {
+    overflow-y: scroll;
+    max-height: 80vh;
+    border-right: 5px solid #022864;
+}
+
+@media (max-width: 768px) {
+    .left-side {
+        overflow-y: unset;
+        max-height: none;
+        border-right: 0px solid #022864;
+    }
+}

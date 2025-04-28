@@ -5,16 +5,16 @@ from django.utils.text import slugify
 class Section(models.Model):
     name = models.CharField(max_length=100, blank=False, null=False)
     slug = models.SlugField(max_length=100, blank=True)
-    showcaseImage = models.ImageField(upload_to='images/', blank=True, null=True)
+    showcaseImage = models.ImageField(upload_to='sections-images/', blank=True, null=True)
     description = models.TextField(blank=True, null=True)
     bankAccount = models.CharField(max_length=100, blank=True, null=True)
     email = models.EmailField(max_length=100, blank=True, null=True)
     uniformDescription = models.TextField(blank=True, null=True)
-    uniformImage = models.ImageField(upload_to='images/', blank=True, null=True)
+    uniformImage = models.ImageField(upload_to='uniformes-images/', blank=True, null=True)
     filled = models.IntegerField(default=0, blank=True, null=True)
     
     def save(self, *args, **kwargs):
-        if not self.slug:
+        if not self.slug or self.slug != slugify(self.name):
             self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
@@ -23,7 +23,7 @@ class Section(models.Model):
     
 class SectionImage(models.Model):
     title = models.CharField(max_length=100, blank=True, null=True)
-    image = models.ImageField(upload_to='images/', blank=False, null=False)
+    image = models.ImageField(upload_to='sections-images/', blank=False, null=False)
     section = models.ForeignKey(Section, on_delete=models.CASCADE, blank=False, null=False)
     
     def __str__(self):
@@ -34,7 +34,7 @@ class Chef(models.Model):
     name = models.CharField(max_length=100, blank=False, null=False)
     totem = models.CharField(max_length=100, blank=True, null=True)
     bafouille = models.TextField(blank=True, null=True)
-    image = models.ImageField(upload_to='images/', blank=True, null=True)
+    image = models.ImageField(upload_to='chefs-images/', blank=True, null=True)
     phoneNumber = models.CharField(max_length=100, blank=True, null=True)
     section = models.ForeignKey(Section, on_delete=models.CASCADE, blank=False, null=False)
     

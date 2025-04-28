@@ -53,6 +53,12 @@ export interface EventData {
     highlight: boolean;
 }
 
+export interface AgendaDocument {
+    id: number;
+    title: string;
+    description: string;
+    file: string;
+}
 
 // RadioCamp page Interfaces
 export interface RadioCampData {
@@ -87,4 +93,21 @@ export interface VideoData {
     post: number;
     video: string;
     caption: string;
+}
+
+
+// Documents and Infos page Interfaces
+export interface DocumentData {
+    id: number;
+    title: string;
+    description: string;
+    file: string;
+}
+
+export interface InformationData {
+    id: number;
+    title: string;
+    description: string;
+    image: string;
+    file: string;
 }

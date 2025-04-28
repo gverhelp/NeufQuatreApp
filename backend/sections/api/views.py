@@ -13,10 +13,8 @@ class SectionViewSet(viewsets.ModelViewSet):
 class SectionImageViewSet(viewsets.ModelViewSet):
     queryset = SectionImage.objects.select_related('section').all()
     serializer_class = SectionImageSerializer
-    permission_classes = [AllowAny]
 
 
 class ChefViewSet(viewsets.ModelViewSet):
     queryset = Chef.objects.select_related('section').all()
     serializer_class = ChefSerializer
-    permission_classes = [AllowAny]

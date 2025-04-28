@@ -21,7 +21,7 @@ const sectionsPath: SectionPath[] = [
     { name: "Lutins", path: "/sections/lutins" },
     { name: "Louveteaux", path: "/sections/louveteaux" },
     { name: "Guides", path: "/sections/guides" },
-    { name: "Scouts", path: "/sections/scouts" },
+    { name: "Éclaireurs", path: "/sections/eclaireurs" },
     { name: "Pionniers", path: "/sections/pionniers" },
     { name: "Clan", path: "/sections/clan" },
     { name: "Unité", path: "/sections/unite" },

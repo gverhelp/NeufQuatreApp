@@ -133,22 +133,20 @@ const RadioCampBySection = ({ sectionName }: { sectionName: string }) => {
     return (
         <Container fluid className="py-4 px-5" style={{ minHeight: "80vh", backgroundImage: "url('/background7.png')", backgroundSize: 'cover', backgroundPosition: 'center center' }}>
             <Container>
-            <h1 className="text-center" style={{ fontFamily: "Titan One" }}>
-                {radio_camp?.title} - {sectionName}
-            </h1>
-            <h4 className="text-center text-muted mb-4" style={{ fontFamily: "Titan One" }}>
-                {radio_camp?.start_date && new Date(radio_camp.start_date).toLocaleString("fr-BE", { dateStyle: "short" })}
-                {" - "} 
-                {radio_camp?.end_date && new Date(radio_camp.end_date).toLocaleString("fr-BE", { dateStyle: "short" })}
-            </h4>
+                <h1 className="text-center" style={{ fontFamily: "Titan One" }}>
+                    {radio_camp?.title} - {sectionName}
+                </h1>
+                <h4 className="text-center text-muted mb-4" style={{ fontFamily: "Titan One" }}>
+                    {radio_camp?.start_date && new Date(radio_camp.start_date).toLocaleString("fr-BE", { dateStyle: "short" })}
+                    {" - "} 
+                    {radio_camp?.end_date && new Date(radio_camp.end_date).toLocaleString("fr-BE", { dateStyle: "short" })}
+                </h4>
             </Container>
 
             {radio_camp?.posts?.length === 0 ? (
-                <Container className="position-relative" style={{ top: "20vh" }}>
-                    <Alert variant="primary" className="text-center">
-                        <h4 className="text-center" style={{ fontFamily: "Titan One" }}>Aucun post pour le moment.</h4>
-                        <div className="text-center" style={{ fontFamily: "Titan One" }}>Venez nous voir plus tard !</div>
-                    </Alert>
+                <Container className="position-relative text-center" style={{ top: "20vh" }}>
+                    <h4 style={{ fontFamily: "Titan One" }}>Aucun post pour le moment.</h4>
+                    <div style={{ fontFamily: "Titan One" }}>Venez nous voir plus tard !</div>
                 </Container>
             ) : (
                 <Row className="g-4">
@@ -165,8 +163,19 @@ const RadioCampBySection = ({ sectionName }: { sectionName: string }) => {
                                         <Card.Title className="fs-3 mb-2" style={{ fontFamily: "Titan One" }}>
                                             {post.title}
                                         </Card.Title>
-                                        <Card.Subtitle className="mb-4 text-muted">{post.date}</Card.Subtitle>
-                                        <Card.Text className="border-top-0 border-start-0 border-end-0 pb-2" style={{ border: "2px, solid, #022864" }}>{post.content}</Card.Text>
+                                        <Card.Subtitle className="mb-4 text-muted">
+                                            {post.date}
+                                        </Card.Subtitle>
+                                        {(() => {
+                                            const textStyle = (post.photos.length > 0 || post.videos.length > 0) 
+                                                ? { borderBottom: "2px solid #022864" } 
+                                                : {};
+                                            return (
+                                                <Card.Text className="pb-2" style={textStyle}>
+                                                    {post.content}
+                                                </Card.Text>
+                                            );
+                                        })()}
                                         {post.photos.length > 0 && (
                                             <Row className="g-2">
                                                 {post.photos.map((photo) => (

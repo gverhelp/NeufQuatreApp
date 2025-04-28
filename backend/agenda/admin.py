@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Event
+from .models import Event, AgendaDocument
 
 # Register your models here.
 class EventAdmin(admin.ModelAdmin):
@@ -11,3 +11,4 @@ class EventAdmin(admin.ModelAdmin):
     date_hierarchy = 'start_time'
     
 admin.site.register(Event, EventAdmin)
+admin.site.register(AgendaDocument)

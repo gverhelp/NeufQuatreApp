@@ -11,7 +11,7 @@ const RadioCamps = () => {
         { label: "Lutins", top: "70%", left: "27%", path: "/radio-camps/lutins", delay: 0.3 },
         { label: "Louveteaux", top: "25%", left: "47%", path: "/radio-camps/louveteaux", delay: 0.6 },
         { label: "Guides", top: "50%", left: "48%", path: "/radio-camps/guides", delay: 0.9 },
-        { label: "Scouts", top: "22%", left: "70%", path: "/radio-camps/scouts", delay: 1.2 },
+        { label: "Éclaireurs", top: "22%", left: "70%", path: "/radio-camps/eclaireurs", delay: 1.2 },
         { label: "Pionniers", top: "75%", left: "83%", path: "/radio-camps/pionniers", delay: 1.5 },
     ];
 

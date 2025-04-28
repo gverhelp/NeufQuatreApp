@@ -51,7 +51,7 @@ function App() {
                 <Route path="/sections/lutins" element={ <BySectionPage sectionName="Lutins"/> }/>
                 <Route path="/sections/louveteaux" element={ <BySectionPage sectionName="Louveteaux"/> }/>
                 <Route path="/sections/guides" element={ <BySectionPage sectionName="Guides"/> }/>
-                <Route path="/sections/scouts" element={ <BySectionPage sectionName="Scouts"/> }/>
+                <Route path="/sections/eclaireurs" element={ <BySectionPage sectionName="Eclaireurs"/> }/>
                 <Route path="/sections/pionniers" element={ <BySectionPage sectionName="Pionniers"/> }/>
                 <Route path="/sections/clan" element={ <BySectionPage sectionName="Clan"/> }/>
                 <Route path="/sections/unite" element={<BySectionPage sectionName="Unite"/> }/>
@@ -61,7 +61,7 @@ function App() {
                 <Route path="radio-camps/lutins" element={ <RadioCampBySection sectionName="Lutins"/> }/>
                 <Route path="radio-camps/louveteaux" element={ <RadioCampBySection sectionName="Louveteaux"/> }/>
                 <Route path="radio-camps/guides" element={ <RadioCampBySection sectionName="Guides"/> }/>
-                <Route path="radio-camps/scouts" element={ <RadioCampBySection sectionName="Scouts"/> }/>
+                <Route path="radio-camps/eclaireurs" element={ <RadioCampBySection sectionName="Eclaireurs"/> }/>
                 <Route path="radio-camps/pionniers" element={ <RadioCampBySection sectionName="Pionniers"/> }/>
 
                 <Route path="*" element={<NotFound/>} />

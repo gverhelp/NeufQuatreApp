@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'sections',
     'agenda',
     'radio_camp',
+    'infos',
     
     'rest_framework',
     'corsheaders',

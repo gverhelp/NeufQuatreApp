@@ -90,8 +90,8 @@
     --border-color: #1D335A;
 }
 
-.group-card[data-group="scouts"],
-.group-card-sections[data-group="scouts"] {
+.group-card[data-group="éclaireurs"],
+.group-card-sections[data-group="éclaireurs"] {
     --border-color: #005AAA;
 }
 
