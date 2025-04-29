@@ -12,7 +12,7 @@ function Footer() {
                     <Col xs={12} md={4} className="mb-3 mb-md-0">
                         <h5 className="mb-3" style={{ color: "#FFBE0A", fontFamily: "Titan One" }}>À Propos</h5>
                         <p className="mb-1">LC94 Saint-Augustin | Unité scoute</p>
-                        <p className="mb-1">Avenue Saint-Augustin, 14</p>
+                        <p className="mb-1">Avenue Saint-Augustin, 16</p>
                         <p className="mb-0">(B) - 1190 Bruxelles Forest</p>
                     </Col>
 

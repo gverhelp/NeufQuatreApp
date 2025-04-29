@@ -18,10 +18,10 @@ function ContentBlock({ bgColor = "", bgImg = "", title, text, imgSrc, reverse =
     : { backgroundColor: bgColor };
   
     return (
-        <Container fluid className="py-5 overflow-x-hidden d-flex justify-content-center" style={containerStyle}>
-            <Row className="align-items-center w-100 flex-column flex-md-row">
+        <Container fluid className="p-5 d-flex justify-content-center" style={containerStyle}>
+            <Row className="align-items-center flex-column flex-md-row">
 
-                <Col className={`d-flex justify-content-center ${reverse ? "order-1 order-md-2" : "order-2 order-md-1"}`}>
+                <Col lg={6} className={`d-flex justify-content-center ${reverse ? "order-1 order-lg-2" : "order-2 order-lg-1"}`}>
                     <motion.div
                         initial={{ x: reverse ? 100 : -100, opacity: 0 }}
                         whileInView={{ x: 0, opacity: 1 }}
@@ -32,7 +32,7 @@ function ContentBlock({ bgColor = "", bgImg = "", title, text, imgSrc, reverse =
                     </motion.div>
                 </Col>
 
-                <Col className={`d-flex align-items-center justify-content-center ${reverse ? "order-2 order-md-1" : "order-1 order-md-2"}`}>
+                <Col lg={6} className={`d-flex align-items-center justify-content-center ${reverse ? "order-2 order-lg-1" : "order-1 order-lg-2"}`}>
                     <motion.div
                         initial={{ x: reverse ? -100 : 100, opacity: 0 }}
                         whileInView={{ x: 0, opacity: 1 }}
@@ -40,7 +40,7 @@ function ContentBlock({ bgColor = "", bgImg = "", title, text, imgSrc, reverse =
                         viewport={{ once: true }}
                     >
                         <div className="text-center p-3 w-100" style={{ maxWidth: "600px" }}>
-                            <h1 style={{ fontFamily: "Titan One" }}>{title}</h1>
+                            <h1 className="pb-3" style={{ fontFamily: "Titan One" }}>{title}</h1>
                             <p className="fs-5 fw-semibold" style={{ fontFamily: "Roboto" }}>{text}</p>
                         </div>
                     </motion.div>

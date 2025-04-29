@@ -109,5 +109,7 @@ export interface InformationData {
     title: string;
     description: string;
     image: string;
-    file: string;
+    video: string;
+    videoLink: string;
+    link: string;
 }

@@ -10,5 +10,14 @@ class EventAdmin(admin.ModelAdmin):
     ordering = ['start_time']
     date_hierarchy = 'start_time'
     
+class AgendaDocumentAdmin(admin.ModelAdmin):
+    list_display = ['title', 'created_at', 'updated_at']
+    
+    def has_add_permission(self, request):
+        # Autoriser l'ajout uniquement s'il n'y a pas d'objets
+        if AgendaDocument.objects.count() >= 1:
+            return False
+        return super().has_add_permission(request)
+    
 admin.site.register(Event, EventAdmin)
-admin.site.register(AgendaDocument)
+admin.site.register(AgendaDocument, AgendaDocumentAdmin)

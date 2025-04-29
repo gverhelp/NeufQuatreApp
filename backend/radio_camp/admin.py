@@ -9,9 +9,12 @@ class VideoInline(admin.TabularInline):
     model = Video
     extra = 1
 
+
 class PostAdmin(admin.ModelAdmin):
     inlines = [PhotoInline, VideoInline]
     list_display = ['title', 'radio_camp', 'date']
+    search_fields = ['title', 'radio_camp__section__name', 'radio_camp__title']
+    ordering = ['radio_camp__section', 'date']
     list_filter = ['radio_camp__section']
     
 class RadioCampAdmin(admin.ModelAdmin):

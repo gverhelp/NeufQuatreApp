@@ -35,4 +35,4 @@ class SectionSerializer(serializers.ModelSerializer):
             'uniformDescription', 'uniformImage', 'filled',
             'section_images', 'chefs'
         ]
-        read_only_fields = ['slug']
+        read_only_fields = ['slug', 'name']

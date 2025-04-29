@@ -131,7 +131,7 @@ const RadioCampBySection = ({ sectionName }: { sectionName: string }) => {
 
     // Affichage des posts
     return (
-        <Container fluid className="py-4 px-5" style={{ minHeight: "80vh", backgroundImage: "url('/background7.png')", backgroundSize: 'cover', backgroundPosition: 'center center' }}>
+        <Container fluid className="py-4 px-5" style={{ height: "85vh", overflowY: "scroll", backgroundImage: "url('/background7.png')", backgroundSize: 'cover', backgroundPosition: 'center center' }}>
             <Container>
                 <h1 className="text-center" style={{ fontFamily: "Titan One" }}>
                     {radio_camp?.title} - {sectionName}
@@ -144,7 +144,7 @@ const RadioCampBySection = ({ sectionName }: { sectionName: string }) => {
             </Container>
 
             {radio_camp?.posts?.length === 0 ? (
-                <Container className="position-relative text-center" style={{ top: "20vh" }}>
+                <Container className="position-relative text-center" style={{ top: "22.5vh" }}>
                     <h4 style={{ fontFamily: "Titan One" }}>Aucun post pour le moment.</h4>
                     <div style={{ fontFamily: "Titan One" }}>Venez nous voir plus tard !</div>
                 </Container>
@@ -163,7 +163,7 @@ const RadioCampBySection = ({ sectionName }: { sectionName: string }) => {
                                         <Card.Title className="fs-3 mb-2" style={{ fontFamily: "Titan One" }}>
                                             {post.title}
                                         </Card.Title>
-                                        <Card.Subtitle className="mb-4 text-muted">
+                                        <Card.Subtitle className="mb-3 text-muted">
                                             {post.date}
                                         </Card.Subtitle>
                                         {(() => {

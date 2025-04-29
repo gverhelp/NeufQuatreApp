@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils.text import slugify
+from django.core.exceptions import ValidationError
 
 # Create your models here.
 class Section(models.Model):
@@ -13,9 +14,17 @@ class Section(models.Model):
     uniformImage = models.ImageField(upload_to='uniformes-images/', blank=True, null=True)
     filled = models.IntegerField(default=0, blank=True, null=True)
     
+    def clean(self):
+        if not self.pk:
+            raise ValidationError("Impossible d'ajouter une section supplémentaire.")
+        
+    def delete(self, *args, **kwargs):
+        raise ValidationError("Impossible de supprimer une section.")
+
     def save(self, *args, **kwargs):
         if not self.slug or self.slug != slugify(self.name):
             self.slug = slugify(self.name)
+        self.full_clean()  # Appelle clean() avant de sauvegarder
         super().save(*args, **kwargs)
 
     def __str__(self):
