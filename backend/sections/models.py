@@ -15,7 +15,7 @@ class Section(models.Model):
     filled = models.IntegerField(default=0, blank=True, null=True)
     
     def clean(self):
-        if not self.pk:
+        if not self.pk and Section.objects.count() >= 9:
             raise ValidationError("Impossible d'ajouter une section supplémentaire.")
         
     def delete(self, *args, **kwargs):

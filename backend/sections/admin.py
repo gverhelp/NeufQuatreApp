@@ -15,6 +15,10 @@ class SectionAdmin(admin.ModelAdmin):
     readonly_fields = ("slug", 'name')
 
     def has_add_permission(self, request):
+        if Section.objects.count() < 9:
+            return True
+        else:
+            self.message_user(request, "Impossible d'ajouter une section supplémentaire.", level=messages.ERROR)
         return False
     
     def has_delete_permission(self, request, obj=None):
