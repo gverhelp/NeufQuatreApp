@@ -1,7 +1,7 @@
 #!/bin/sh
 
 pipenv run python manage.py migrate
-# pipenv run python manage.py collectstatic --noinput
+pipenv run python manage.py collectstatic --noinput
 
 # Créer le superutilisateur si les variables d'environnement sont définies
 if [ "$DJANGO_SUPERUSER_USERNAME" ] && [ "$DJANGO_SUPERUSER_EMAIL" ] && [ "$DJANGO_SUPERUSER_PASSWORD" ]
