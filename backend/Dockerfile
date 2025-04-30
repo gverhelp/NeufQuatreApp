@@ -11,4 +11,5 @@ RUN pip install pipenv && pipenv install --deploy --ignore-pipfile
 COPY . .
 
 RUN chmod +x entrypoint.sh
+
 ENTRYPOINT ["./entrypoint.sh"]
