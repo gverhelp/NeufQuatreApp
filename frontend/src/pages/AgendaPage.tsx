@@ -10,6 +10,7 @@ import { EventData } from "../types/interfaces";
 
 const AgendaPage = () => {
     const [events, setEvents] = useState<EventData[]>([]);
+    const baseURL = import.meta.env.VITE_API_URL;
     // const [loading, setLoading] = useState<boolean>(true);
     // const [error, setError] = useState<string | null>(null);
 
@@ -17,7 +18,7 @@ const AgendaPage = () => {
         const fetchEvents = async () => {
             try {
                 // setLoading(true);
-                const response = await axios.get("http://localhost:8000/api/events/");
+                const response = await axios.get(`${baseURL}/events/`);
                 const data: EventData[] = response.data;
 
                 if (data) {

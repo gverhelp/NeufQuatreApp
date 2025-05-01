@@ -28,6 +28,7 @@ const sectionsPath: SectionPath[] = [
 ];
 
 const BySectionPage = ({ sectionName }: { sectionName: string }) => {
+    const baseURL = import.meta.env.VITE_API_URL;
     const [sectionData, setSectionData] = useState<SectionData | null>(null);
     // const [loading, setLoading] = useState<boolean>(true);
     // const [error, setError] = useState<string | null>(null);
@@ -37,7 +38,7 @@ const BySectionPage = ({ sectionName }: { sectionName: string }) => {
             try {
                 // setLoading(true);
 
-                const response = await axios.get(`http://localhost:8000/api/sections/${sectionName.toLowerCase()}`);
+                const response = await axios.get(`${baseURL}/sections/${sectionName.toLowerCase()}`);
                 const data: SectionData = response.data;
                 
                 if (!data) {

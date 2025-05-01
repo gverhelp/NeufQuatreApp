@@ -16,4 +16,5 @@ else
     echo "Superuser not created because required environment variables are not set."
 fi
 
-pipenv run python manage.py runserver 0.0.0.0:8000
+# Exécuter la commande passée en argument
+exec "$@"

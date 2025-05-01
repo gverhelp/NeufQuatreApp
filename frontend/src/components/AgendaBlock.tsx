@@ -29,6 +29,7 @@ const getSectionColor = (sectionName: string): string => {
 
 
 const AgendaBlock = ({ events } : { events : EventData[] }) => {
+    const baseURL = import.meta.env.VITE_API_URL;
     const hasHighlight = events.filter((event) => (event.highlight));
     const [agendaDocument, setAgendaDocument] = useState<AgendaDocument>();
     // const [loading, setLoading] = useState<boolean>(true);
@@ -38,7 +39,7 @@ const AgendaBlock = ({ events } : { events : EventData[] }) => {
         const fetchAgendaDocument = async () => {
             try {
                 // setLoading(true);
-                const response = await axios.get("http://localhost:8000/api/agenda-document/");
+                const response = await axios.get(`${baseURL}/agenda-document/`);
                 const data: AgendaDocument = response.data[0];
 
                 if (data) {

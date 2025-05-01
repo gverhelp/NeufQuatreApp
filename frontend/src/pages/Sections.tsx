@@ -22,6 +22,7 @@ const sections = [
 
 
 const Sections = () => {
+    const baseURL = import.meta.env.VITE_API_URL;
     const [sectionImages, setSectionImages] = useState<SectionImagesData[]>([]);
     // const [loading, setLoading] = useState<boolean>(true);
     // const [error, setError] = useState<string | null>(null);
@@ -31,7 +32,7 @@ const Sections = () => {
             try {
                 // setLoading(true);
 
-                const response = await axios.get("http://localhost:8000/api/section-images/");
+                const response = await axios.get(`${baseURL}/section-images/`);
                 const data: SectionImagesData[] = response.data;
                 const selectedImages = data.filter(image => image.section === "global")
                 // .map(image => image.image)

@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 
 
 const InformationsPage = () => {
+    const baseURL = import.meta.env.VITE_API_URL;
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);
     const [documents, setDocuments] = useState<DocumentData[]>([]);
@@ -19,8 +20,8 @@ const InformationsPage = () => {
 
             try {
                 const [docRes, infoRes] = await Promise.all([
-                    axios.get('http://localhost:8000/api/documents/'),
-                    axios.get('http://localhost:8000/api/infos/')
+                    axios.get(`${baseURL}/documents/`),
+                    axios.get(`${baseURL}/infos/`)
                 ]);
 
                 setDocuments(docRes.data);

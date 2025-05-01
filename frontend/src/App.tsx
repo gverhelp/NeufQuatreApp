@@ -12,7 +12,7 @@ import BySectionPage from './pages/BySectionPage';
 import AgendaPage from './pages/AgendaPage';
 import RadioCampBySection from './pages/RadioCampBySection';
 import RadioCamps from './pages/RadioCamps';
-import NotFound from './pages/NotFound';
+// import NotFound from './pages/NotFound';
 import InformationsPage from './pages/InformationsPage';
 
 import NavigationBar from "./components/Navbar";
@@ -64,7 +64,7 @@ function App() {
                 <Route path="radio-camps/eclaireurs" element={ <RadioCampBySection sectionName="Eclaireurs"/> }/>
                 <Route path="radio-camps/pionniers" element={ <RadioCampBySection sectionName="Pionniers"/> }/>
 
-                <Route path="*" element={<NotFound/>} />
+                {/* <Route path="*" element={<NotFound/>} /> */}
 
                 </Routes>
 

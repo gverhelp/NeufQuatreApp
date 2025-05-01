@@ -7,6 +7,7 @@ import ParallaxBlock from '../components/ParallaxBlock';
 
   
 const Home: React.FC = () => {
+    const baseURL = import.meta.env.VITE_API_URL;
     const [accueilItems, setAccueilItems] = useState<AccueilItem[]>([]);
     // const [loading, setLoading] = useState<boolean>(true);
     // const [error, setError] = useState<string | null>(null);
@@ -16,7 +17,7 @@ const Home: React.FC = () => {
             // setLoading(true);
 
             try {
-                const response = await axios.get<AccueilItem[]>('http://127.0.0.1:8000/api/accueil/');
+                const response = await axios.get<AccueilItem[]>(`${baseURL}/accueil/`);
                 const data: AccueilItem[] = response.data;
 
                 setAccueilItems(data);

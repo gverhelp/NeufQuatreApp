@@ -20,6 +20,7 @@ const StaffCard = ({ member }: { member: ChefData }) => {
 
 
 const StaffBlock = ( { sectionName }: { sectionName: string } ) => {
+    const baseURL = import.meta.env.VITE_API_URL;
     // const [loading, setLoading] = useState<boolean>(true);
     // const [error, setError] = useState<string | null>(null);
     const [chefsData, setChefsData] = useState<ChefData[]>([]);
@@ -29,7 +30,7 @@ const StaffBlock = ( { sectionName }: { sectionName: string } ) => {
             try {
                 // setLoading(true);
 
-                const response = await axios.get("http://localhost:8000/api/chefs/");
+                const response = await axios.get(`${baseURL}/chefs/`);
                 const data: ChefData[] = response.data;
                 const selectedChefs = data.filter(member => member.section.toLowerCase() === sectionName.toLowerCase());
                 

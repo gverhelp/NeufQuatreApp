@@ -7,6 +7,7 @@ import { RadioCampData } from '../types/interfaces';
 import "../styles/RadioCamps.css";
 
 const RadioCampBySection = ({ sectionName }: { sectionName: string }) => {
+    const baseURL = import.meta.env.VITE_API_URL;
     const [password, setPassword] = useState("");
     const [validated, setValidated] = useState(false);
     const [loading, setLoading] = useState(false);
@@ -34,7 +35,7 @@ const RadioCampBySection = ({ sectionName }: { sectionName: string }) => {
         setError("");
 
         try {
-            const response = await axios.post(`http://localhost:8000/api/radio-camps/${sectionName.toLowerCase()}/verify-password/`, {
+            const response = await axios.post(`${baseURL}/radio-camps/${sectionName.toLowerCase()}/verify-password/`, {
                 password,
             });
 
@@ -77,7 +78,7 @@ const RadioCampBySection = ({ sectionName }: { sectionName: string }) => {
 
         const fetchPosts = async () => {
             try {
-                const response = await axios.get(`http://localhost:8000/api/radio-camps/${sectionName.toLowerCase()}`);
+                const response = await axios.get(`${baseURL}/radio-camps/${sectionName.toLowerCase()}`);
 
                 setRadioCamp(response.data);
             } catch (err) {

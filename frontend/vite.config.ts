@@ -7,5 +7,8 @@ export default defineConfig({
   server: {
     host: '0.0.0.0', // Cela permet d'écouter sur toutes les interfaces réseau
     port: 5173,
-},
+  },
+  build: {
+    chunkSizeWarningLimit: 1000 // en kilobytes
+  }
 })
