@@ -13,7 +13,9 @@ services:
       - mynetwork
 
   backend:
-    build: ./backend
+    build: 
+      context: ./backend
+      dockerfile: Dockerfile
     volumes:
       - ./backend:/app 
     command: pipenv run python manage.py runserver 0.0.0.0:8000
@@ -27,7 +29,9 @@ services:
       - mynetwork
 
   frontend:
-    build: ./frontend
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
     volumes:
       - ./frontend:/app
     command: sh -c "npm install && npm run dev"

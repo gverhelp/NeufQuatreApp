@@ -1,9 +1,10 @@
 version: '3.9'
 
 services:
-  backend:
+  web:
     build:
       context: ./backend
+      dockerfile: Dockerfile.prod
     command: pipenv run gunicorn core.wsgi:application --bind 0.0.0.0:8000
     volumes:
       - static_volume:/app/staticfiles
@@ -25,14 +26,14 @@ services:
   nginx:
     build:
       context: .
-      dockerfile: nginx/Dockerfile
+      dockerfile: nginx/Dockerfile.prod
     ports:
       - 80:80
     volumes:
       - static_volume:/app/staticfiles
       - media_volume:/app/mediafiles
     depends_on:
-      - backend
+      - web
 
 volumes:
   postgres_data:
