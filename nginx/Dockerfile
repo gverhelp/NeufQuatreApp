@@ -1,3 +1,4 @@
+### NODE
 FROM node:23-slim AS builder
 
 WORKDIR /app
@@ -9,7 +10,7 @@ RUN rm -rf node_modules package-lock.json && \
 RUN npm install && npm run build
 
 
-
+### NGINX
 FROM nginx:1.28-alpine
 
 RUN rm /etc/nginx/conf.d/default.conf
