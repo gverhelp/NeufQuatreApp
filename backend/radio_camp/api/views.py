@@ -1,29 +1,29 @@
-from rest_framework import viewsets
 from ..models import RadioCamp, Post, Photo, Video, Section
 from .serializers import RadioCampSerializer, PostSerializer, PhotoSerializer, VideoSerializer
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.permissions import AllowAny
+from rest_framework.viewsets import ReadOnlyModelViewSet
 from django.shortcuts import get_object_or_404
 from django.contrib.auth.hashers import check_password
 from django.views.decorators.csrf import csrf_exempt
 from django.utils.decorators import method_decorator
 
 # ViewSets for the API
-class RadioCampViewSet(viewsets.ModelViewSet):
+class RadioCampViewSet(ReadOnlyModelViewSet):
     queryset = RadioCamp.objects.all()
     serializer_class = RadioCampSerializer
     lookup_field = 'section__slug'
 
-class PostViewSet(viewsets.ModelViewSet):
+class PostViewSet(ReadOnlyModelViewSet):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
     
-class PhotoViewSet(viewsets.ModelViewSet):
+class PhotoViewSet(ReadOnlyModelViewSet):
     queryset = Photo.objects.all()
     serializer_class = PhotoSerializer
     
-class VideoViewSet(viewsets.ModelViewSet):
+class VideoViewSet(ReadOnlyModelViewSet):
     queryset = Video.objects.all()
     serializer_class = VideoSerializer
     

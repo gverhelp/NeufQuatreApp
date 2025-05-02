@@ -1,13 +1,13 @@
-from rest_framework import viewsets
 from ..models import Info, Document
 from .serializers import InfoSerializer, DocumentSerializer
+from rest_framework.viewsets import ReadOnlyModelViewSet
 
 
-class InfoViewSet(viewsets.ModelViewSet):
+class InfoViewSet(ReadOnlyModelViewSet):
     queryset = Info.objects.all()
     serializer_class = InfoSerializer
 
 
-class DocumentViewSet(viewsets.ModelViewSet):
+class DocumentViewSet(ReadOnlyModelViewSet):
     queryset = Document.objects.all()
     serializer_class = DocumentSerializer

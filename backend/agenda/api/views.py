@@ -1,13 +1,13 @@
-from rest_framework import viewsets
 from ..models import Event, AgendaDocument
 from .serializers import EventSerializer, AgendaDocumentSerializer
+from rest_framework.viewsets import ReadOnlyModelViewSet
 
 
-class EventViewSet(viewsets.ModelViewSet):
+class EventViewSet(ReadOnlyModelViewSet):
     queryset = Event.objects.all()
     serializer_class = EventSerializer
 
 
-class AgendaDocumentViewSet(viewsets.ModelViewSet):
+class AgendaDocumentViewSet(ReadOnlyModelViewSet):
     queryset = AgendaDocument.objects.all()
     serializer_class = AgendaDocumentSerializer

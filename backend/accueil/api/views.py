@@ -1,9 +1,10 @@
-from rest_framework import viewsets
+
 from ..models import AccueilItem
 from .serializers import AccueilItemSerializer
 from rest_framework.exceptions import ValidationError
+from rest_framework.viewsets import ReadOnlyModelViewSet
 
-class AccueilItemViewSet(viewsets.ModelViewSet):
+class AccueilItemViewSet(ReadOnlyModelViewSet):
     queryset = AccueilItem.objects.all()
     serializer_class = AccueilItemSerializer
     
