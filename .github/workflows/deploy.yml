@@ -28,8 +28,8 @@ jobs:
             git pull origin main
 
             echo "Rebuilding containers"
-            docker-compose down
-            docker-compose build
+            docker-compose -f docker-compose.prod.yml down
+            docker-compose -f docker-compose.prod.yml build
 
             echo "Checking Django configuration"
             docker-compose run --rm backend pipenv run python manage.py check
@@ -39,7 +39,7 @@ jobs:
             fi
 
             echo "Launching app"
-            docker-compose up -d --remove-orphans
+            docker-compose -f docker-compose.prod.yml up -d --remove-orphans
 
             echo "Deployment successful"
           EOF
