@@ -32,7 +32,7 @@ jobs:
             docker-compose -f docker-compose.prod.yml build
 
             echo "Checking Django configuration"
-            docker-compose -f docker-compose.prod.yml run --rm backend pipenv run python manage.py check
+            docker-compose -f docker-compose.prod.yml run --rm web pipenv run python manage.py check
             if [ $? -ne 0 ]; then
               echo "Django check failed — deployment aborted."
               exit 1
