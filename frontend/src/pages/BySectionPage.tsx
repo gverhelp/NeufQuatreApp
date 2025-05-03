@@ -91,17 +91,21 @@ const BySectionPage = ({ sectionName }: { sectionName: string }) => {
 
             <Container fluid className="py-3 sticky-container sticky-top" style={{ backgroundColor: "#022864", zIndex: 1050 }}>
                 <Row className="g-3">
-                    {sectionsPath.map((section, index) => (
-                        <Col key={index} className="text-center">
-                            <Link to={section.path} className="text-decoration-none text-reset">
-                                <div className="group-card-sections rounded-2" data-group={section.slug}>
-                                    <h2 className="fs-4 m-0" style={{ fontFamily: "Titan One" }}>
-                                        {section.name}
-                                    </h2>
-                                </div>
-                            </Link>
-                        </Col>
-                    ))}
+                    {sectionsPath
+                        .filter((section) => (
+                            section.slug !== sectionName.toLowerCase()
+                        ))
+                        .map((section, index) => (
+                            <Col key={index} className="text-center">
+                                <Link to={section.path} className="text-decoration-none text-reset">
+                                    <div className="group-card-sections rounded-2" data-group={section.slug}>
+                                        <h2 className="fs-4 m-0" style={{ fontFamily: "Titan One" }}>
+                                            {section.name}
+                                        </h2>
+                                    </div>
+                                </Link>
+                            </Col>
+                        ))}
                 </Row>
             </Container>
 

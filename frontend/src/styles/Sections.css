@@ -91,7 +91,7 @@
 }
 
 .group-card[data-group="eclaireurs"],
-.group-card-sections[data-group="éclaireurs"] {
+.group-card-sections[data-group="eclaireurs"] {
     --border-color: #005AAA;
 }
 
@@ -106,7 +106,7 @@
 }
 
 .group-card[data-group="unite"],
-.group-card-sections[data-group="unité"] {
+.group-card-sections[data-group="unite"] {
     --border-color: black;
 }
 

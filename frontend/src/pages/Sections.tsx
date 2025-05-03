@@ -10,14 +10,14 @@ import '../styles/Sections.css';
 
 
 const sections = [
-    { name: "Baladins", description: "Enfants de 6 à 8 ans (mixte)", path: "/sections/baladins" },
-    { name: "Lutins", description: "Filles de 8 à 12 ans", path: "/sections/lutins" },
-    { name: "Louveteaux", description: "Garçons de 8 à 12 ans", path: "/sections/louveteaux" },
-    { name: "Guides", description: "Filles de 12 à 16 ans", path: "/sections/guides" },
-    { name: "Éclaireurs", description: "Garçons de 12 à 16 ans", path: "/sections/eclaireurs" },
-    { name: "Pionniers", description: "Adolescents de 16 à 18 ans (mixte)", path: "/sections/pionniers" },
-    { name: "Clan", description: "Les chefs à la retraite", path: "/sections/clan" },
-    { name: "Unité", description: "Les chefs d'Unité", path: "/sections/unite" },
+    { name: "Baladins", slug: "baladins", description: "Enfants de 6 à 8 ans (mixte)", path: "/sections/baladins" },
+    { name: "Lutins", slug: "lutins", description: "Filles de 8 à 12 ans", path: "/sections/lutins" },
+    { name: "Louveteaux", slug: "louveteaux", description: "Garçons de 8 à 12 ans", path: "/sections/louveteaux" },
+    { name: "Guides", slug: "guides", description: "Filles de 12 à 16 ans", path: "/sections/guides" },
+    { name: "Éclaireurs", slug: "eclaireurs", description: "Garçons de 12 à 16 ans", path: "/sections/eclaireurs" },
+    { name: "Pionniers", slug: "pionniers", description: "Adolescents de 16 à 18 ans (mixte)", path: "/sections/pionniers" },
+    { name: "Clan", slug: "clan", description: "Les chefs à la retraite", path: "/sections/clan" },
+    { name: "Unité", slug: "unite", description: "Les chefs d'Unité", path: "/sections/unite" },
 ];
 
 
@@ -73,13 +73,13 @@ const Sections = () => {
                                 className="text-center"
                             >
                                 <motion.div
-                                    initial={{ x: -100, opacity: 0 }}
+                                    initial={{ x: -30, opacity: 0 }}
                                     whileInView={{ x: 0, opacity: 1 }}
                                     transition={{ type: "spring", stiffness: 100 }}
                                     viewport={{ once: true }}
                                 >
                                     <Link to={section.path} className="text-decoration-none text-reset">
-                                        <div className="group-card rounded-2" data-group={section.name.toLowerCase()}>
+                                        <div className="group-card rounded-2" data-group={section.slug}>
                                             <h1 className="fs-3" style={{ fontFamily: "Titan One" }}>{section.name}</h1>
                                             <p className="fs-4 fw-medium">{section.description}</p>
                                         </div>
