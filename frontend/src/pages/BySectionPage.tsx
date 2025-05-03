@@ -112,20 +112,18 @@ const BySectionPage = ({ sectionName }: { sectionName: string }) => {
                 />
             )}
 
-            <Container fluid className="py-4 text-center sticky-bottom" style={{ backgroundColor: "#022864", zIndex: 900 }}>
-                {sectionName.toLowerCase() !== "unite" && sectionName.toLowerCase() !== "clan" && (
-                    <>
-                        <h3 className="fs-3 mb-3 text-white" style={{ fontFamily: "Titan One" }}>La section est remplie à</h3>
-                        <ProgressBar 
-                            animated
-                            now={sectionData?.filled} 
-                            label={`${sectionData?.filled}%`}
-                            className="mx-5 fw-bold"
-                            variant="warning"
-                        />
-                    </>
-                )}
-            </Container>
+            {sectionName.toLowerCase() !== "unite" && sectionName.toLowerCase() !== "clan" && (
+                <Container fluid className="py-4 text-center sticky-bottom" style={{ backgroundColor: "#022864", zIndex: 900 }}>
+                    <h3 className="fs-3 mb-3 text-white" style={{ fontFamily: "Titan One" }}>La section est remplie à</h3>
+                    <ProgressBar 
+                        animated
+                        now={sectionData?.filled} 
+                        label={`${sectionData?.filled}%`}
+                        className="mx-5 fw-bold"
+                        variant="warning"
+                    />
+                </Container>
+            )}
                 
             <StaffBlock sectionName={sectionName} />
 
