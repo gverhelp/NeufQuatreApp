@@ -90,7 +90,7 @@
     --border-color: #1D335A;
 }
 
-.group-card[data-group="éclaireurs"],
+.group-card[data-group="eclaireurs"],
 .group-card-sections[data-group="éclaireurs"] {
     --border-color: #005AAA;
 }
@@ -105,7 +105,7 @@
     --border-color: #FFB800;
 }
 
-.group-card[data-group="unité"],
+.group-card[data-group="unite"],
 .group-card-sections[data-group="unité"] {
     --border-color: black;
 }

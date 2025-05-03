@@ -75,7 +75,7 @@ const AgendaBlock = ({ events } : { events : EventData[] }) => {
 
             <Row className="g-3">
                 {/* Calendrier */}
-                <Col xl={10} md={12}>
+                <Col xl={10} md={12} className="d-none d-lg-block">
                     <motion.div
                         initial={{ x: -30, opacity: 0 }}
                         whileInView={{ x: 0, opacity: 1 }}
@@ -123,6 +123,7 @@ const AgendaBlock = ({ events } : { events : EventData[] }) => {
                         whileInView={{ x: 0, opacity: 1 }}
                         transition={{ duration: 0.5, delay: 0.2 }}
                         viewport={{ once: true }}
+                        className="d-none d-lg-block"
                     >
                         <Card className="shadow rounded-2 border-5" style={{ borderColor: "#022864" }}>
                             <Card.Body className="text-center">

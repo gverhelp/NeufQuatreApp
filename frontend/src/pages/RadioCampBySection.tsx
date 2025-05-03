@@ -151,82 +151,84 @@ const RadioCampBySection = ({ sectionName }: { sectionName: string }) => {
                 </Container>
             ) : (
                 <Row className="g-4">
-                    {radio_camp?.posts.map((post, index) => (
-                        <Col md={12} key={post.id}>
-                            <motion.div
-                                initial={{ opacity: 0, x: -100 }}
-                                animate={{ opacity: 1, x: 0 }}
-                                transition={{ delay: index * 0.1, duration: 0.5, ease: "easeOut" }}
-                                className="h-100"
-                            >
-                                <Card className="h-100 shadow rounded-2 border-5" style={{ borderColor: "#022864" }}>
-                                    <Card.Body>
-                                        <Card.Title className="fs-3 mb-2" style={{ fontFamily: "Titan One" }}>
-                                            {post.title}
-                                        </Card.Title>
-                                        <Card.Subtitle className="mb-3 text-muted">
-                                            {post.date}
-                                        </Card.Subtitle>
-                                        {(() => {
-                                            const textStyle = (post.photos.length > 0 || post.videos.length > 0) 
-                                                ? { borderBottom: "2px solid #022864" } 
-                                                : {};
-                                            return (
-                                                <Card.Text className="pb-2" style={textStyle}>
-                                                    {post.content}
-                                                </Card.Text>
-                                            );
-                                        })()}
-                                        {post.photos.length > 0 && (
-                                            <Row className="g-2">
-                                                {post.photos.map((photo) => (
-                                                    <Col xs={12} sm={6} md={4} lg={2} key={photo.id}>
-                                                        <div
-                                                            className="ratio ratio-1x1 photo-container"
-                                                            onClick={() => handleImageClick(photo.image, photo.caption)}
-                                                            style={{ cursor: "pointer" }}
-                                                        >
-                                                            <Image
-                                                                src={photo.image}
-                                                                alt={photo.caption || ""}
-                                                                rounded
-                                                                style={{ objectFit: "cover", width: "100%", height: "100%" }}
-                                                            />
-                                                        </div>
-                                                        {photo.caption && (
-                                                            <small className="d-block text-muted mt-1">{photo.caption}</small>
-                                                        )}
-                                                    </Col>
-                                                ))}
-                                            </Row>
-                                        )}
-                                        {post.videos.length > 0 && (
-                                            <Row className="g-2 mt-1">
-                                                {post.videos.map((video) => (
-                                                    <Col xs={12} sm={6} md={4} lg={2} key={video.id}>
-                                                        <div
-                                                            className="ratio ratio-16x9 photo-container"
-                                                        >
-                                                            <video
-                                                                controls
-                                                                style={{ width: "100%", borderRadius: "6px" }}
+                    {radio_camp?.posts
+                        .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
+                        .map((post, index) => (
+                            <Col md={12} key={post.id}>
+                                <motion.div
+                                    initial={{ opacity: 0, x: -100 }}
+                                    animate={{ opacity: 1, x: 0 }}
+                                    transition={{ delay: index * 0.1, duration: 0.5, ease: "easeOut" }}
+                                    className="h-100"
+                                >
+                                    <Card className="h-100 shadow rounded-2 border-5" style={{ borderColor: "#022864" }}>
+                                        <Card.Body>
+                                            <Card.Title className="fs-3 mb-2" style={{ fontFamily: "Titan One" }}>
+                                                {post.title}
+                                            </Card.Title>
+                                            <Card.Subtitle className="mb-3 text-muted">
+                                                {post.date}
+                                            </Card.Subtitle>
+                                            {(() => {
+                                                const textStyle = (post.photos.length > 0 || post.videos.length > 0) 
+                                                    ? { borderBottom: "2px solid #022864" } 
+                                                    : {};
+                                                return (
+                                                    <Card.Text className="pb-2" style={textStyle}>
+                                                        {post.content}
+                                                    </Card.Text>
+                                                );
+                                            })()}
+                                            {post.photos.length > 0 && (
+                                                <Row className="g-2">
+                                                    {post.photos.map((photo) => (
+                                                        <Col xs={12} sm={6} md={4} lg={2} key={photo.id}>
+                                                            <div
+                                                                className="ratio ratio-1x1 photo-container"
+                                                                onClick={() => handleImageClick(photo.image, photo.caption)}
+                                                                style={{ cursor: "pointer" }}
                                                             >
-                                                                <source src={video.video} type="video/mp4" />
-                                                                Votre navigateur ne supporte pas les vidéos HTML5.
-                                                            </video>
-                                                        </div>
-                                                        {video.caption && (
-                                                            <small className="d-block text-muted mt-1">{video.caption}</small>
-                                                        )}
-                                                    </Col>
-                                                ))}
-                                            </Row>
-                                        )}
-                                    </Card.Body>
-                                </Card>
-                            </motion.div>
-                        </Col>
-                    ))}
+                                                                <Image
+                                                                    src={photo.image}
+                                                                    alt={photo.caption || ""}
+                                                                    rounded
+                                                                    style={{ objectFit: "cover", width: "100%", height: "100%" }}
+                                                                />
+                                                            </div>
+                                                            {photo.caption && (
+                                                                <small className="d-block text-muted mt-1">{photo.caption}</small>
+                                                            )}
+                                                        </Col>
+                                                    ))}
+                                                </Row>
+                                            )}
+                                            {post.videos.length > 0 && (
+                                                <Row className="g-2 mt-1">
+                                                    {post.videos.map((video) => (
+                                                        <Col xs={12} sm={6} md={4} lg={2} key={video.id}>
+                                                            <div
+                                                                className="ratio ratio-16x9 photo-container"
+                                                            >
+                                                                <video
+                                                                    controls
+                                                                    style={{ width: "100%", borderRadius: "6px" }}
+                                                                >
+                                                                    <source src={video.video} type="video/mp4" />
+                                                                    Votre navigateur ne supporte pas les vidéos HTML5.
+                                                                </video>
+                                                            </div>
+                                                            {video.caption && (
+                                                                <small className="d-block text-muted mt-1">{video.caption}</small>
+                                                            )}
+                                                        </Col>
+                                                    ))}
+                                                </Row>
+                                            )}
+                                        </Card.Body>
+                                    </Card>
+                                </motion.div>
+                            </Col>
+                        ))}
                 </Row>
             )}
 

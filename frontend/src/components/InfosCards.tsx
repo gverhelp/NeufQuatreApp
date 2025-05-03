@@ -14,7 +14,7 @@ function InfoCards({ sectionData, chefsData } : { sectionData: SectionData, chef
                     {/* Uniforme Card */}
                     <Col md={6}>
                         <motion.div
-                            initial={{ x: -100, opacity: 0 }}
+                            initial={{ x: -30, opacity: 0 }}
                             whileInView={{ x: 0, opacity: 1 }}
                             transition={{ duration: 0.5, ease: "easeOut" }}
                             viewport={{ once: true }}
@@ -47,7 +47,7 @@ function InfoCards({ sectionData, chefsData } : { sectionData: SectionData, chef
                     {/* Annuaire Staff Card */}
                     <Col md={6}>
                         <motion.div
-                            initial={{ x: 100, opacity: 0 }}
+                            initial={{ x: 30, opacity: 0 }}
                             whileInView={{ x: 0, opacity: 1 }}
                             transition={{ duration: 0.5, ease: "easeOut" }}
                             viewport={{ once: true }}
@@ -82,7 +82,7 @@ function InfoCards({ sectionData, chefsData } : { sectionData: SectionData, chef
                     {sectionData?.name != "Clan" &&
                         <Col md={6}>
                             <motion.div
-                                initial={{ x: -100, opacity: 0 }}
+                                initial={{ x: -30, opacity: 0 }}
                                 whileInView={{ x: 0, opacity: 1 }}
                                 transition={{ duration: 0.5, ease: "easeOut" }}
                                 viewport={{ once: true }}
@@ -107,7 +107,7 @@ function InfoCards({ sectionData, chefsData } : { sectionData: SectionData, chef
                     {/* Radio Camp Card */}
                     {!["Unité", "Clan"].includes(sectionData?.name) && (<Col md={6}>
                         <motion.div
-                            initial={{ x: 100, opacity: 0 }}
+                            initial={{ x: 30, opacity: 0 }}
                             whileInView={{ x: 0, opacity: 1 }}
                             transition={{ duration: 0.5, ease: "easeOut" }}
                             viewport={{ once: true }}
@@ -124,7 +124,7 @@ function InfoCards({ sectionData, chefsData } : { sectionData: SectionData, chef
                                     </span>
                                     <br />
                                     <a 
-                                        href={`/radio-camps/${sectionData?.name.toLowerCase()}`}
+                                        href={`/radio-camps/${sectionData?.slug}`}
                                         target="_blank"
                                         rel="noopener noreferrer" 
                                         className="scouterie-btn rounded-2 d-inline-block text-decoration-none text-white text-center mt-3"

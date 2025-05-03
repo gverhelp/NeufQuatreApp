@@ -39,6 +39,7 @@ function NavigationBar() {
             bg={ scrolled ? "" : navbarBg }
             expand="lg"
             fixed="top"
+            expanded={menuOpen}
             className={ scrolled ? "navbar-scrolled" : "transparent" }
         >
             <Container>
@@ -57,6 +58,7 @@ function NavigationBar() {
                                 key={index}
                                 as={Link}
                                 to={page.path}
+                                onClick={() => setMenuOpen(false)}
                                 className={`nav-link me-3 ${currentPath === page.path ? "active" : ""}`}
                             >
                                 {page.name}

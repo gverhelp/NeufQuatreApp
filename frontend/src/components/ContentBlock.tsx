@@ -23,7 +23,7 @@ function ContentBlock({ bgColor = "", bgImg = "", title, text, imgSrc, reverse =
 
                 <Col lg={6} className={`d-flex justify-content-center ${reverse ? "order-1 order-lg-2" : "order-2 order-lg-1"}`}>
                     <motion.div
-                        initial={{ x: reverse ? 100 : -100, opacity: 0 }}
+                        initial={{ x: reverse ? 30 : -30, opacity: 0 }}
                         whileInView={{ x: 0, opacity: 1 }}
                         transition={{ duration: 0.8, ease: "easeOut" }}
                         viewport={{ once: true }}
@@ -34,7 +34,7 @@ function ContentBlock({ bgColor = "", bgImg = "", title, text, imgSrc, reverse =
 
                 <Col lg={6} className={`d-flex align-items-center justify-content-center ${reverse ? "order-2 order-lg-1" : "order-1 order-lg-2"}`}>
                     <motion.div
-                        initial={{ x: reverse ? -100 : 100, opacity: 0 }}
+                        initial={{ x: reverse ? -30 : 30, opacity: 0 }}
                         whileInView={{ x: 0, opacity: 1 }}
                         transition={{ duration: 0.8, ease: "easeOut" }}
                         viewport={{ once: true }}

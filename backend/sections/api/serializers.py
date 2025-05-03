@@ -31,7 +31,7 @@ class SectionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Section
         fields = [
-            'id', 'name', 'showcaseImage', 'description', 'bankAccount', 'email',
+            'id', 'name', 'slug', 'showcaseImage', 'description', 'bankAccount', 'email',
             'uniformDescription', 'uniformImage', 'filled',
             'section_images', 'chefs'
         ]

@@ -14,12 +14,12 @@ function ParallaxBlock() {
     return (
         <div ref={ref} className="position-relative text-center text-white overflow-hidden">
             <motion.img
-                src="lol.JPG"
+                src="background4.jpeg"
                 alt="Parallax Background"
                 className="img-fluid w-100"
                 style={{ height: "70vh", objectFit: "cover", y }}
             />
-            <div className="position-absolute top-50 start-50 translate-middle w-75">
+            <div className="position-absolute top-50 start-50 translate-middle w-75 text-black">
                 <h2 className="fs-1" style={{ fontFamily: "Titan One" }}>Le scoutisme</h2>
                 <p className="fs-2 fw-medium">Un mouvement de jeunesse qui veut contribuer à l’éducation des jeunes  pour les aider à devenir des citoyens critiques et engagés.</p>
             </div>
