@@ -43,7 +43,7 @@ Ce projet est une application web développée pour l’unité scoute 94ème Sai
 
 ### 1. Cloner le projet
 ```sh
- git clone https://github.com/ton-utilisateur/NeufQuatreApp.git
+ git clone https://github.com/gverhelp/NeufQuatreApp.git
  cd NeufQuatreApp
 ```
 
@@ -69,7 +69,7 @@ docker-compose -f docker-compose.yml up -d --build
 
 ### 1. Cloner le projet
 ```sh
- git clone https://github.com/ton-utilisateur/NeufQuatreApp.git
+ git clone https://github.com/gverhelp/NeufQuatreApp.git
  cd NeufQuatreApp
 ```
 
