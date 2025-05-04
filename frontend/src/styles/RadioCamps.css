@@ -63,3 +63,9 @@
 .modal-content {
     overflow: hidden;
 }
+
+@media (max-width: 576px) {
+    .post-padding-xl {
+        padding-inline: 1rem !important;
+    }
+}

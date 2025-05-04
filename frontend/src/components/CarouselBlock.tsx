@@ -11,8 +11,9 @@ function CarouselBlock(carouselBlockProps: CarouselBlockProps) {
     const { images, captions } = carouselBlockProps;
 
     return (
+        <>
         <Container fluid className="p-0">
-            <Carousel style={{ height: "55vh" }} interval={3000}>
+            <Carousel className="carousel" style={{ height: "55vh" }} interval={3000}>
                 {images.map((image, index) => (
                     <Carousel.Item key={index}>
                         <Image
@@ -28,6 +29,19 @@ function CarouselBlock(carouselBlockProps: CarouselBlockProps) {
                 ))}
             </Carousel>
         </Container>
+        <style>
+            {`
+                @media (max-width: 768px) {
+                    .carousel {
+                        height: 35vh !important;
+                    }
+                    .carousel img {
+                        height: 35vh !important;
+                    }
+                }
+            `}
+        </style>
+        </>
     );
 }
   

@@ -47,7 +47,7 @@ function InfoCards({ sectionData, chefsData } : { sectionData: SectionData, chef
                     {/* Annuaire Staff Card */}
                     <Col md={6}>
                         <motion.div
-                            initial={{ x: 30, opacity: 0 }}
+                            initial={{ x: -30, opacity: 0 }}
                             whileInView={{ x: 0, opacity: 1 }}
                             transition={{ duration: 0.5, ease: "easeOut" }}
                             viewport={{ once: true }}
@@ -107,7 +107,7 @@ function InfoCards({ sectionData, chefsData } : { sectionData: SectionData, chef
                     {/* Radio Camp Card */}
                     {!["Unité", "Clan"].includes(sectionData?.name) && (<Col md={6}>
                         <motion.div
-                            initial={{ x: 30, opacity: 0 }}
+                            initial={{ x: -30, opacity: 0 }}
                             whileInView={{ x: 0, opacity: 1 }}
                             transition={{ duration: 0.5, ease: "easeOut" }}
                             viewport={{ once: true }}

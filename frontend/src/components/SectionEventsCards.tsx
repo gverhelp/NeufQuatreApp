@@ -23,7 +23,7 @@ const SectionEventsCards: React.FC<Props> = ({ events }) => {
     return (
         <Container
             fluid
-            className="p-5 agenda-padding-xl"
+            className="p-5 agenda-padding-sm"
             style={{
                 backgroundImage: "url('/background5.png')",
                 backgroundSize: "cover",

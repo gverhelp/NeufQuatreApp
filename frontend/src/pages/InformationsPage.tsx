@@ -111,7 +111,7 @@ const InformationsPage = () => {
                                     {informations.map((information, index) => (
                                         <Col md={12} lg={6} key={index}>
                                             <motion.div
-                                                initial={{ x: 30, opacity: 0 }}
+                                                initial={{ x: -30, opacity: 0 }}
                                                 whileInView={{ x: 0, opacity: 1 }}
                                                 transition={{ duration: 0.5, delay: index * 0.1 }}
                                                 viewport={{ once: true }}

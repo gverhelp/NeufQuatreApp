@@ -25,7 +25,7 @@ function ContentBlock({ bgColor = "", bgImg = "", title, text, imgSrc, reverse =
                     <motion.div
                         initial={{ x: reverse ? 30 : -30, opacity: 0 }}
                         whileInView={{ x: 0, opacity: 1 }}
-                        transition={{ duration: 0.8, ease: "easeOut" }}
+                        transition={{ duration: 0.5, ease: "easeOut" }}
                         viewport={{ once: true }}
                     >
                         <Image fluid src={imgSrc}/>
@@ -36,7 +36,7 @@ function ContentBlock({ bgColor = "", bgImg = "", title, text, imgSrc, reverse =
                     <motion.div
                         initial={{ x: reverse ? -30 : 30, opacity: 0 }}
                         whileInView={{ x: 0, opacity: 1 }}
-                        transition={{ duration: 0.8, ease: "easeOut" }}
+                        transition={{ duration: 0.5, ease: "easeOut" }}
                         viewport={{ once: true }}
                     >
                         <div className="text-center p-3 w-100" style={{ maxWidth: "600px" }}>

@@ -60,7 +60,7 @@ const AgendaBlock = ({ events } : { events : EventData[] }) => {
     return (
         <Container
             fluid
-            className={`p-5 agenda-padding-xl ${hasHighlight.length ? "" : "pt-4"}`}
+            className={`p-5 agenda-padding-sm ${hasHighlight.length ? "" : "pt-4"}`}
             style={{
                 backgroundImage: "url('/background7.png')",
                 backgroundSize: "cover",
@@ -168,7 +168,7 @@ const AgendaBlock = ({ events } : { events : EventData[] }) => {
                             whileInView={{ y: 0, opacity: 1 }}
                             transition={{ duration: 0.5, delay: 0.3 }}
                             viewport={{ once: true }}
-                            className="mt-3 h-100"
+                            className="pt-3 h-100 download-card-padding-lg"
                         >
                             <Card className="shadow rounded-2 border-5 h-100" style={{ borderColor: "#022864" }}>
                                 <Card.Body className="text-center d-flex flex-column justify-content-between">
