@@ -1,63 +1,93 @@
-# 94ème Saint-Augustin - Site Web de l'Unité Scoute
+# 🏕️ NeufQuatreApp – Site de l’unité Saint-Augustin
 
-## Description
-Ce projet est le site officiel de l'unité scoute **94ème Saint-Augustin**. Il permet d'afficher des informations sur l'unité, les différentes sections, les événements, ainsi que les staffs. Il offre également une interface intuitive pour les parents et les membres de l'unité.
+Ce projet est une application web développée pour l’unité scoute 94ème Saint-Augustin. Elle permet de présenter l’unité, ses sections, son agenda, des documents utiles, ainsi qu'une fonctionnalité de "Radio Camp" pour suivre les actualités des camps en temps réel.
 
-## Technologies utilisées
-### Backend : Django
-- **Framework** : Django
-- **Base de données** : PostgreSQL
-- **ORM** : Django ORM
-- **API** : Django Rest Framework (DRF)
-- **Gestion des dépendances** : Pipenv
-- **Déploiement** : Docker, Docker Compose, AWS EC2
+---
 
-### Frontend : React + TypeScript
-- **Framework** : React (avec TypeScript)
-- **Build Tool** : Vite
-- **Styling** : Bootstrap, React-Bootstrap
-- **Routing** : React Router
-- **Gestion des requêtes API** : Axios
-- **Animations** : Framer Motion
+## ✨ Fonctionnalités principales
 
-## Fonctionnalités principales
-- **Affichage des informations des sections** (Baladins, Louveteaux, Guides, Scouts, Pionniers, Unité)
-- **Carrousel d'images** pour chaque section
-- **Présentation des staffs** avec photo, totem et description
-- **Système de navigation fluide et dynamique** avec React Router
-- **Backend robuste** avec Django et PostgreSQL
-- **Déploiement via Docker et AWS EC2** pour une mise en production efficace
+- 🏡 Page d'accueil avec présentation de l'unité
+- 📅 Agenda des événements
+- 👥 Présentation des différentes sections et des chefs
+- 📻 Module "Radio Camp" (blog/commentaires pendant les camps)
+- 📄 Téléchargement de documents utiles
 
-## Installation et exécution
-### Prérequis
-- **Node.js** (>= 18)
-- **Python** (>= 3.10)
-- **Pipenv**
-- **Docker & Docker Compose**
+---
 
-### Installation Backend
+## ⚙️ Technologies utilisées
+
+### Backend
+
+- [Django](https://www.djangoproject.com/) & [Django REST Framework](https://www.django-rest-framework.org/)
+- [PostgreSQL](https://www.postgresql.org/)
+- [Pipenv](https://pipenv.pypa.io/)
+
+### Frontend
+
+- [React](https://reactjs.org/) + [TypeScript](https://www.typescriptlang.org/)
+- [Vite](https://vitejs.dev/)
+- [React Router](https://reactrouter.com/)
+- [React Bootstrap](https://react-bootstrap.github.io/)
+
+### Autres
+
+- [Docker](https://www.docker.com/)
+- [Docker Compose](https://docs.docker.com/compose/)
+- [GitHub Actions](https://docs.github.com/en/actions)
+- [Nginx](https://nginx.org/)
+- [AWS EC2](https://aws.amazon.com/)
+
+---
+
+## 🛠️ Développement local
+
+### 1. Cloner le projet
 ```sh
-cd backend
-pipenv install
-python manage.py migrate
-python manage.py runserver
+ git clone https://github.com/ton-utilisateur/NeufQuatreApp.git
+ cd NeufQuatreApp
 ```
 
-### Installation Frontend
+### 2. Créer et configurer l'environnement :
+   - Copier le fichier `.env.example` à la racine du projet et le renommer en `.env`.
+   - Remplir les variables avec les bonnes valeurs.
+   - Copier le fichier `.env.example` dans le dossier frontend et le renommer en `.env`.
+   - Remplir la variable avec la valeur `http://localhost:8000/api`.
+
+### 3. Lancer l'app en mode développement :
 ```sh
-cd frontend
-npm install
-npm run dev
+docker-compose -f docker-compose.yml up -d --build
 ```
 
-### Exécution avec Docker Compose
+### 4 Accéder à l'application :
+   - API : `http://127.0.0.1:8000/api`
+   - Admin Panel : `http://127.0.0.1:8000/api/admin`
+   - App : `http://localhost:5173`
+
+---
+
+## 🏗️ Lancement en Production
+
+### 1. Cloner le projet
 ```sh
-docker-compose up --build
+ git clone https://github.com/ton-utilisateur/NeufQuatreApp.git
+ cd NeufQuatreApp
 ```
 
-## Déploiement
-Le projet sera conçu pour être déployé sur **AWS EC2** avec Docker. La base de données PostgreSQL est gérée via un conteneur Docker ou un service cloud externe.
+### 2. Créer et configurer l'environnement :
+   - Copier le fichier `.env.example` à la racine du projet et le renommer en `.env.prod`.
+   - Remplir les variables avec les bonnes valeurs.
+   - Copier le fichier `.env.example` dans le dossier frontend et le renommer en `.env.prod`.
+   - Remplir la variable avec la valeur `http://localhost/api`.
 
+### 3. Lancer l'app en mode développement :
+```sh
+docker-compose -f docker-compose.prod.yml up -d --build
+```
+
+### 4 Accéder à l'application :
+   - API : `http://127.0.0.1/api`
+   - Admin Panel : `http://127.0.0.1/api/admin`
+   - App : `http://localhost`
 
 ---
 Développé par Garreth Verhelpen
