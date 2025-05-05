@@ -178,7 +178,7 @@ const AgendaBlock = ({ events } : { events : EventData[] }) => {
                             className="pt-3 h-100 download-card-padding-lg"
                         >
                             <Card className="shadow rounded-2 border-5 h-100" style={{ borderColor: "#022864" }}>
-                                <Card.Body className="text-center d-flex flex-column justify-content-between">
+                                <Card.Body className="text-center d-flex flex-column justify-content-center">
                                         <Card.Title
                                             className="fs-5 pb-2"
                                             style={{

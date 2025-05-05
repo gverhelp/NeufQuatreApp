@@ -92,7 +92,15 @@ const StaffBlock = ({ sectionName }: { sectionName: string }) => {
                     textShadow: "1px 1px 2px rgba(0, 0, 0, 0.2)" 
                 }}
             >
-                Les chefs {sectionName === "Unité" ? "d'" : ""}{sectionName}
+                {(() => {
+                    if (sectionName === "Unite") {
+                        return "Les chefs D'Unité";
+                    } else if (sectionName === "Eclaireurs") {
+                        return "Les chefs Éclaireurs";
+                    } else {
+                        return `Les chefs ${sectionName}`;
+                    }
+                })()}
             </h2>
             {chefsData.length > 0 ? (
                 <Row className="g-4 justify-content-center">

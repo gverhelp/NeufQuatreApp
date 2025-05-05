@@ -1,5 +1,6 @@
 import { Container, Row, Col, Image } from "react-bootstrap";
 import { motion } from "framer-motion";
+import "../styles/Home.css";
 
 
 interface ContentBlockProps {
@@ -32,16 +33,17 @@ function ContentBlock({ bgColor = "", bgImg = "", title, text, imgSrc }: Content
                     </motion.div>
                 </Col>
 
-                <Col lg={6} className="d-flex align-items-center justify-content-center order-lg-2">
+                <Col lg={6} className="d-flex align-items-center order-lg-2 colTextBlock">
                     <motion.div
                         initial={{ x: 30, opacity: 0 }}
                         whileInView={{ x: 0, opacity: 1 }}
                         transition={{ duration: 0.5, ease: "easeOut" }}
                         viewport={{ once: true }}
+                        className="colTextMotion"
                     >
                         <div className="p-3 w-100" style={{ maxWidth: "600px" }}>
-                            <h1 className="pb-3 text-center" style={{ fontFamily: "Titan One" }}>{title}</h1>
-                            <p className="fs-5 fw-semibold text-start" style={{ fontFamily: "Roboto" }}>{text}</p>
+                            <h1 className="pb-3 colTextTitle" style={{ fontFamily: "Titan One" }}>{title}</h1>
+                            <p className="fw-semibold colTextText" style={{ fontFamily: "Roboto" }}>{text}</p>
                         </div>
                     </motion.div>
                 </Col>
