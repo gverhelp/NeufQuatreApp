@@ -194,6 +194,7 @@ const AgendaBlock = ({ events } : { events : EventData[] }) => {
                                         <Button
                                             className="download-btn rounded-2 d-inline-block text-decoration-none text-center"
                                             style={{ 
+                                                backgroundColor: "#022864",
                                                 borderColor: "#022864", 
                                                 color: "white", 
                                                 textShadow: "2px 2px 4px rgba(0, 0, 0, 0.7)" 

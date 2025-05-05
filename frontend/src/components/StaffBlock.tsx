@@ -49,9 +49,9 @@ const StaffBlock = ({ sectionName }: { sectionName: string }) => {
                 const data: ChefData[] = response.data;
                 const selectedChefs = data.filter(member => member.section.toLowerCase() === sectionName.toLowerCase());
 
-                if (!selectedChefs.length) {
-                    throw new Error("Chef non trouvé");
-                }
+                // if (!selectedChefs.length) {
+                //     throw new Error("Chef non trouvé");
+                // }
 
                 setChefsData(selectedChefs);
             } catch (err) {
@@ -85,31 +85,36 @@ const StaffBlock = ({ sectionName }: { sectionName: string }) => {
 
     return (
         <Container fluid  style={{ backgroundColor: "white", backgroundSize: 'cover', backgroundPosition: 'center center', paddingBlock: "10vh" }}>
-            <h2 className="text-center fs-1"
+            <h2 className="text-center pb-4 fs-1"
                 style={{ 
                     fontFamily: "Titan One", 
                     color: "#000000", 
-                    textShadow: "1px 1px 2px rgba(0, 0, 0, 0.2)",
-                    paddingBottom: "7vh"
+                    textShadow: "1px 1px 2px rgba(0, 0, 0, 0.2)" 
                 }}
             >
                 Les chefs {sectionName === "Unité" ? "d'" : ""}{sectionName}
             </h2>
-            <Row className="g-4 justify-content-center">
-                {chefsData.map((member, index) => (
-                    <Col key={index} md={6} lg={4} xl={3}>
-                        <motion.div
-                            initial={{ y: 100, opacity: 0 }}
-                            whileInView={{ y: 0, opacity: 1 }}
-                            transition={{ duration: 0.8, ease: "easeOut" }}
-                            viewport={{ once: true }}
-                            className="h-100"
-                        >
-                            <StaffCard member={member} />
-                        </motion.div>
-                    </Col>
-                ))}
-            </Row>
+            {chefsData.length > 0 ? (
+                <Row className="g-4 justify-content-center">
+                    {chefsData.map((member, index) => (
+                        <Col key={index} md={6} lg={4} xl={3}>
+                            <motion.div
+                                initial={{ y: 100, opacity: 0 }}
+                                whileInView={{ y: 0, opacity: 1 }}
+                                transition={{ duration: 0.8, ease: "easeOut" }}
+                                viewport={{ once: true }}
+                                className="h-100"
+                            >
+                                <StaffCard member={member} />
+                            </motion.div>
+                        </Col>
+                    ))}
+                </Row>
+            ) : (
+                <p className="text-center fs-5" style={{ fontFamily: "Titan One" }}>
+                    Il semble qu'il n'y ait aucun chef dans cette section.
+                </p>
+            )}
         </Container>
     );
 };

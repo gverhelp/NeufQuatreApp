@@ -97,6 +97,7 @@ const InformationsPage = () => {
                                                 <Button
                                                     className="download-btn rounded-2 d-inline-block text-decoration-none text-center"
                                                     style={{
+                                                        backgroundColor: "#022864",
                                                         borderColor: "#022864",
                                                         textShadow: "2px 2px 4px rgba(0, 0, 0, 0.7)" 
                                                     }}
@@ -176,7 +177,11 @@ const InformationsPage = () => {
                                                         {information.link && (
                                                             <Button
                                                                 className="download-btn rounded-2 d-inline-block text-decoration-none text-white text-center"
-                                                                style={{ backgroundColor: "#022864", borderColor: "#022864" }}
+                                                                style={{
+                                                                    backgroundColor: "#022864",
+                                                                    borderColor: "#022864",
+                                                                    textShadow: "2px 2px 4px rgba(0, 0, 0, 0.7)"
+                                                                }}
                                                                 target="_blank"
                                                                 rel="noopener noreferrer"
                                                                 href={information.link}

@@ -21,7 +21,7 @@ const Home: React.FC = () => {
                 const response = await axios.get<AccueilItem[]>(`${baseURL}/accueil/`);
                 const data: AccueilItem[] = response.data;
 
-                setAccueilItems(data);
+                setAccueilItems(data.sort((a, b) => a.id - b.id));
             } catch (error) {
                 console.error('Erreur lors de la récupération des données :', error);
                 setError("Impossible de charger les données");
@@ -56,7 +56,6 @@ const Home: React.FC = () => {
                 title={accueilItems[0]?.titre}
                 text={accueilItems[0]?.description}
                 imgSrc={accueilItems[0]?.image}
-                reverse={false}
             />
 
             <ParallaxBlock/>
@@ -66,7 +65,6 @@ const Home: React.FC = () => {
                 title={accueilItems[1]?.titre}
                 text={accueilItems[1]?.description}
                 imgSrc={accueilItems[1]?.image}
-                reverse={true}
             />
         </>
     );

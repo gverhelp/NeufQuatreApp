@@ -10,6 +10,16 @@ interface CarouselBlockProps {
 function CarouselBlock(carouselBlockProps: CarouselBlockProps) {
     const { images, captions } = carouselBlockProps;
 
+    if (images.length === 0) {
+        return (
+            <Container fluid className="p-0">
+                <div style={{ height: "55vh", display: "flex", justifyContent: "center", alignItems: "center" }}>
+                    <h3>Aucune image disponible</h3>
+                </div>
+            </Container>
+        );
+    }
+
     return (
         <>
         <Container fluid className="p-0">

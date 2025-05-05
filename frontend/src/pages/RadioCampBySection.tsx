@@ -120,6 +120,7 @@ const RadioCampBySection = ({ sectionName }: { sectionName: string }) => {
                             <div className="d-grid">
                                 <Button className="validate-btn rounded-2 text-white text-center" type="submit" disabled={loading} 
                                     style={{
+                                        backgroundColor: "#022864",
                                         borderColor: "#022864",
                                         textShadow: "2px 2px 4px rgba(0, 0, 0, 0.7)" 
                                     }}
@@ -162,7 +163,7 @@ const RadioCampBySection = ({ sectionName }: { sectionName: string }) => {
                             .map((post, index) => (
                                 <Col md={12} key={post.id}>
                                     <motion.div
-                                        initial={{ opacity: 0, x: -100 }}
+                                        initial={{ opacity: 0, x: -50 }}
                                         animate={{ opacity: 1, x: 0 }}
                                         transition={{ delay: index * 0.1, duration: 0.5, ease: "easeOut" }}
                                         className="h-100"

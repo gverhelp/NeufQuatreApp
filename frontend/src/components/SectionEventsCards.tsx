@@ -46,7 +46,7 @@ const SectionEventsCards: React.FC<Props> = ({ events }) => {
                         return (
                             <Col key={section.name} md={6} xl={4}>
                                 <motion.div
-                                    initial={{ x: -100, opacity: 0 }}
+                                    initial={{ x: -30, opacity: 0 }}
                                     whileInView={{ x: 0, opacity: 1 }}
                                     transition={{ type: "spring", stiffness: 100 }}
                                     viewport={{ once: true }}
