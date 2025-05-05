@@ -12,6 +12,7 @@
 
 .colTextText {
     text-align: left;
+    font-size: 1.25rem
 }
 
 @media (max-width: 992px) {
