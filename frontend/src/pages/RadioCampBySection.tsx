@@ -140,7 +140,7 @@ const RadioCampBySection = ({ sectionName }: { sectionName: string }) => {
     return (
         <Container fluid className="py-4 px-5 post-padding-xl" style={{ height: "85vh", overflowY: "scroll", backgroundImage: "url('/background7.png')", backgroundSize: 'cover', backgroundPosition: 'center center' }}>
             <Container>
-                <h1 className="text-center" style={{ fontFamily: "Titan One" }}>
+                <h1 className="text-center" style={{ fontFamily: "Titan One", textShadow: "1px 1px 2px rgba(0, 0, 0, 0.2)" }}>
                     {radio_camp?.title} - {sectionName}
                 </h1>
                 <h4 className="text-center text-muted mb-4" style={{ fontFamily: "Titan One" }}>

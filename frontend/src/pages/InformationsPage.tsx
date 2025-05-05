@@ -138,7 +138,7 @@ const InformationsPage = () => {
                                                 className="mt-3 h-100"
                                             >
                                                 <Card className="shadow rounded-2 border-5 h-100" style={{ borderColor: "#022864" }}>
-                                                    <Card.Body className="text-center">
+                                                    <Card.Body className="text-center d-flex flex-column justify-content-center align-items-center">
                                                         {information.image && (
                                                             <Card.Img
                                                                 variant="top"

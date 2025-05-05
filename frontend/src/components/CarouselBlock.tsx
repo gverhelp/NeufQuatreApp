@@ -13,7 +13,7 @@ function CarouselBlock(carouselBlockProps: CarouselBlockProps) {
     if (images.length === 0) {
         return (
             <Container fluid className="p-0">
-                <div style={{ height: "55vh", display: "flex", justifyContent: "center", alignItems: "center" }}>
+                <div className="carousel" style={{ height: "55vh", display: "flex", justifyContent: "center", alignItems: "center" }}>
                     <h3>Aucune image disponible</h3>
                 </div>
             </Container>
