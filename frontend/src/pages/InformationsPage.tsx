@@ -61,7 +61,15 @@ const InformationsPage = () => {
                 ) : (
                     <Row className="g-5">
                         <Col md={12} lg={3} className="order-1 order-lg-0">
-                            <h1 className="text-center" style={{ fontFamily: "Titan One" }}> Documents </h1>
+                            <h1 className="text-center"
+                                style={{ 
+                                    fontFamily: "Titan One", 
+                                    color: "#000000", 
+                                    textShadow: "1px 1px 2px rgba(0, 0, 0, 0.2)" 
+                                }}
+                            >
+                                Documents
+                            </h1>
                             {documents.length === 0 ? (
                                 <p className="text-center" style={{ fontFamily: "Titan One" }}>Aucun document disponible pour le moment.</p>
                             ) : (
@@ -87,8 +95,11 @@ const InformationsPage = () => {
                                                 </Card.Title>
                                                 <p>{document.description}</p>
                                                 <Button
-                                                    className="download-btn rounded-2 d-inline-block text-decoration-none text-white text-center"
-                                                    style={{ backgroundColor: "#022864", borderColor: "#022864" }}
+                                                    className="download-btn rounded-2 d-inline-block text-decoration-none text-center"
+                                                    style={{
+                                                        borderColor: "#022864",
+                                                        textShadow: "2px 2px 4px rgba(0, 0, 0, 0.7)" 
+                                                    }}
                                                     target="_blank"
                                                     rel="noopener noreferrer"
                                                     href={document.file}
@@ -103,7 +114,15 @@ const InformationsPage = () => {
                         </Col>
 
                         <Col md={12} lg={9} className="order-0 order-lg-1">
-                            <h1 className="text-center mb-0" style={{ fontFamily: "Titan One" }}> Informations </h1>
+                            <h1 className="text-center mb-0"
+                                style={{ 
+                                    fontFamily: "Titan One", 
+                                    color: "#000000", 
+                                    textShadow: "1px 1px 2px rgba(0, 0, 0, 0.2)" 
+                                }}
+                            >
+                                Informations
+                            </h1>
                             {informations.length === 0 ? (
                                 <p className="text-center mt-3" style={{ fontFamily: "Titan One" }}>Aucune information à afficher pour le moment.</p>
                             ) : (

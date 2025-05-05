@@ -117,8 +117,16 @@ const BySectionPage = ({ sectionName }: { sectionName: string }) => {
             )}
 
             {sectionName.toLowerCase() !== "unite" && sectionName.toLowerCase() !== "clan" && (
-                <Container fluid className="py-4 text-center sticky-bottom" style={{ backgroundColor: "#022864", zIndex: 900 }}>
-                    <h3 className="fs-3 mb-3 text-white" style={{ fontFamily: "Titan One" }}>La section est remplie à</h3>
+                <Container fluid className="py-4 text-center sticky-container sticky-bottom" style={{ backgroundColor: "#022864", zIndex: 900 }}>
+                    <h3 className="fs-3 mb-3 text-white"
+                        style={{ 
+                            fontFamily: "Titan One", 
+                            color: "white", 
+                            textShadow: "2px 2px 4px rgba(0, 0, 0, 0.7)" 
+                        }}
+                    >
+                        La section est remplie à
+                    </h3>
                     <ProgressBar 
                         animated
                         now={sectionData?.filled} 
@@ -132,7 +140,15 @@ const BySectionPage = ({ sectionName }: { sectionName: string }) => {
             <StaffBlock sectionName={sectionName} />
 
             <Container fluid className="py-3 text-center sticky-container sticky-top" style={{ backgroundColor: "#022864", zIndex: 1100 }}>
-                <div className="fs-2 text-white" style={{ fontFamily: "Titan One" }}>Informations pratiques</div>
+                <div className="fs-2 text-white"
+                    style={{ 
+                        fontFamily: "Titan One", 
+                        color: "white", 
+                        textShadow: "2px 2px 4px rgba(0, 0, 0, 0.7)" 
+                    }}
+                >
+                    Informations pratiques
+                </div>
             </Container>
 
             {sectionData && <InfoCards sectionData={sectionData} chefsData={sectionData.chefs} />}

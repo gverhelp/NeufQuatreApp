@@ -25,7 +25,7 @@ const SectionEventsCards: React.FC<Props> = ({ events }) => {
             fluid
             className="p-5 agenda-padding-sm"
             style={{
-                backgroundImage: "url('/background5.png')",
+                backgroundColor: "white",
                 backgroundSize: "cover",
                 backgroundPosition: "center center",
             }}

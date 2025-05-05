@@ -118,7 +118,12 @@ const RadioCampBySection = ({ sectionName }: { sectionName: string }) => {
                                 />
                             </Form.Group>
                             <div className="d-grid">
-                                <Button className="validate-btn rounded-2 text-white text-center" type="submit" disabled={loading} style={{ backgroundColor: "#022864", borderColor: "#022864" }}>
+                                <Button className="validate-btn rounded-2 text-white text-center" type="submit" disabled={loading} 
+                                    style={{
+                                        borderColor: "#022864",
+                                        textShadow: "2px 2px 4px rgba(0, 0, 0, 0.7)" 
+                                    }}
+                                >
                                     {loading ? <Spinner animation="border" size="sm" /> : "Valider"}
                                 </Button>
                             </div>

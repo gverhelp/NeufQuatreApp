@@ -47,7 +47,15 @@ const AgendaPage = () => {
             <AgendaBlock events={events}/>
 
             <Container fluid className="py-3 text-center sticky-container sticky-top" style={{ backgroundColor: "#022864", zIndex: 1100 }}>
-                <div className="fs-2 text-white" style={{ fontFamily: "Titan One" }}>Agenda détaillé par section</div>
+                <div className="fs-2 text-white"
+                    style={{ 
+                        fontFamily: "Titan One", 
+                        color: "white", 
+                        textShadow: "2px 2px 4px rgba(0, 0, 0, 0.7)" 
+                    }}
+                >
+                    Agenda détaillé par section
+                </div>
             </Container>
 
             <SectionEventsCards events={events} />

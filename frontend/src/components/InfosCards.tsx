@@ -34,7 +34,12 @@ function InfoCards({ sectionData, chefsData } : { sectionData: SectionData, chef
                                         href="https://www.lascouterie-economats.be/" 
                                         target="_blank"
                                         rel="noopener noreferrer" 
-                                        className="scouterie-btn rounded-2 d-inline-block text-decoration-none text-white text-center mt-2"
+                                        className="scouterie-btn rounded-2 d-inline-block text-decoration-none text-center mt-2"
+                                        style={{ 
+                                            fontFamily: "Titan One", 
+                                            color: "white", 
+                                            textShadow: "2px 2px 4px rgba(0, 0, 0, 0.7)" 
+                                        }}
                                     >
                                         Boutique de la Scouterie
                                     </a>
@@ -127,7 +132,12 @@ function InfoCards({ sectionData, chefsData } : { sectionData: SectionData, chef
                                         href={`/radio-camps/${sectionData?.slug}`}
                                         target="_blank"
                                         rel="noopener noreferrer" 
-                                        className="scouterie-btn rounded-2 d-inline-block text-decoration-none text-white text-center mt-3"
+                                        className="scouterie-btn rounded-2 d-inline-block text-decoration-none text-center mt-3"
+                                        style={{ 
+                                            fontFamily: "Titan One", 
+                                            color: "white", 
+                                            textShadow: "2px 2px 4px rgba(0, 0, 0, 0.7)" 
+                                        }}
                                         >
                                         Radio camp
                                     </a>

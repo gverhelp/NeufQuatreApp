@@ -68,7 +68,14 @@ const AgendaBlock = ({ events } : { events : EventData[] }) => {
             }}
         >
             {!hasHighlight.length && (
-                <h1 className="text-center mb-4" style={{ fontFamily: "Titan One" }}>
+                <h1 
+                    className="text-center mb-4" 
+                    style={{ 
+                        fontFamily: "Titan One", 
+                        color: "#000000", 
+                        textShadow: "1px 1px 2px rgba(0, 0, 0, 0.2)" 
+                    }}
+                >
                     Agenda
                 </h1>
             )}
@@ -185,8 +192,12 @@ const AgendaBlock = ({ events } : { events : EventData[] }) => {
                                             {agendaDocument.description}
                                         </Card.Text>
                                         <Button
-                                            className="download-btn rounded-2 d-inline-block text-decoration-none text-white text-center"
-                                            style={{ backgroundColor: "#022864", borderColor: "#022864" }}
+                                            className="download-btn rounded-2 d-inline-block text-decoration-none text-center"
+                                            style={{ 
+                                                borderColor: "#022864", 
+                                                color: "white", 
+                                                textShadow: "2px 2px 4px rgba(0, 0, 0, 0.7)" 
+                                            }}
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             href={agendaDocument.file}

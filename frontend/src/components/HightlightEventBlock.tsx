@@ -37,7 +37,16 @@ const HighlightEventsBlock: React.FC<Props> = ({ events }) => {
                     backgroundPosition: "center center",
                 }}
             >
-                <h1 className="text-center mb-4" style={{ fontFamily: "Titan One" }}>À ne pas manquer !</h1>
+                <h1 
+                    className="text-center mb-4" 
+                    style={{ 
+                        fontFamily: "Titan One", 
+                        color: "white", 
+                        textShadow: "2px 2px 4px rgba(0, 0, 0, .5)" 
+                    }}
+                >
+                    À ne pas manquer !
+                </h1>
 
                 <Row className="g-4 justify-content-center">
                     {highlightEvents.map((event, index) => (
@@ -95,7 +104,15 @@ const HighlightEventsBlock: React.FC<Props> = ({ events }) => {
             </Container>
 
             <Container fluid className="py-3 text-center sticky-container sticky-top" style={{ backgroundColor: "#022864", zIndex: 1050 }}>
-                <div className="fs-2 text-white" style={{ fontFamily: "Titan One" }}>Agenda</div>
+                <div className="fs-2 text-white"
+                    style={{ 
+                        fontFamily: "Titan One", 
+                        color: "white", 
+                        textShadow: "2px 2px 4px rgba(0, 0, 0, 0.7)" 
+                    }}
+                >
+                    Agenda
+                </div>
             </Container>
         </>
     );

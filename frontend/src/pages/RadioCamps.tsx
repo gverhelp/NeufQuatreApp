@@ -26,7 +26,13 @@ const RadioCamps = () => {
             }}
         >
             <Container className="pt-4">
-                <h1 className="text-center" style={{ fontFamily: "Titan One" }}>
+                <h1 className="text-center"
+                    style={{ 
+                        fontFamily: "Titan One", 
+                        color: "#000000", 
+                        textShadow: "1px 1px 2px rgba(0, 0, 0, 0.2)" 
+                    }}
+                >
                     Radio Camp
                 </h1>
             </Container>
@@ -43,6 +49,9 @@ const RadioCamps = () => {
                             style={{
                                 top: btn.top,
                                 left: btn.left,
+                                fontFamily: "Titan One", 
+                                color: "white", 
+                                textShadow: "2px 2px 4px rgba(0, 0, 0, 0.7)" 
                             }}
                             animate={{
                                 scale: [1, 1.05, 1],
