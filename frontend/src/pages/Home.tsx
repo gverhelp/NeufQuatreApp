@@ -1,10 +1,34 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
+import '../styles/Home.css';
 import { AccueilItem } from '../types/interfaces';
 import ContentBlock from '../components/ContentBlock';
 import ParallaxBlock from '../components/ParallaxBlock';
-import { Container, Spinner, Alert } from 'react-bootstrap';
+import { Container, Placeholder, Alert, Row, Col } from 'react-bootstrap';
+
+
+const PlaceholderBlock = () => (
+    <Container fluid className="p-5 d-flex justify-content-center align-items-center" style={{ minHeight: "40vh" }}>
+        <Row className="align-items-center flex-column flex-md-row w-100">
+            <Col lg={6} className="d-flex justify-content-center order-lg-1">
+                <div style={{ width: "100%", maxWidth: "700px" }}>
+                    <Placeholder as="div" animation="glow">
+                        <Placeholder style={{ height: "400px", width: "100%" }} />
+                    </Placeholder>
+                </div>
+            </Col>
+            <Col lg={6} className="d-flex align-items-center order-lg-2 colTextBlock">
+                <div className="colTextMotion" style={{ width: "100%", maxWidth: "600px" }}>
+                    <Placeholder as="div" animation="glow">
+                        <Placeholder style={{ height: "40px", width: "100%" }} className="mb-3" />
+                        <Placeholder style={{ height: "200px", width: "100%" }} />
+                    </Placeholder>
+                </div>
+            </Col>
+        </Row>
+    </Container>
+)
 
 const Home: React.FC = () => {
     const baseURL = import.meta.env.VITE_API_URL;
@@ -33,39 +57,38 @@ const Home: React.FC = () => {
         fetchData();
     }, []);
 
-    if (loading) {
-        return (
-            <Container fluid className="d-flex justify-content-center align-items-center" style={{ height: "85vh" }}>
-                <Spinner animation="border" variant="primary" />
-            </Container>
-        )
-    }
 
     if (error) {
         return (
             <Container fluid className="d-flex justify-content-center align-items-center" style={{ height: "85vh" }}>
                 <Alert variant="danger">{error}</Alert>
             </Container>
-        )
+        );
     }
 
     return (
         <>
-            <ContentBlock 
-                bgImg="background5.png"
-                title={accueilItems[0]?.titre}
-                text={accueilItems[0]?.description}
-                imgSrc={accueilItems[0]?.image}
-            />
+            {loading ? 
+                <PlaceholderBlock /> :
+                <ContentBlock 
+                    bgImg="background5.png"
+                    title={accueilItems[0]?.titre}
+                    text={accueilItems[0]?.description}
+                    imgSrc={accueilItems[0]?.image}
+                />
+            }
 
             <ParallaxBlock/>
 
-            <ContentBlock
-                bgImg="background7.png" 
-                title={accueilItems[1]?.titre}
-                text={accueilItems[1]?.description}
-                imgSrc={accueilItems[1]?.image}
-            />
+            {loading ? 
+                <PlaceholderBlock /> :
+                <ContentBlock
+                    bgImg="background7.png" 
+                    title={accueilItems[1]?.titre}
+                    text={accueilItems[1]?.description}
+                    imgSrc={accueilItems[1]?.image}
+                />
+            }
         </>
     );
 };

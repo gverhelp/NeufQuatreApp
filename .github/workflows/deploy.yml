@@ -23,9 +23,9 @@ jobs:
           ssh -o StrictHostKeyChecking=no ${{ secrets.EC2_HOST }} << 'EOF'
             cd ${{ secrets.EC2_PATH }}
 
-            echo "Pulling latest code from main"
+            echo "Pulling latest code from prod branch"
             git reset --hard
-            git pull origin main
+            git pull origin prod
 
             echo "Rebuilding containers"
             docker-compose -f docker-compose.prod.yml down

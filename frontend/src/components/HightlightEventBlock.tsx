@@ -18,7 +18,7 @@ const formatDate = (start: string, end: string) => {
         timeStyle: "short",
     };
 
-    return `Du ${startDate.toLocaleString("fr-FR", options)} au ${endDate.toLocaleString("fr-FR", options)}`;
+    return `Du ${startDate.toLocaleString("fr-BE", options)} au ${endDate.toLocaleString("fr-BE", options)}`;
 };
 
 const HighlightEventsBlock: React.FC<Props> = ({ events }) => {

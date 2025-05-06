@@ -1,4 +1,4 @@
-import { Container, Col, Row, ProgressBar, Spinner, Alert } from "react-bootstrap";
+import { Container, Col, Row, ProgressBar, Alert, Placeholder } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
@@ -21,6 +21,28 @@ const sectionsPath = [
     { name: "Clan", slug: "clan", path: "/sections/clan" },
     { name: "Unité", slug:"unite", path: "/sections/unite" },
 ];
+
+const PlaceholderBlock = () => (
+    <Container fluid className="p-5 d-flex justify-content-center align-items-center" style={{ minHeight: "40vh" }}>
+        <Row className="align-items-center flex-column flex-md-row w-100">
+            <Col lg={6} className="d-flex justify-content-center order-lg-1">
+                <div style={{ width: "100%", maxWidth: "700px" }}>
+                    <Placeholder as="div" animation="glow">
+                        <Placeholder style={{ height: "400px", width: "100%" }} />
+                    </Placeholder>
+                </div>
+            </Col>
+            <Col lg={6} className="d-flex align-items-center order-lg-2 colTextBlock">
+                <div className="colTextMotion" style={{ width: "100%", maxWidth: "600px" }}>
+                    <Placeholder as="div" animation="glow">
+                        <Placeholder style={{ height: "40px", width: "100%" }} className="mb-3" />
+                        <Placeholder style={{ height: "200px", width: "100%" }} />
+                    </Placeholder>
+                </div>
+            </Col>
+        </Row>
+    </Container>
+)
 
 const BySectionPage = ({ sectionName }: { sectionName: string }) => {
     const baseURL = import.meta.env.VITE_API_URL;
@@ -53,13 +75,6 @@ const BySectionPage = ({ sectionName }: { sectionName: string }) => {
         fetchSectionData();
     }, [sectionName]);
 
-    if (loading) {
-        return (
-            <Container fluid className="d-flex justify-content-center align-items-center" style={{ height: "85vh" }}>
-                <Spinner animation="border" variant="primary" />
-            </Container>
-        );
-    }
 
     if (error) {
         return (
@@ -71,22 +86,23 @@ const BySectionPage = ({ sectionName }: { sectionName: string }) => {
 
     return (
         <Container fluid className="p-0">
-            {sectionData && (
-                <ContentBlock
+            {loading ? (
+                <PlaceholderBlock />
+                ) : (
+                sectionData && (
+                    <ContentBlock
                     bgImg="/background5.png"
-                    title={( () => { 
-                        if (sectionData.name === "Unité") {
-                            return "L'Unité";
-                        } else if (sectionData.name === "Clan") {
-                            return "Le Clan";
-                        } else {
-                            return `Les ${sectionData.name}`;
-                        }
-                    })()}
-                    text={sectionData.description} 
+                    title={
+                        sectionData.name === "Unité"
+                        ? "L'Unité"
+                        : sectionData.name === "Clan"
+                        ? "Le Clan"
+                        : `Les ${sectionData.name}`
+                    }
+                    text={sectionData.description}
                     imgSrc={sectionData.showcaseImage}
-                    reverse={false}
-                />
+                    />
+                )
             )}
 
             <Container fluid className="py-3 sticky-container sticky-top" style={{ backgroundColor: "#022864", zIndex: 1050 }}>

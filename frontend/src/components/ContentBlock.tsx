@@ -9,7 +9,6 @@ interface ContentBlockProps {
     title: string;
     text: string;
     imgSrc: string;
-    reverse?: boolean;
 }
 
 function ContentBlock({ bgColor = "", bgImg = "", title, text, imgSrc }: ContentBlockProps) {

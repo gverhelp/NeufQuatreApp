@@ -1,4 +1,4 @@
-import { Container, Row, Col, Card, Spinner, Alert } from "react-bootstrap";
+import { Container, Row, Col, Card, Spinner, Alert, Placeholder } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { motion } from "framer-motion";
@@ -33,6 +33,25 @@ const StaffCard = ({ member }: { member: ChefData }) => {
     );
 };
 
+const PlaceholderCard = () => (
+    <Card className="h-100 overflow-hidden border-5 rounded-2 staff-card" style={{ borderColor: "#022864" }}>
+        <Placeholder as={Card.Img} animation="glow" style={{ height: "350px", backgroundColor: "#f0f0f0" }} />
+        <Card.Body className="text-center text-break overflow-scroll" style={{ height: "400px" }}>
+            <Placeholder as={Card.Title} animation="glow" className="fs-4">
+                <Placeholder xs={6} />
+            </Placeholder>
+            <Placeholder as={Card.Subtitle} animation="glow" className="pb-2 mb-2 text-muted fs-5">
+                <Placeholder xs={4} />
+            </Placeholder>
+            <Placeholder as={Card.Text} animation="glow" className="fs-6">
+                <Placeholder xs={8} />
+                <Placeholder xs={7} />
+                <Placeholder xs={6} />
+            </Placeholder>
+        </Card.Body>
+    </Card>
+);
+
 const StaffBlock = ({ sectionName }: { sectionName: string }) => {
     const baseURL = import.meta.env.VITE_API_URL;
     const [loading, setLoading] = useState<boolean>(true);
@@ -49,10 +68,6 @@ const StaffBlock = ({ sectionName }: { sectionName: string }) => {
                 const data: ChefData[] = response.data;
                 const selectedChefs = data.filter(member => member.section.toLowerCase() === sectionName.toLowerCase());
 
-                // if (!selectedChefs.length) {
-                //     throw new Error("Chef non trouvé");
-                // }
-
                 setChefsData(selectedChefs);
             } catch (err) {
                 console.error("Erreur lors de la récupération des données", err);
@@ -67,10 +82,14 @@ const StaffBlock = ({ sectionName }: { sectionName: string }) => {
 
     if (loading) {
         return (
-            <Container fluid className="p-4 text-center">
-                <Spinner animation="border" role="status" style={{ color: "#022864" }}>
-                    <span className="visually-hidden">Chargement...</span>
-                </Spinner>
+            <Container fluid className="p-4">
+                <Row className="g-4 justify-content-center">
+                    {Array.from({ length: 4 }).map((_, index) => (
+                        <Col key={index} md={6} lg={4} xl={3}>
+                            <PlaceholderCard />
+                        </Col>
+                    ))}
+                </Row>
             </Container>
         );
     }
@@ -78,13 +97,13 @@ const StaffBlock = ({ sectionName }: { sectionName: string }) => {
     if (error) {
         return (
             <Container fluid className="p-4 text-center">
-                <Alert variant="danger">{error}</Alert>
+                <Alert variant="warning">{error}</Alert>
             </Container>
         );
     }
 
     return (
-        <Container fluid  style={{ backgroundColor: "white", backgroundSize: 'cover', backgroundPosition: 'center center', paddingBlock: "10vh" }}>
+        <Container fluid style={{ backgroundColor: "white", backgroundSize: 'cover', backgroundPosition: 'center center', paddingBlock: "10vh" }}>
             <h2 className="text-center pb-4 fs-1"
                 style={{ 
                     fontFamily: "Titan One", 

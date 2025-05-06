@@ -174,7 +174,7 @@ const RadioCampBySection = ({ sectionName }: { sectionName: string }) => {
                                                     {post.title}
                                                 </Card.Title>
                                                 <Card.Subtitle className="mb-3 text-muted">
-                                                    {post.date}
+                                                    {new Date(post.date).toLocaleDateString("fr-BE", { dateStyle: "short" })}
                                                 </Card.Subtitle>
                                                 {(() => {
                                                     const textStyle = (post.photos.length > 0 || post.videos.length > 0) 
