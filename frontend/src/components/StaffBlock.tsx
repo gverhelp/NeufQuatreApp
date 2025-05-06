@@ -1,4 +1,4 @@
-import { Container, Row, Col, Card, Spinner, Alert, Placeholder } from "react-bootstrap";
+import { Container, Row, Col, Card, Alert, Placeholder } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { motion } from "framer-motion";
