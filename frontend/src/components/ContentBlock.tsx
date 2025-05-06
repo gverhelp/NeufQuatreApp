@@ -24,18 +24,18 @@ function ContentBlock({ bgColor = "", bgImg = "", title, text, imgSrc, reverse =
 
                 <Col lg={6} className={`d-flex justify-content-center colTextBlock ${reverse ? "order-lg-2" : "order-lg-1"}`}>
                     <motion.div
-                        initial={{ x: -30, opacity: 0 }}
+                        initial={{ x: reverse ? 30 : -30, opacity: 0 }}
                         whileInView={{ x: 0, opacity: 1 }}
                         transition={{ duration: 0.5, ease: "easeOut" }}
                         viewport={{ once: true }}
                     >
-                        <Image fluid rounded src={imgSrc}/>
+                        <Image fluid rounded src={imgSrc} />
                     </motion.div>
                 </Col>
 
                 <Col lg={6} className={`d-flex align-items-center colTextBlock ${reverse ? "order-lg-1 justify-content-end" : "order-lg-2"}`}>
                     <motion.div
-                        initial={{ x: 30, opacity: 0 }}
+                        initial={{ x: reverse ? -30 : 30, opacity: 0 }}
                         whileInView={{ x: 0, opacity: 1 }}
                         transition={{ duration: 0.5, ease: "easeOut" }}
                         viewport={{ once: true }}
