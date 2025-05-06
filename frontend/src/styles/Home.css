@@ -16,8 +16,12 @@
     justify-content: start;
 }
 
-.colTextMotion {
+.colTextMotionLeft {
     padding-left: 3rem;
+}
+
+.colTextMotionRight {
+    padding-right: 3rem;
 }
 
 .colTextTitle {
@@ -29,12 +33,18 @@
     font-size: 1.25rem
 }
 
+
 @media (max-width: 992px) {
     .colTextBlock {
         justify-content: center;
     }
 
-    .colTextMotion {
+    .colTextMotionLeft {
+        padding-top : 1rem;
+        padding-left: 0;
+    }
+
+    .colTextMotionRight {
         padding-top : 1rem;
         padding-left: 0;
     }

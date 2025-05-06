@@ -22,7 +22,7 @@ function ContentBlock({ bgColor = "", bgImg = "", title, text, imgSrc, reverse =
         <Container fluid className="p-5 d-flex justify-content-center" style={containerStyle}>
             <Row className="align-items-center flex-column flex-md-row">
 
-                <Col lg={6} className={`d-flex justify-content-center colTextBlock ${reverse ? "order-md-2" : "order-lg-1"}`}>
+                <Col lg={6} className={`d-flex justify-content-center colTextBlock ${reverse ? "order-lg-2" : "order-lg-1"}`}>
                     <motion.div
                         initial={{ x: -30, opacity: 0 }}
                         whileInView={{ x: 0, opacity: 1 }}
@@ -33,13 +33,13 @@ function ContentBlock({ bgColor = "", bgImg = "", title, text, imgSrc, reverse =
                     </motion.div>
                 </Col>
 
-                <Col lg={6} className={`d-flex align-items-center colTextBlock ${reverse ? "order-md-1" : "order-lg-2"}`}>
+                <Col lg={6} className={`d-flex align-items-center colTextBlock ${reverse ? "order-lg-1 justify-content-end" : "order-lg-2"}`}>
                     <motion.div
                         initial={{ x: 30, opacity: 0 }}
                         whileInView={{ x: 0, opacity: 1 }}
                         transition={{ duration: 0.5, ease: "easeOut" }}
                         viewport={{ once: true }}
-                        className="colTextMotion"
+                        className={`${reverse ? "colTextMotionRight" : "colTextMotionLeft"}`}
                     >
                         <div className="p-3 w-100" style={{ maxWidth: "600px" }}>
                             <h1 className="pb-3 colTextTitle" style={{ fontFamily: "Titan One" }}>{title}</h1>
