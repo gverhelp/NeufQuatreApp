@@ -36,6 +36,9 @@ ALLOWED_HOSTS = os.getenv('DJANGO_ALLOWED_HOSTS', '127.0.0.1 localhost').split()
 CSRF_TRUSTED_ORIGINS = os.getenv('DJANGO_CSRF_TRUSTED_ORIGINS',
                                  'http://127.0.0.1 http://localhost').split()
 
+CSRF_COOKIE_HTTPONLY = False  # Permet à React de lire le cookie
+CSRF_COOKIE_SECURE = os.getenv('CSRF_COOKIE_SECURE', 'False') == 'True' # true seulement si en HTTPS (en prod)
+
 
 # Application definition
 

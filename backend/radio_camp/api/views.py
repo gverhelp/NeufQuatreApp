@@ -6,8 +6,8 @@ from rest_framework.permissions import AllowAny
 from rest_framework.viewsets import ReadOnlyModelViewSet
 from django.shortcuts import get_object_or_404
 from django.contrib.auth.hashers import check_password
-from django.views.decorators.csrf import csrf_exempt
-from django.utils.decorators import method_decorator
+# from django.views.decorators.csrf import csrf_exempt
+# from django.utils.decorators import method_decorator
 
 # ViewSets for the API
 class RadioCampViewSet(ReadOnlyModelViewSet):
@@ -29,7 +29,7 @@ class VideoViewSet(ReadOnlyModelViewSet):
     
 
 # API View to verify the password for a RadioCamp
-@method_decorator(csrf_exempt, name='dispatch')
+# @method_decorator(csrf_exempt, name='dispatch')
 class VerifyRadioCampPassword(APIView):
     permission_classes = [AllowAny]
     

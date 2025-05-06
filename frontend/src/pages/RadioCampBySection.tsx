@@ -6,6 +6,14 @@ import axios from "axios";
 import { RadioCampData } from '../types/interfaces';
 import "../styles/RadioCamps.css";
 
+
+function getCookie(name: string): string | null {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop()!.split(';')[0] || null;
+    return null;
+}
+
 const RadioCampBySection = ({ sectionName }: { sectionName: string }) => {
     const baseURL = import.meta.env.VITE_API_URL;
     const [password, setPassword] = useState("");
@@ -35,9 +43,17 @@ const RadioCampBySection = ({ sectionName }: { sectionName: string }) => {
         setError("");
 
         try {
-            const response = await axios.post(`${baseURL}/radio-camps/${sectionName.toLowerCase()}/verify-password/`, {
-                password,
-            });
+            const csrftoken = getCookie("csrftoken");
+
+            const response = await axios.post(`${baseURL}/radio-camps/${sectionName.toLowerCase()}/verify-password/`,
+                { password },
+                {
+                    headers: {
+                        'X-CSRFToken': csrftoken || '',
+                    },
+                    withCredentials: true,
+                }
+            );
 
             if (response.data.success) {
                 setValidated(true);
