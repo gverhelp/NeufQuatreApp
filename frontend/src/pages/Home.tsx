@@ -5,6 +5,7 @@ import '../styles/Home.css';
 import { AccueilItem } from '../types/interfaces';
 import ContentBlock from '../components/ContentBlock';
 import ParallaxBlock from '../components/ParallaxBlock';
+import ImageBlock from '../components/ImageBlock';
 import { Container, Placeholder, Alert, Row, Col } from 'react-bootstrap';
 
 
@@ -68,6 +69,8 @@ const Home: React.FC = () => {
 
     return (
         <>
+            <ParallaxBlock/>
+
             {loading ? 
                 <PlaceholderBlock /> :
                 <ContentBlock 
@@ -75,10 +78,11 @@ const Home: React.FC = () => {
                     title={accueilItems[0]?.titre}
                     text={accueilItems[0]?.description}
                     imgSrc={accueilItems[0]?.image}
+                    reverse={false}
                 />
             }
 
-            <ParallaxBlock/>
+            <ImageBlock/>
 
             {loading ? 
                 <PlaceholderBlock /> :
@@ -87,6 +91,7 @@ const Home: React.FC = () => {
                     title={accueilItems[1]?.titre}
                     text={accueilItems[1]?.description}
                     imgSrc={accueilItems[1]?.image}
+                    reverse={true}
                 />
             }
         </>

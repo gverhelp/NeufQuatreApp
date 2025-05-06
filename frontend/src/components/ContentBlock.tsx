@@ -9,9 +9,10 @@ interface ContentBlockProps {
     title: string;
     text: string;
     imgSrc: string;
+    reverse?: boolean;
 }
 
-function ContentBlock({ bgColor = "", bgImg = "", title, text, imgSrc }: ContentBlockProps) {
+function ContentBlock({ bgColor = "", bgImg = "", title, text, imgSrc, reverse = false }: ContentBlockProps) {
 
     const containerStyle = bgImg 
         ? { backgroundImage: `url(${bgImg})`, backgroundSize: 'cover', backgroundPosition: 'center center' }
@@ -21,7 +22,7 @@ function ContentBlock({ bgColor = "", bgImg = "", title, text, imgSrc }: Content
         <Container fluid className="p-5 d-flex justify-content-center" style={containerStyle}>
             <Row className="align-items-center flex-column flex-md-row">
 
-                <Col lg={6} className="d-flex justify-content-center order-lg-1">
+                <Col lg={6} className={`d-flex justify-content-center colTextBlock ${reverse ? "order-md-2" : "order-lg-1"}`}>
                     <motion.div
                         initial={{ x: -30, opacity: 0 }}
                         whileInView={{ x: 0, opacity: 1 }}
@@ -32,7 +33,7 @@ function ContentBlock({ bgColor = "", bgImg = "", title, text, imgSrc }: Content
                     </motion.div>
                 </Col>
 
-                <Col lg={6} className="d-flex align-items-center order-lg-2 colTextBlock">
+                <Col lg={6} className={`d-flex align-items-center colTextBlock ${reverse ? "order-md-1" : "order-lg-2"}`}>
                     <motion.div
                         initial={{ x: 30, opacity: 0 }}
                         whileInView={{ x: 0, opacity: 1 }}

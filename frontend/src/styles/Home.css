@@ -1,3 +1,17 @@
+.home-btn {
+    background-color: #022864;
+    padding: 0.6rem 1.6rem;
+    font-family: 'Titan One', sans-serif;
+    font-size: 1.1rem;
+    /* border-radius: 6px; */
+    transition: transform 0.2s ease;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.home-btn:hover {
+    transform: translateY(-2px);
+}
+
 .colTextBlock {
     justify-content: start;
 }
