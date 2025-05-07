@@ -20,7 +20,7 @@ function ContentBlock({ bgColor = "", bgImg = "", title, text, imgSrc, reverse =
   
     return (
         <Container fluid className="p-5 d-flex justify-content-center" style={containerStyle}>
-            <Row className="align-items-center flex-column flex-md-row">
+            <Row className="align-items-center">
 
                 <Col lg={6} className={`d-flex justify-content-center colTextBlock ${reverse ? "order-lg-2" : "order-lg-1"}`}>
                     <motion.div
@@ -33,7 +33,7 @@ function ContentBlock({ bgColor = "", bgImg = "", title, text, imgSrc, reverse =
                     </motion.div>
                 </Col>
 
-                <Col lg={6} className={`d-flex align-items-center colTextBlock ${reverse ? "order-lg-1 justify-content-end" : "order-lg-2"}`}>
+                <Col lg={6} className={`d-flex align-items-center colTextBlock ${reverse ? "order-lg-1 justify-content-lg-end" : "order-lg-2"}`}>
                     <motion.div
                         initial={{ x: reverse ? -30 : 30, opacity: 0 }}
                         whileInView={{ x: 0, opacity: 1 }}

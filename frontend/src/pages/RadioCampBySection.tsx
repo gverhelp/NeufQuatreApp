@@ -56,8 +56,10 @@ const RadioCampBySection = ({ sectionName }: { sectionName: string }) => {
             );
 
             if (response.data.success) {
+
                 setValidated(true);
                 localStorage.setItem(`radioCampValidated-${sectionName}`, "true");
+
             } else {
                 setError(response.data.error);
             }
@@ -98,7 +100,15 @@ const RadioCampBySection = ({ sectionName }: { sectionName: string }) => {
 
                 setRadioCamp(response.data);
             } catch (err) {
-                setError("Une erreur est servenue lors du chargement des données.");
+
+                if ((err as any).response?.status === 404) {
+
+                    setError("Aucun Radio Camp n'est disponible pour cette section actuellement.");
+                    localStorage.removeItem(`radioCampValidated-${sectionName}`);
+
+                } else {
+                    setError("Une erreur est servenue lors du chargement des données.");
+                }
             }
         };
 
@@ -119,7 +129,7 @@ const RadioCampBySection = ({ sectionName }: { sectionName: string }) => {
                             <Form.Group controlId="password" className="mb-3">
                                 <Form.Label>
                                     <p className="fs-6 text-center">
-                                        Radio camp est un outil mis à la disposition des parents pour que ces derniers puissent suivre les aventures de leurs enfants durant le camp.
+                                        Radio Camp est un outil mis à la disposition des parents pour leur permettre de suivre les aventures de leurs enfants durant le camp.
                                         <br />
                                         Pour y accéder, il vous suffit d'introduire le mot de passe fourni au préalable par le Staff d'Unité.
                                         <br />

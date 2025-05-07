@@ -35,4 +35,4 @@ class RadioCampSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = RadioCamp
-        fields = ['id', 'section', 'title', 'password', 'start_date', 'end_date', 'posts']
+        fields = ['id', 'section', 'title', 'start_date', 'end_date', 'posts']
