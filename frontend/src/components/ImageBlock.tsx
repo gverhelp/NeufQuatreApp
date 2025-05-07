@@ -1,4 +1,5 @@
 import { Container, Image } from "react-bootstrap";
+import { motion } from "framer-motion";
 
 function ImageBlock() {
 
@@ -17,8 +18,24 @@ function ImageBlock() {
                 style={{ backgroundColor: "rgba(0, 0, 0, 0.3)", zIndex: 1 }}
             ></div>
             <div className="position-absolute top-50 start-50 translate-middle w-75 text-white" style={{ zIndex: 2 }}>
-                <h2 className="fs-1" style={{ fontFamily: "Titan One", textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)" }}>Le scoutisme</h2>
-                <p className="fs-2 fw-medium" style={{ textShadow: "1px 1px 3px rgba(0, 0, 0, 0.5)" }}>Un mouvement de jeunesse qui veut contribuer à l’éducation des jeunes  pour les aider à devenir des citoyens critiques et engagés.</p>
+                <motion.h2
+                    className="fs-1"
+                    style={{ fontFamily: "Titan One", textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)" }}
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5 }}
+                >
+                    Le scoutisme
+                </motion.h2>
+                <motion.p
+                    className="fs-2 fw-medium"
+                    style={{ textShadow: "1px 1px 3px rgba(0, 0, 0, 0.5)" }}
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5 }}
+                >
+                    Un mouvement de jeunesse qui veut contribuer à l’éducation des jeunes  pour les aider à devenir des citoyens critiques et engagés.
+                </motion.p>
             </div>
         </Container>
     );

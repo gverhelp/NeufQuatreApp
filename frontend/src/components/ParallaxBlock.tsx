@@ -32,7 +32,7 @@ function ParallaxBlock() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.3, delay: 0.3 }}
                 >
-                    La 94ème Unité Saint-Augustin
+                    94ème Unité Saint-Augustin
                 </motion.div>
                 <motion.div
                     className="fs-2 fw-medium"
