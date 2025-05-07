@@ -25,10 +25,29 @@ function ParallaxBlock() {
                 style={{ backgroundColor: "rgba(0, 0, 0, 0.2)", zIndex: 1 }}
             ></div>
             <div className="position-absolute top-50 start-50 translate-middle w-75 text-white" style={{ zIndex: 2 }}>
-                <h2 className="fs-1" style={{ fontFamily: "Titan One", textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)" }}>La 94ème Unité Saint-Augustin</h2>
-                <p className="fs-2 fw-medium" style={{ textShadow: "1px 1px 3px rgba(0, 0, 0, 0.5)" }}>Probably the best Unité in the world.</p>
-                <div 
+                <motion.div
+                    className="fs-1"
+                    style={{ fontFamily: "Titan One", textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)" }}
+                    initial={{ opacity: 0, y: 50 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3, delay: 0.3 }}
+                >
+                    La 94ème Unité Saint-Augustin
+                </motion.div>
+                <motion.div
+                    className="fs-2 fw-medium"
+                    style={{ textShadow: "1px 1px 3px rgba(0, 0, 0, 0.5)" }}
+                    initial={{ opacity: 0, y: 50 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3, delay: 0.7 }}
+                >
+                    Probably the best Unité in the world.
+                </motion.div>
+                <motion.div 
                     className="mt-4 d-flex flex-column flex-md-row align-items-center justify-content-center"
+                    initial={{ opacity: 0, y: 50 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3, delay: 1.1 }}
                 >
                     <a 
                         href="https://docs.google.com/forms/d/e/1FAIpQLSfRULNcJaMiX_kUDfFRmBAPrQGveNx1hixwT4PtclcpxHqLrg/viewform" 
@@ -58,7 +77,7 @@ function ParallaxBlock() {
                     >
                         Nous contacter
                     </a>
-                </div>
+                </motion.div>
             </div>
         </div>
     );
