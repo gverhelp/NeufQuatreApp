@@ -133,7 +133,7 @@ const BySectionPage = ({ sectionName }: { sectionName: string }) => {
             )}
 
             {sectionName.toLowerCase() !== "unite" && sectionName.toLowerCase() !== "clan" && (
-                <Container fluid className="py-4 text-center sticky-container sticky-bottom" style={{ backgroundColor: "#022864", zIndex: 900 }}>
+                <Container fluid className="py-4 text-center sticky-container sticky-bottom" style={{ backgroundColor: "#022864", zIndex: 1100 }}>
                     <h3 className="fs-3 mb-3 text-white"
                         style={{ 
                             fontFamily: "Titan One", 
@@ -155,7 +155,7 @@ const BySectionPage = ({ sectionName }: { sectionName: string }) => {
                 
             <StaffBlock sectionName={sectionName} />
 
-            <Container fluid className="py-3 text-center sticky-container sticky-top" style={{ backgroundColor: "#022864", zIndex: 1100 }}>
+            <Container fluid className="py-3 text-center sticky-container sticky-top" style={{ backgroundColor: "#022864", zIndex: 1150 }}>
                 <div className="fs-2 text-white"
                     style={{ 
                         fontFamily: "Titan One", 
