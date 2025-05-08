@@ -53,9 +53,8 @@ const HighlightEventsBlock: React.FC<Props> = ({ events }) => {
                         <Col key={event.id} md={6} xl={4}>
                             <motion.div
                                 initial={{ y: 30, opacity: 0 }}
-                                whileInView={{ y: 0, opacity: 1 }}
                                 viewport={{ once: true }}
-                                animate={{ scale: [1, 1.02, 1] }}
+                                animate={{ y: 0, opacity: 1, scale: [1, 1.02, 1] }}
                                 className="h-100"
                                 transition={{
                                     scale: {

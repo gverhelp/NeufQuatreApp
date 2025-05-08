@@ -37,7 +37,7 @@ const ParallaxBlock: React.FC<ParallaxBlockProps> = ({ buttons }) => {
                     style={{ fontFamily: "Titan One", textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)" }}
                     initial={{ opacity: 0, y: 50 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.3, delay: 0.3 }}
+                    transition={{ delay: 0.3, ease: "easeOut" }}
                 >
                     94ème Unité Saint-Augustin
                 </motion.div>
@@ -46,7 +46,7 @@ const ParallaxBlock: React.FC<ParallaxBlockProps> = ({ buttons }) => {
                     style={{ textShadow: "1px 1px 3px rgba(0, 0, 0, 0.5)" }}
                     initial={{ opacity: 0, y: 50 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.3, delay: 0.7 }}
+                    transition={{ delay: 0.7, ease: "easeOut" }}
                 >
                     Probably the best Unité in the world.
                 </motion.div>
@@ -54,7 +54,7 @@ const ParallaxBlock: React.FC<ParallaxBlockProps> = ({ buttons }) => {
                     className="mt-4 d-flex flex-column flex-md-row align-items-center justify-content-center"
                     initial={{ opacity: 0, y: 50 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.3, delay: 1.1 }}
+                    transition={{ delay: 1.1, ease: "easeOut" }}
                 >
                     <a 
                         href={buttons[0] ? buttons[0].link : "#"} 
