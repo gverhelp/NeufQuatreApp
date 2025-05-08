@@ -6,6 +6,11 @@ export interface AccueilItem {
     image: string;
 }
 
+export interface AccueilButton {
+    id: number;
+    link: string;
+}
+
 
 // Section page Interfaces
 export interface SectionData {

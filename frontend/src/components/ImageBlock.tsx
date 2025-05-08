@@ -24,6 +24,7 @@ function ImageBlock() {
                     initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5 }}
+                    viewport={{ once: true }}
                 >
                     Le scoutisme
                 </motion.h2>
@@ -33,6 +34,7 @@ function ImageBlock() {
                     initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5 }}
+                    viewport={{ once: true }}
                 >
                     Un mouvement de jeunesse qui veut contribuer à l’éducation des jeunes  pour les aider à devenir des citoyens critiques et engagés.
                 </motion.p>

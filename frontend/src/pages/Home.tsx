@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
 import '../styles/Home.css';
-import { AccueilItem } from '../types/interfaces';
+import { AccueilItem, AccueilButton } from '../types/interfaces';
 import ContentBlock from '../components/ContentBlock';
 import ParallaxBlock from '../components/ParallaxBlock';
 import ImageBlock from '../components/ImageBlock';
@@ -34,6 +34,7 @@ const PlaceholderBlock = () => (
 const Home: React.FC = () => {
     const baseURL = import.meta.env.VITE_API_URL;
     const [accueilItems, setAccueilItems] = useState<AccueilItem[]>([]);
+    const [accueilButtons, setAccueilButton] = useState<AccueilButton[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);
 
@@ -43,13 +44,20 @@ const Home: React.FC = () => {
             setError(null);
 
             try {
-                const response = await axios.get<AccueilItem[]>(`${baseURL}/accueil/`);
-                const data: AccueilItem[] = response.data;
+                const responseItems = await axios.get<AccueilItem[]>(`${baseURL}/accueil-items/`);
+                const responseButtons = await axios.get(`${baseURL}/accueil-buttons`);
 
-                setAccueilItems(data.sort((a, b) => a.id - b.id));
+                const dataItems: AccueilItem[] = responseItems.data;
+                const dataButtons: AccueilButton[] = responseButtons.data;
+
+                setAccueilItems(dataItems.sort((a, b) => a.id - b.id));
+                setAccueilButton(dataButtons.sort((a, b) => a.id - b.id));
+
             } catch (error) {
+
                 console.error('Erreur lors de la récupération des données :', error);
                 setError("Impossible de charger les données");
+
             } finally {
                 setLoading(false);
             }
@@ -69,7 +77,7 @@ const Home: React.FC = () => {
 
     return (
         <>
-            <ParallaxBlock/>
+            <ParallaxBlock buttons={accueilButtons}/>
 
             {loading ? 
                 <PlaceholderBlock /> :

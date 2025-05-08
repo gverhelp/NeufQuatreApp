@@ -1,9 +1,15 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import "../styles/Home.css";
+import { AccueilButton } from "../types/interfaces";
 
 
-function ParallaxBlock() {
+interface ParallaxBlockProps {
+    buttons: AccueilButton[];
+}
+
+const ParallaxBlock: React.FC<ParallaxBlockProps> = ({ buttons }) => {
+
     const ref = useRef(null);
     const { scrollYProgress } = useScroll({
         target: ref,
@@ -11,6 +17,7 @@ function ParallaxBlock() {
     });
 
     const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
+
 
     return (
         <div ref={ref} className="position-relative text-center text-white overflow-hidden">
@@ -50,7 +57,7 @@ function ParallaxBlock() {
                     transition={{ duration: 0.3, delay: 1.1 }}
                 >
                     <a 
-                        href="https://docs.google.com/forms/d/e/1FAIpQLSfRULNcJaMiX_kUDfFRmBAPrQGveNx1hixwT4PtclcpxHqLrg/viewform" 
+                        href={buttons[0] ? buttons[0].link : "#"} 
                         target="_blank"
                         rel="noopener noreferrer" 
                         className="home-btn rounded-2 d-inline-block text-decoration-none text-center mb-3 mb-md-0 me-md-3"
@@ -64,7 +71,7 @@ function ParallaxBlock() {
                         S'inscrire
                     </a>
                     <a 
-                        href="mailto:unitesaintaugustin94@gmail.com" 
+                        href={buttons[1] ? buttons[1].link : "#"} 
                         target="_blank"
                         rel="noopener noreferrer" 
                         className="home-btn rounded-2 d-inline-block text-decoration-none text-center"
