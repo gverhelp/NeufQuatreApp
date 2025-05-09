@@ -12,12 +12,12 @@ import InfoCards from "../components/InfosCards";
 
 
 const sectionsPath = [
-    { name: "Baladins", slug: "baladins", path: "/sections/baladins" },
-    { name: "Lutins", slug:"lutins", path: "/sections/lutins" },
-    { name: "Louveteaux", slug: "louveteaux", path: "/sections/louveteaux" },
-    { name: "Guides", slug: "guides", path: "/sections/guides" },
-    { name: "Éclaireurs", slug: "eclaireurs", path: "/sections/eclaireurs" },
-    { name: "Pionniers", slug: "pionniers", path: "/sections/pionniers" },
+    { name: "Baladins", slug: "baladins", age: "Enfants de 6 à 8 ans (mixte)", path: "/sections/baladins" },
+    { name: "Lutins", slug:"lutins", age: "Filles de 8 à 12 ans", path: "/sections/lutins" },
+    { name: "Louveteaux", slug: "louveteaux", age: "Garçons de 8 à 12 ans", path: "/sections/louveteaux" },
+    { name: "Guides", slug: "guides", age: "Filles de 12 à 16 ans", path: "/sections/guides" },
+    { name: "Éclaireurs", slug: "eclaireurs", age: "Garçons de 12 à 16 ans", path: "/sections/eclaireurs" },
+    { name: "Pionniers", slug: "pionniers", age: "Adolescents de 16 à 18 ans (mixte)", path: "/sections/pionniers" },
     { name: "Clan", slug: "clan", path: "/sections/clan" },
     { name: "Unité", slug:"unite", path: "/sections/unite" },
 ];
@@ -100,6 +100,7 @@ const BySectionPage = ({ sectionName }: { sectionName: string }) => {
                         : `Les ${sectionData.name}`
                     }
                     text={sectionData.description}
+                    subtitle={sectionsPath.filter((section) => section.slug === sectionName.toLowerCase())[0].age}
                     imgSrc={sectionData.showcaseImage}
                     />
                 )
