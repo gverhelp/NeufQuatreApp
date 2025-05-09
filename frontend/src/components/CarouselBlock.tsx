@@ -13,7 +13,7 @@ function CarouselBlock(carouselBlockProps: CarouselBlockProps) {
     if (images.length === 0) {
         return (
             <Container fluid className="p-0">
-                <div className="carousel" style={{ height: "55vh", display: "flex", justifyContent: "center", alignItems: "center" }}>
+                <div className="carousel" style={{ height: "70vh", display: "flex", justifyContent: "center", alignItems: "center" }}>
                     <h3>Aucune image disponible</h3>
                 </div>
             </Container>
@@ -23,14 +23,14 @@ function CarouselBlock(carouselBlockProps: CarouselBlockProps) {
     return (
         <>
         <Container fluid className="p-0">
-            <Carousel className="carousel" style={{ height: "55vh" }} interval={5000}>
+            <Carousel className="carousel" style={{ height: "70vh" }} interval={5000}>
                 {images.map((image, index) => (
                     <Carousel.Item key={index}>
                         <Image
                             fluid
                             src={image}
-                            className="d-block w-100"
-                            style={{ height: "55vh", objectFit: "cover" }}
+                            className="w-100"
+                            style={{ height: "70vh", objectFit: "cover" }}
                         />
                         <Carousel.Caption>
                             <h3>{captions[index]}</h3>
