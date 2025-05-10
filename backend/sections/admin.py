@@ -31,6 +31,7 @@ class SectionAdmin(admin.ModelAdmin):
 class ChefAdmin(admin.ModelAdmin):
     list_display = ['name', 'totem', 'phoneNumber', 'section']
     search_fields = ['name', 'totem', 'section__name']
+    ordering = ['section']
     list_filter = ['section']
 
 admin.site.register(Section, SectionAdmin)
