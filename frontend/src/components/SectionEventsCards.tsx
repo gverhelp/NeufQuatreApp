@@ -37,7 +37,7 @@ const SectionEventsCards: React.FC<Props> = ({ events }) => {
                     Aucun évènement pour le moment
                 </div>
             ) : (
-                <Row className="g-4 justify-content-center">
+                <Row className="g-4">
                     {sections.map((section) => {
                         const sectionEvents = events
                             .filter((event) => event.section === section.slug)
@@ -57,10 +57,9 @@ const SectionEventsCards: React.FC<Props> = ({ events }) => {
                                     whileInView={{ x: 0, opacity: 1 }}
                                     transition={{ type: "spring", stiffness: 100 }}
                                     viewport={{ once: true }}
-                                    // className="h-100"
                                 >
                                     <Card
-                                        className="shadow rounded-2 border-5 section-event-card"
+                                        className="shadow rounded-2 border-5 section-event-card h-100 d-flex flex-column"
                                         style={{ borderColor: section.color }}
                                     >
                                         <Card.Header
@@ -79,8 +78,12 @@ const SectionEventsCards: React.FC<Props> = ({ events }) => {
                                                 <BsChevronLeft />
                                             </motion.div>
                                         </Card.Header>
-                                        {!isOpen ? null : (
-                                            <Card.Body>
+                                        <Card.Body className="d-flex flex-column flex-grow-1">
+                                            {!isOpen ? (
+                                                <div className="text-center text-muted">
+                                                    Cliquez pour voir les événements
+                                                </div>
+                                            ) : (
                                                 <ListGroup variant="flush">
                                                     {sectionEvents.map((event) => (
                                                         <ListGroupItem
@@ -127,8 +130,8 @@ const SectionEventsCards: React.FC<Props> = ({ events }) => {
                                                         </ListGroupItem>
                                                     ))}
                                                 </ListGroup>
-                                            </Card.Body>
-                                        )}
+                                            )}
+                                        </Card.Body>
                                     </Card>
                                 </motion.div>
                             </Col>
