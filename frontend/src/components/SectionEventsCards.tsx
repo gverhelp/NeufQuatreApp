@@ -80,7 +80,7 @@ const SectionEventsCards: React.FC<Props> = ({ events }) => {
                                     >
                                         {section.name}
                                         <motion.div
-                                            animate={{ rotate: isOpen ? 90 : 0 }}
+                                            animate={{ rotate: isOpen ? -90 : 0 }}
                                             transition={{ duration: 0.3 }}
                                         >
                                             <BsChevronLeft />
@@ -88,7 +88,10 @@ const SectionEventsCards: React.FC<Props> = ({ events }) => {
                                     </Card.Header>
 
                                     {!isOpen && (
-                                        <Card.Body className="text-center text-muted small py-3">
+                                        <Card.Body
+                                            className="text-center text-muted small py-3"
+                                            style={{ cursor: "pointer" }}
+                                            onClick={() => toggleSection(section.slug)}>
                                         Cliquez pour voir les évènements
                                         </Card.Body>
                                     )}
