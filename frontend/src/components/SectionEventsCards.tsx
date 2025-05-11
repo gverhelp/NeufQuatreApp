@@ -60,10 +60,10 @@ const SectionEventsCards: React.FC<Props> = ({ events }) => {
 
                         return (
                             <motion.div
-                                key={section.name}
-                                initial={{ opacity: 0 }}
-                                whileInView={{ opacity: 1 }}
-                                transition={{ duration: 0.3 }}
+                                initial={{ x: -30, opacity: 0 }}
+                                whileInView={{ x: 0, opacity: 1 }}
+                                transition={{ type: "spring", stiffness: 100 }}
+                                viewport={{ once: true }}
                             >
                                 <Card
                                     className="shadow rounded-2 border-5 section-event-card"
