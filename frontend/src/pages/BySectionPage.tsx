@@ -134,7 +134,7 @@ const BySectionPage = ({ sectionName }: { sectionName: string }) => {
             )}
 
             {sectionName.toLowerCase() !== "unite" && sectionName.toLowerCase() !== "clan" && (
-                <Container fluid className="py-4 text-center sticky-container sticky-bottom" style={{ backgroundColor: "#022864", zIndex: 1000 }}>
+                <Container fluid className="py-4 text-center" style={{ backgroundColor: "#022864" }}>
                     <h3 className="fs-3 mb-3 text-white"
                         style={{ 
                             fontFamily: "Titan One", 
