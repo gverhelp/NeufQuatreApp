@@ -60,7 +60,7 @@ const AgendaBlock = ({ events } : { events : EventData[] }) => {
     return (
         <Container
             fluid
-            className={`p-5 agenda-padding-sm ${hasHighlight.length ? "" : "pt-4"}`}
+            className={`${hasHighlight.length ? "px-3 py-4 p-sm-5" : "px-3 py-4 px-sm-5"}`}
             style={{
                 backgroundImage: "url('/background7.png')",
                 backgroundSize: "cover",

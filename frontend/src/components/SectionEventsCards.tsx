@@ -38,7 +38,7 @@ const SectionEventsCards: React.FC<Props> = ({ events }) => {
     };
 
     return (
-        <Container fluid className="p-5 agenda-padding-sm" style={{ backgroundColor: "white" }}>
+        <Container fluid className="px-3 py-4 p-sm-5" style={{ backgroundColor: "white" }}>
             {events.length === 0 ? (
                 <div className="fs-3 text-center" style={{ fontFamily: "Titan One" }}>
                     Aucun évènement pour le moment

@@ -24,10 +24,10 @@ function Footer() {
                                 { name: "Les Guides", path: "https://www.guides.be/", description: " - Site officiel" },
                                 { name: "La Scouterie", path: "https://www.lascouterie-economats.be/", description: " - Economat" },
                             ].map((link, index) => (
-                                <li key={index}>
+                                <li key={index} className="d-block">
                                     <a
                                         href={link.path}
-                                        className="footer-link fw-bolder d-block"
+                                        className="footer-link fw-bolder"
                                         target="_blank"
                                         rel="noopener noreferrer"
                                     >

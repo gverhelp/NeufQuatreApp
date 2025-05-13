@@ -30,7 +30,7 @@ const HighlightEventsBlock: React.FC<Props> = ({ events }) => {
         <>
             <Container
                 fluid
-                className="p-5 pt-4"
+                className="px-3 pt-4 pb-5 px-sm-5"
                 style={{
                     backgroundImage: "url('/background2_event.png')",
                     backgroundSize: "cover",
@@ -54,7 +54,7 @@ const HighlightEventsBlock: React.FC<Props> = ({ events }) => {
                             <motion.div
                                 initial={{ y: 30, opacity: 0 }}
                                 viewport={{ once: true }}
-                                animate={{ y: 0, opacity: 1, scale: [1, 1.02, 1] }}
+                                animate={{ y: 0, opacity: 1, scale: [1, 1.01, 1] }}
                                 className="h-100"
                                 transition={{
                                     scale: {
