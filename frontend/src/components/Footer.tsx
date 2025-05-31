@@ -53,9 +53,9 @@ function Footer() {
 
                 <hr className="border-secondary my-3" />
                 <p className="text-center mb-0">
-                    &copy; {new Date().getFullYear()} Tous droits réservés.
+                    &copy; { new Date().getFullYear() } Tous droits réservés.
                     <br />
-                    Developpé par Garreth Verhelpen (Ocelot)
+                    Développé par Garreth Verhelpen (Ocelot)
                     <motion.a
                         href="https://www.linkedin.com/in/gverhelp/"
                         target="_blank"

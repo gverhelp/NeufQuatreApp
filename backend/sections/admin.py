@@ -12,7 +12,7 @@ class SectionAdmin(admin.ModelAdmin):
     inlines = [SectionImageInline]
     list_display = ['name', 'bankAccount', 'email']
     search_fields = ['name', 'email']
-    readonly_fields = ("slug",)
+    readonly_fields = ("slug", 'name')
 
     def has_add_permission(self, request):
         if Section.objects.count() < 9:
