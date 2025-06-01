@@ -22,14 +22,14 @@ const ParallaxBlock: React.FC<ParallaxBlockProps> = ({ buttons }) => {
     return (
         <div ref={ref} className="position-relative text-center text-white overflow-hidden">
             <motion.img
-                src="background4.jpeg"
+                src="background4.webp"
                 alt="Parallax Background"
                 className="img-fluid w-100"
-                style={{ height: "70vh", objectFit: "cover", y }}
+                style={{ height: "80vh", objectFit: "cover", y }}
             />
             <div
                 className="position-absolute top-0 start-0 w-100 h-100"
-                style={{ backgroundColor: "rgba(0, 0, 0, 0.2)", zIndex: 1 }}
+                style={{ zIndex: 1 }}
             ></div>
             <div className="position-absolute top-50 start-50 translate-middle w-75 text-white" style={{ zIndex: 2 }}>
                 <motion.div
