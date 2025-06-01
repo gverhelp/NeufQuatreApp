@@ -8,14 +8,14 @@ function ImageBlock() {
         <Container fluid className="overflow-hidden text-center text-white px-0 position-relative">
             <Image
                 fluid
-                src="background8.jpeg"
+                src="background8.webp"
                 alt="Image background"
                 className="w-100 object-fit-cover"
-                style={{ height: "70vh" }}
+                style={{ height: "80vh" }}
             />
             <div
                 className="position-absolute top-0 start-0 w-100 h-100"
-                style={{ backgroundColor: "rgba(0, 0, 0, 0.3)", zIndex: 1 }}
+                style={{ backgroundColor: "rgba(0, 0, 0, 0.2)", zIndex: 1 }}
             ></div>
             <div className="position-absolute top-50 start-50 translate-middle w-75 text-white" style={{ zIndex: 2 }}>
                 <motion.h2

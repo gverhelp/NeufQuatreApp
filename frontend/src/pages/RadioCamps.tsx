@@ -20,7 +20,7 @@ const RadioCamps = () => {
             fluid
             className="position-relative container-map"
             style={{
-                backgroundImage: "url('/backgroundMap.png')",
+                backgroundImage: "url('/backgroundMap.webp')",
                 backgroundSize: "cover",
                 backgroundPosition: "center",
             }}
