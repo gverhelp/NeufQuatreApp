@@ -7,16 +7,16 @@ function Footer() {
     return (
         <footer className="text-white py-4" style={ { backgroundColor: "#022864" } }>
             <Container>
-                <Row className="text-center text-md-start justify-content-center">
+                <Row className="text-center text-lg-start justify-content-center">
 
-                    <Col xs={12} md={4} className="mb-3 mb-md-0">
+                    <Col lg={3} className="mb-3 mb-lg-0">
                         <h5 className="mb-3" style={{ color: "#FFBE0A", fontFamily: "Titan One" }}>À Propos</h5>
                         <p className="mb-1">LC94 Saint-Augustin | Unité scoute</p>
                         <p className="mb-1">Avenue Saint-Augustin, 16</p>
                         <p className="mb-0">(B) - 1190 Bruxelles Forest</p>
                     </Col>
 
-                    <Col xs={12} md={4} className="mb-3 mb-md-0">
+                    <Col lg={3} className="mb-3 mb-lg-0">
                         <h5 className="mb-3" style={{ color: "#FFBE0A", fontFamily: "Titan One" }}>Liens utiles</h5>
                         <ul className="list-unstyled mb-0">
                             {[
@@ -39,7 +39,7 @@ function Footer() {
                         </ul>
                     </Col>
 
-                    <Col xs={12} md={4}>
+                    <Col lg={3} className="mb-3 mb-lg-0">
                         <h5 className="mb-3" style={{ color: "#FFBE0A", fontFamily: "Titan One" }}>Contact</h5>
                         <p className="mb-1">Pour toute question, contactez-nous :</p>
                         <a
@@ -48,6 +48,19 @@ function Footer() {
                         >
                             unitesaintaugustin94@gmail.com
                         </a>
+                    </Col>
+
+                    <Col lg={3}>
+                        <img
+                            src="les_scouts.png"
+                            alt="Logo LC94"
+                            style={{
+                                width: "100px",
+                                filter: "brightness(0) invert(1)",
+                                display: "block",
+                                margin: "0 auto"
+                            }}
+                        />
                     </Col>
                 </Row>
 
