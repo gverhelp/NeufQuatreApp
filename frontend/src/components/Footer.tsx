@@ -52,7 +52,7 @@ function Footer() {
 
                     <Col lg={3}>
                         <img
-                            src="les_scouts.png"
+                            src="/les_scouts.png"
                             alt="Logo LC94"
                             style={{
                                 width: "100px",
