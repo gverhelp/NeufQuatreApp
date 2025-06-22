@@ -7,14 +7,14 @@ import { FaUserCircle } from "react-icons/fa";
 
 const StaffCard = ({ member }: { member: ChefData }) => {
     return (
-        <Card className="h-100 overflow-hidden border-5 rounded-2 staff-card" style={{ borderColor: "#022864" }}>
+        <Card className="overflow-hidden border-5 rounded-2 staff-card" style={{ borderColor: "#022864" }}>
             {member.image ? (
                 <Card.Img 
                     className="rounded-0" 
                     variant="top" 
                     src={member.image} 
                     alt={member.totem} 
-                    style={{ height: "350px", objectFit: "cover" }} 
+                    style={{ height: "400px", objectFit: "cover"}} 
                 />
             ) : (
                 <div 
@@ -34,7 +34,7 @@ const StaffCard = ({ member }: { member: ChefData }) => {
 };
 
 const PlaceholderCard = () => (
-    <Card className="h-100 overflow-hidden border-5 rounded-2 staff-card" style={{ borderColor: "#022864" }}>
+    <Card className="overflow-hidden border-5 rounded-2 staff-card" style={{ borderColor: "#022864" }}>
         <Placeholder as={Card.Img} animation="glow" style={{ height: "350px", backgroundColor: "#f0f0f0" }} />
         <Card.Body className="text-center text-break overflow-scroll" style={{ height: "400px" }}>
             <Placeholder as={Card.Title} animation="glow" className="fs-4">

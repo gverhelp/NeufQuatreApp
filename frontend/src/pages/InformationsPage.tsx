@@ -42,7 +42,8 @@ const InformationsPage = () => {
             fluid
             className="py-4 pb-5"
             style={{
-                minHeight: "85vh",
+                height: "calc(100vh - 76px)",
+                overflowY: "scroll",
                 backgroundImage: "url('/background5.png')",
                 backgroundSize: 'cover',
                 backgroundPosition: 'center center'
@@ -119,7 +120,7 @@ const InformationsPage = () => {
                                 style={{ 
                                     fontFamily: "Titan One", 
                                     color: "#000000", 
-                                    textShadow: "1px 1px 2px rgba(0, 0, 0, 0.2)" 
+                                    textShadow: "1px 1px 2px rgba(0, 0, 0, 0.2)",
                                 }}
                             >
                                 Informations
