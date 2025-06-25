@@ -42,8 +42,7 @@ const InformationsPage = () => {
             fluid
             className="py-4 pb-5"
             style={{
-                height: "calc(100vh - 76px)",
-                overflowY: "scroll",
+                minHeight: "85vh",
                 backgroundImage: "url('/background5.png')",
                 backgroundSize: 'cover',
                 backgroundPosition: 'center center'
@@ -141,28 +140,52 @@ const InformationsPage = () => {
                                                 <Card className="shadow rounded-2 border-5 h-100" style={{ borderColor: "#022864" }}>
                                                     <Card.Body className="text-center d-flex flex-column justify-content-center align-items-center">
                                                         {information.image && (
-                                                            <Card.Img
-                                                                variant="top"
-                                                                src={information.image}
-                                                                className="mb-3"
-                                                                style={{ maxHeight: "400px", objectFit: "cover" }}
-                                                            />
+                                                            <div
+                                                                className="mb-3 d-flex justify-content-center align-items-center"
+                                                                style={{ width: "100%", maxHeight: "350px", overflow: "hidden" }}
+                                                            >
+                                                                <img
+                                                                    src={information.image}
+                                                                    alt={information.title}
+                                                                    style={{
+                                                                        width: "100%",
+                                                                        height: "100%",
+                                                                        maxWidth: "500px",
+                                                                        maxHeight: "350px",
+                                                                        objectFit: "contain",
+                                                                        borderRadius: "8px",
+                                                                        boxShadow: "0 2px 8px rgba(0,0,0,0.08)"
+                                                                    }}
+                                                                />
+                                                            </div>
                                                         )}
                                                         {information.video && (
-                                                            <video
-                                                                className="mb-3"
-                                                                controls
-                                                                style={{ maxHeight: "400px", objectFit: "cover" }}
+                                                            <div
+                                                                className="mb-3 d-flex justify-content-center align-items-center"
+                                                                style={{ width: "100%", maxHeight: "400px", overflow: "hidden" }}
                                                             >
-                                                                <source src={information.video} type="video/mp4" />
-                                                                Votre navigateur ne supporte pas les vidéos HTML5.
-                                                            </video>
+                                                                <video
+                                                                    controls
+                                                                    style={{
+                                                                        width: "100%",
+                                                                        height: "100%",
+                                                                        maxWidth: "500px",
+                                                                        maxHeight: "400px",
+                                                                        objectFit: "contain",
+                                                                        borderRadius: "8px",
+                                                                        boxShadow: "0 2px 8px rgba(0,0,0,0.08)"
+                                                                    }}
+                                                                >
+                                                                    <source src={information.video} type="video/mp4" />
+                                                                    Votre navigateur ne supporte pas les vidéos HTML5.
+                                                                </video>
+                                                            </div>
                                                         )}
                                                         {information.videoLink && (
                                                             <iframe
                                                                 className="mb-3"
                                                                 width="100%"
-                                                                height="400"
+                                                                height="400px"
                                                                 src={information.videoLink}
                                                                 title={information.title}
                                                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
