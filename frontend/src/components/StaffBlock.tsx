@@ -19,7 +19,7 @@ const StaffCard = ({ member }: { member: ChefData }) => {
             ) : (
                 <div 
                     className="d-flex justify-content-center align-items-center" 
-                    style={{ height: "350px", backgroundColor: "#f0f0f0" }}
+                    style={{ height: "400px", backgroundColor: "#f0f0f0" }}
                 >
                     <FaUserCircle size={100} color="#022864" />
                 </div>
